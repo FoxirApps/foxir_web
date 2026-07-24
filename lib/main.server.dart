@@ -55,7 +55,7 @@ void main() {
       ),
     ],
     head: [
-      link(rel: 'icon', type: 'image/png', href: 'favicon.png'),
+      link(id: 'site-favicon', rel: 'icon', type: 'image/png', href: foxirFaviconSrc),
     ],
     body: App(),
   ));

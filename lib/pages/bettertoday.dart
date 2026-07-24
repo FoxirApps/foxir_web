@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import '../components/app_favicon.dart';
 import '../components/bettertoday/cta.dart';
 import '../components/bettertoday/features.dart';
 import '../components/bettertoday/footer.dart';
@@ -18,6 +19,7 @@ class BetterTodayPage extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'bettertoday', const [
+      AppFavicon(href: betterTodayIconSrc),
       Header(),
       Hero(),
       Features(),

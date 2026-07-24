@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import '../components/app_favicon.dart';
 import '../components/paximus/cta.dart';
 import '../components/paximus/features.dart';
 import '../components/paximus/footer.dart';
@@ -16,6 +17,7 @@ class PaximusPage extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'paximus', const [
+      AppFavicon(href: paximusIconSrc),
       Header(),
       Hero(),
       Features(),

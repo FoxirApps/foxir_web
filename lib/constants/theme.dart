@@ -108,7 +108,10 @@ const foxirWeb3FormsEndpoint = 'https://api.web3forms.com/submit';
 const appStoreBadgeSrc = '/vectors/app_store_badge.svg';
 const playStoreBadgeSrc = '/vectors/google_play_badge.svg';
 
-/// Better Today app icon.
+/// Site / app icons (also used as per-route favicons).
+const foxirFaviconSrc = '/favicon.png';
+const paximusIconSrc = '/images/paximus-icon.png';
+const vouxeIconSrc = '/images/vouxe-icon.png';
 const betterTodayIconSrc = '/images/better-today-logo.png';
 
 // External links — Paximus.

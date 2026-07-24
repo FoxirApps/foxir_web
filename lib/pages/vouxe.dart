@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import '../components/app_favicon.dart';
 import '../components/vouxe/cta.dart';
 import '../components/vouxe/features.dart';
 import '../components/vouxe/footer.dart';
@@ -18,6 +19,7 @@ class VouxePage extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'vouxe', const [
+      AppFavicon(href: vouxeIconSrc),
       Header(),
       Hero(),
       Features(),
