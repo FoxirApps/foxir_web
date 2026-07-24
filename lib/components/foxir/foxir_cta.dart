@@ -3,7 +3,7 @@ import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
 
-/// Closing call-to-action band with accent emphasis.
+/// Soft closing invite—product-first, open to conversation.
 class FoxirCta extends StatelessComponent {
   const FoxirCta({super.key});
 
@@ -11,12 +11,12 @@ class FoxirCta extends StatelessComponent {
   Component build(BuildContext context) {
     return section(classes: 'cta', [
       div(classes: 'container cta-inner', [
-        h2([.text('Share your vision.')]),
+        h2([.text('Got an idea? Let\u2019s talk.')]),
         p([
-          .text('Book a complimentary consultation today, and together we\u2019ll start '
-              'building your digital success.'),
+          .text('We\u2019re primarily focused on our own apps—but if something '
+              'you\u2019re thinking about resonates, we\u2019d love to hear it.'),
         ]),
-        a(classes: 'cta-button', href: foxirContactUrl, target: .blank, [.text('Book a call')]),
+        a(classes: 'cta-button', href: foxirContactUrl, [.text('Say hello')]),
       ]),
     ]);
   }

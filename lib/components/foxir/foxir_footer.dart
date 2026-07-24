@@ -9,9 +9,9 @@ const List<({String title, List<_FooterLink> links})> _columns = [
   (
     title: 'Site',
     links: [
-      (label: 'Apps', url: '#apps', external: false),
-      (label: 'About', url: '#about', external: false),
-      (label: 'Contact', url: foxirContactUrl, external: true),
+      (label: 'Apps', url: '/#apps', external: false),
+      (label: 'About', url: '/#about', external: false),
+      (label: 'Contact', url: foxirContactUrl, external: false),
     ],
   ),
   (
@@ -19,6 +19,7 @@ const List<({String title, List<_FooterLink> links})> _columns = [
     links: [
       (label: 'Paximus', url: '/paximus', external: false),
       (label: 'Vouxe', url: '/vouxe', external: false),
+      (label: 'Better Today', url: '/bettertoday', external: false),
     ],
   ),
   (
@@ -59,8 +60,8 @@ class FoxirFooter extends StatelessComponent {
           ]),
         ]),
         div(classes: 'footer-bottom', [
-          span([.text('\u00A9 2025 Foxir Apps. All rights reserved.')]),
-          span([.text('Innovative mobile experiences.')]),
+          span([.text('\u00A9 2026 Foxir Apps. All rights reserved.')]),
+          span([.text('Home to the apps we craft.')]),
         ]),
       ]),
     ]);

@@ -19,11 +19,11 @@ void main() {
   );
 
   runApp(Document(
-    title: 'Foxir Apps — Innovative Mobile App Development Solutions',
+    title: 'Foxir Apps — Home to the Apps We Craft',
     lang: 'en',
     meta: {
       'description':
-          'Foxir Apps crafts innovative, user-friendly mobile applications. Discover our apps and turn your ideas into mobile solutions.',
+          'Foxir Apps is home to the products we craft in-house—Paximus, Vouxe, Better Today, and more. Explore our apps, and if you have an idea, let\'s talk.',
       'theme-color': '#0d0d0d',
     },
     styles: [

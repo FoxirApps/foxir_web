@@ -61,7 +61,7 @@ class FoxirApps extends StatelessComponent {
       div(classes: 'container', [
         h2([.text('Our apps.')]),
         p(classes: 'apps-subtitle', [
-          .text('Crafted in-house, designed to feel calm and effortless.'),
+          .text('In-house products, designed to feel calm and effortless.'),
         ]),
         div(classes: 'apps-grid', [
           for (final app in _apps)

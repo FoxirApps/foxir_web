@@ -96,7 +96,8 @@ final contentMaxWidth = 1100.px;
 const desktop = MediaQuery.screen(minWidth: Unit.pixels(768));
 
 // External links — Foxir Apps.
-const foxirContactUrl = 'https://foxirapps.co/contact';
+const foxirContactUrl = '/contact';
+const foxirEmail = 'foxirapps@gmail.com';
 const foxirInstagramUrl = 'https://www.instagram.com/foxirapps/';
 
 // External links — Paximus.

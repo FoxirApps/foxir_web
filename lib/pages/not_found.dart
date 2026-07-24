@@ -3,7 +3,7 @@ import 'package:jaspr/jaspr.dart';
 
 import '../constants/theme.dart';
 
-/// Fallback page for unknown routes, shown via [Router.errorBuilder].
+/// Soft fallback for unknown routes.
 class NotFoundPage extends StatelessComponent {
   const NotFoundPage({super.key});
 

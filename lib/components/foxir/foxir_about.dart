@@ -3,32 +3,32 @@ import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
 
-typedef _Step = ({String number, String title, String description});
+typedef _Value = ({String number, String title, String description});
 
-const List<_Step> _steps = [
+const List<_Value> _values = [
   (
     number: '01',
-    title: 'Discovery',
-    description: 'We understand your vision, audience and goals before writing a single line.',
+    title: 'Own products first',
+    description: 'We ship apps we believe in—Paximus, Vouxe, Better Today, and more to come.',
   ),
   (
     number: '02',
-    title: 'Concept',
-    description: 'Wireframes and UX flows shaped around your brand identity.',
+    title: 'Crafted in-house',
+    description: 'Design, engineering, and polish stay close so every detail feels intentional.',
   ),
   (
     number: '03',
-    title: 'Design',
-    description: 'Intuitive UI and interactive prototypes, refined with your feedback.',
+    title: 'Calm by design',
+    description: 'Interfaces that reduce noise and help people focus on what matters.',
   ),
   (
     number: '04',
-    title: 'Launch',
-    description: 'Build, test, ship — with stable deployment and ongoing support.',
+    title: 'Built to last',
+    description: 'We iterate with real feedback and keep improving long after launch day.',
   ),
 ];
 
-/// Mission statement plus a condensed four-step process overview.
+/// Who we are: the team behind our own apps.
 class FoxirAbout extends StatelessComponent {
   const FoxirAbout({super.key});
 
@@ -36,18 +36,18 @@ class FoxirAbout extends StatelessComponent {
   Component build(BuildContext context) {
     return section(id: 'about', classes: 'about', [
       div(classes: 'container', [
-        h2([.text('Craft high-performance mobile apps to boost business growth.')]),
+        h2([.text('The home of apps we build ourselves.')]),
         p(classes: 'about-mission', [
-          .text('Your ideas deserve the best execution. Our mission is to deliver scalable, '
-              'user-focused apps that drive engagement and innovation. Empower your brand with '
-              'seamless digital experiences that leave a lasting impact.'),
+          .text('Foxir Apps is our product umbrella. We focus on thoughtful mobile '
+              'experiences—and if you have an idea you\u2019d love to explore together, '
+              'we\u2019re always happy to talk.'),
         ]),
         div(classes: 'about-steps', [
-          for (final step in _steps)
+          for (final value in _values)
             div(classes: 'about-step', [
-              span(classes: 'step-number', [.text(step.number)]),
-              h3([.text(step.title)]),
-              p([.text(step.description)]),
+              span(classes: 'step-number', [.text(value.number)]),
+              h3([.text(value.title)]),
+              p([.text(value.description)]),
             ]),
         ]),
       ]),
@@ -62,7 +62,7 @@ class FoxirAbout extends StatelessComponent {
         textAlign: .center,
       ),
       css('h2').styles(
-        maxWidth: 18.em,
+        maxWidth: 16.em,
         margin: .symmetric(horizontal: Unit.auto),
         color: foxirInk,
         fontSize: 1.875.rem,

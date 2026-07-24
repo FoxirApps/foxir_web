@@ -9,9 +9,9 @@ import '../components/foxir/foxir_header.dart';
 import '../components/foxir/foxir_hero.dart';
 import '../constants/theme.dart';
 
-/// The Foxir Apps umbrella homepage, served at `/`.
+/// Foxir Apps product umbrella homepage, served at `/`.
 ///
-/// All Foxir styles are scoped under the `.foxir` wrapper class.
+/// Styles are scoped under the `.foxir` wrapper class.
 class HomePage extends StatelessComponent {
   const HomePage({super.key});
 
@@ -29,7 +29,7 @@ class HomePage extends StatelessComponent {
 
   @css
   static List<StyleRule> get styles => [
-    // Full-page charcoal base + ambient orange radial washes (foxirapps.co feel).
+    // Full-page charcoal base + ambient orange radial washes.
     css('.foxir').styles(
       minHeight: 100.vh,
       color: foxirInk,

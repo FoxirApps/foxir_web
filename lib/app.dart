@@ -2,6 +2,7 @@ import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 
 import 'pages/bettertoday.dart';
+import 'pages/contact.dart';
 import 'pages/home.dart';
 import 'pages/not_found.dart';
 import 'pages/paximus.dart';
@@ -17,8 +18,13 @@ class App extends StatelessComponent {
       routes: [
         Route(
           path: '/',
-          title: 'Foxir Apps — Innovative Mobile App Development Solutions',
+          title: 'Foxir Apps — Home to the Apps We Craft',
           builder: (context, state) => const HomePage(),
+        ),
+        Route(
+          path: '/contact',
+          title: 'Contact — Foxir Apps',
+          builder: (context, state) => const ContactPage(),
         ),
         Route(
           path: '/paximus',

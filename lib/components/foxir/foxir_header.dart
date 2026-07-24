@@ -16,9 +16,9 @@ class FoxirHeader extends StatelessComponent {
           span([.text('Foxir Apps')]),
         ]),
         nav([
-          a(classes: 'nav-link', href: '#apps', [.text('Apps')]),
-          a(classes: 'nav-link', href: '#about', [.text('About')]),
-          a(classes: 'nav-cta', href: foxirContactUrl, target: .blank, [.text('Build Your Idea')]),
+          a(classes: 'nav-link', href: '/#apps', [.text('Apps')]),
+          a(classes: 'nav-link', href: '/#about', [.text('About')]),
+          a(classes: 'nav-cta', href: foxirContactUrl, [.text('Contact')]),
         ]),
       ]),
     ]);

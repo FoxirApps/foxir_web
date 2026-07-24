@@ -3,7 +3,7 @@ import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
 
-/// Hero section for the Foxir Apps umbrella site.
+/// Hero section for the Foxir Apps product umbrella.
 class FoxirHero extends StatelessComponent {
   const FoxirHero({super.key});
 
@@ -11,14 +11,15 @@ class FoxirHero extends StatelessComponent {
   Component build(BuildContext context) {
     return section(classes: 'hero', [
       div(classes: 'container hero-inner', [
-        span(classes: 'hero-eyebrow', [.text('Mobile app studio')]),
-        h1([.text('Innovative mobile experiences, refined to inspire results.')]),
+        span(classes: 'hero-eyebrow', [.text('Our apps, under one roof')]),
+        h1([.text('Apps we craft. Experiences you feel.')]),
         p(classes: 'hero-subtitle', [
-          .text('Your vision, our code — turning ideas into mobile solutions.'),
+          .text('Foxir Apps is home to the products we build in-house—calm tools '
+              'for focus, growth, and everyday clarity.'),
         ]),
         div(classes: 'hero-actions', [
-          a(classes: 'btn-primary', href: '#apps', [.text('Explore our apps')]),
-          a(classes: 'btn-secondary', href: foxirContactUrl, target: .blank, [.text('Build your idea')]),
+          a(classes: 'btn-primary', href: '/#apps', [.text('Explore our apps')]),
+          a(classes: 'btn-secondary', href: foxirContactUrl, [.text('Got an idea? Let\u2019s talk')]),
         ]),
       ]),
     ]);
@@ -45,7 +46,7 @@ class FoxirHero extends StatelessComponent {
         backgroundColor: const Color('#ffffff0a'),
       ),
       css('h1').styles(
-        maxWidth: 15.em,
+        maxWidth: 14.em,
         color: foxirInk,
         fontSize: 2.5.rem,
         fontWeight: .w700,
@@ -53,7 +54,7 @@ class FoxirHero extends StatelessComponent {
         letterSpacing: (-0.02).em,
       ),
       css('.hero-subtitle').styles(
-        maxWidth: 30.em,
+        maxWidth: 32.em,
         color: foxirMuted,
         fontSize: 1.25.rem,
         fontWeight: .w500,
