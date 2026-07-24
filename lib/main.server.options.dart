@@ -40,6 +40,7 @@ import 'package:foxir_web/components/vouxe/testimonials.dart'
     as _vouxe_testimonials;
 import 'package:foxir_web/pages/bettertoday.dart' as _bettertoday;
 import 'package:foxir_web/pages/home.dart' as _home;
+import 'package:foxir_web/pages/not_found.dart' as _not_found;
 import 'package:foxir_web/pages/paximus.dart' as _paximus;
 import 'package:foxir_web/pages/vouxe.dart' as _vouxe;
 
@@ -90,6 +91,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._vouxe_testimonials.Testimonials.styles,
     ..._bettertoday.BetterTodayPage.styles,
     ..._home.HomePage.styles,
+    ..._not_found.NotFoundPage.styles,
     ..._paximus.PaximusPage.styles,
     ..._vouxe.VouxePage.styles,
   ],
