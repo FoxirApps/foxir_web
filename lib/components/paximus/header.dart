@@ -3,7 +3,7 @@ import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
 
-/// Sticky header: logo | Features + Reviews | store links.
+/// Sticky header: logo | store links.
 class Header extends StatelessComponent {
   const Header({super.key});
 
@@ -14,10 +14,6 @@ class Header extends StatelessComponent {
         a(classes: 'brand', href: '#top', [
           img(src: 'images/paximus-icon.png', alt: 'Paximus app icon', width: 32, height: 32),
           span([.text('Paximus')]),
-        ]),
-        nav(classes: 'header-nav', [
-          a(classes: 'nav-link', href: '#features', [.text('Features')]),
-          a(classes: 'nav-link', href: '#reviews', [.text('Reviews')]),
         ]),
         div(classes: 'header-stores', [
           a(classes: 'store-link', href: appStoreUrl, target: .blank, [.text('App Store')]),
@@ -55,25 +51,6 @@ class Header extends StatelessComponent {
         ),
         css('img').styles(radius: .circular(8.px)),
       ]),
-      css('.header-nav', [
-        css('&').styles(
-          display: .none,
-          alignItems: .center,
-          gap: .all(4.px),
-        ),
-        css('.nav-link', [
-          css('&').styles(
-            padding: .symmetric(horizontal: 14.px, vertical: 8.px),
-            radius: .circular(999.px),
-            color: muted,
-            fontWeight: .w600,
-          ),
-          css('&:hover').styles(
-            color: ink,
-            backgroundColor: const Color('#ffffffaa'),
-          ),
-        ]),
-      ]),
       css('.header-stores', [
         css('&').styles(
           display: .flex,
@@ -99,9 +76,6 @@ class Header extends StatelessComponent {
           css('&.outline:hover').styles(backgroundColor: const Color('#f0f2f5')),
         ]),
       ]),
-    ]),
-    css.media(desktop, [
-      css('.paximus header .header-nav').styles(display: .flex),
     ]),
   ];
 }

@@ -19,8 +19,8 @@ const List<_AppEntry> _apps = [
   (
     name: 'Paximus',
     tagline: 'OCD & Anxiety Tracker',
-    description: 'Your peace of mind, like never before. The simple, calm, and caring way to '
-        'capture worries, validate tasks with evidence, and end every day with reassurance.',
+    description: 'Finally, OCD & anxiety tracking that feels calm. Capture worries, '
+        'validate tasks with evidence, and close every day with quiet reassurance.',
     icon: 'images/paximus-icon.png',
     initials: 'PX',
     pageUrl: '/paximus',
@@ -30,8 +30,8 @@ const List<_AppEntry> _apps = [
   (
     name: 'Vouxe',
     tagline: 'Challenge Tracker',
-    description: 'Build discipline you can see. Turn daily effort into visible progress, '
-        'powerful streaks, and proof worth sharing.',
+    description: 'Build discipline you can see. Turn daily check-ins into visible streaks, '
+        'clear stats, and milestones worth sharing.',
     icon: 'images/vouxe-icon.png',
     initials: 'VX',
     pageUrl: '/vouxe',
@@ -41,8 +41,8 @@ const List<_AppEntry> _apps = [
   (
     name: 'Better Today',
     tagline: 'Daily Growth',
-    description: 'Take charge of your daily growth. Reflect each day, embrace the Mamba Mentality, '
-        'and turn small steps into lifelong excellence.',
+    description: 'One daily reflection. A better you. Reflect honestly, set clear intentions, '
+        'and build the Mamba Mentality—small steps that compound into lifelong excellence.',
     icon: null,
     initials: 'BT',
     pageUrl: '/bettertoday',

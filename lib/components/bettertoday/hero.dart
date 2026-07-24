@@ -3,9 +3,8 @@ import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
 import 'store_buttons.dart';
-import 'testimonials.dart' show betterReviews;
 
-/// Two-column hero: copy + store CTAs + light proof | CSS phone placeholder.
+/// Two-column hero: headline + subtitle + downloads | CSS phone placeholder.
 class Hero extends StatelessComponent {
   const Hero({super.key});
 
@@ -14,19 +13,12 @@ class Hero extends StatelessComponent {
     return section(id: 'top', classes: 'hero', [
       div(classes: 'container hero-grid', [
         div(classes: 'hero-copy', [
-          h1([.text('Take Charge of Your Daily Growth')]),
+          h1([.text('One daily reflection. A better you.')]),
           p(classes: 'hero-subtitle', [
-            .text('Effortlessly reflect each day, embrace the Mamba Mentality, '
-                'and turn small steps into lifelong excellence.'),
+            .text('Better Today helps you reflect honestly, set clear intentions, '
+                'and build the Mamba Mentality—small steps that compound into lifelong excellence.'),
           ]),
           const StoreButtons(alignStart: true),
-          div(classes: 'hero-proof', [
-            for (final review in betterReviews.take(2))
-              div(classes: 'proof-card', [
-                p([.text('\u201C${review.quote}\u201D')]),
-                span([.text('${review.name} · ${review.role}')]),
-              ]),
-          ]),
         ]),
         div(classes: 'hero-visual', [
           div(classes: 'phone-glow', [
@@ -74,34 +66,6 @@ class Hero extends StatelessComponent {
         fontSize: 1.0625.rem,
         fontWeight: .w500,
       ),
-      css('.hero-proof').styles(
-        display: .flex,
-        width: 100.percent,
-        margin: .only(top: 8.px),
-        flexDirection: .column,
-        gap: .all(10.px),
-      ),
-      css('.proof-card', [
-        css('&').styles(
-          padding: .all(14.px),
-          border: const Border.all(style: .solid, color: betterHairline, width: Unit.pixels(1)),
-          radius: .circular(16.px),
-          backgroundColor: betterSurface,
-        ),
-        css('p').styles(
-          color: betterInk,
-          fontSize: 0.875.rem,
-          fontWeight: .w500,
-          lineHeight: 1.4.em,
-        ),
-        css('span').styles(
-          display: .block,
-          margin: .only(top: 6.px),
-          color: betterAccent,
-          fontSize: 0.75.rem,
-          fontWeight: .w700,
-        ),
-      ]),
       css('.hero-visual').styles(
         display: .flex,
         justifyContent: .center,
@@ -181,7 +145,6 @@ class Hero extends StatelessComponent {
         css('.hero-copy').styles(flex: const Flex.grow(1)),
         css('.hero-visual').styles(flex: const Flex.grow(1)),
         css('h1').styles(fontSize: 3.25.rem),
-        css('.hero-proof').styles(flexDirection: .row),
         css('.phone-screen').styles(width: 260.px, height: 520.px),
       ]),
     ]),

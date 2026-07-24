@@ -4,26 +4,7 @@ import 'package:jaspr/jaspr.dart';
 import '../../constants/theme.dart';
 import 'store_buttons.dart';
 
-/// Shared review snippets used in the hero strip and reviews section.
-const paximusReviews = [
-  (
-    quote: 'Finally a tracker that feels calming instead of stressful.',
-    name: 'Alex R',
-    role: 'Therapist',
-  ),
-  (
-    quote: 'Quick worry capture and end-of-day assurance changed my evenings.',
-    name: 'Sam K',
-    role: 'Designer',
-  ),
-  (
-    quote: 'Evidence gallery gives me reassurance without the spiral.',
-    name: 'Jordan M',
-    role: 'Student',
-  ),
-];
-
-/// Two-column hero: message + social proof + downloads | phone visual.
+/// Two-column hero: headline + subtitle + downloads | phone visual.
 class Hero extends StatelessComponent {
   const Hero({super.key});
 
@@ -32,19 +13,12 @@ class Hero extends StatelessComponent {
     return section(id: 'top', classes: 'hero', [
       div(classes: 'container hero-grid', [
         div(classes: 'hero-copy', [
-          h1([.text('Your peace of mind, like never before.')]),
+          h1([.text('Finally, OCD & anxiety tracking that feels calm')]),
           p(classes: 'hero-subtitle', [
-            .text('The simple, calm, and caring way to thrive — capture worries, '
-                'validate with evidence, and end every day with reassurance.'),
+            .text('Paximus helps you capture worries, validate tasks with evidence, '
+                'and close every day with quiet reassurance—without the spiral.'),
           ]),
           const StoreButtons(alignStart: true),
-          div(classes: 'hero-proof', [
-            for (final review in paximusReviews.take(2))
-              div(classes: 'proof-card', [
-                p([.text('\u201C${review.quote}\u201D')]),
-                span([.text('${review.name} · ${review.role}')]),
-              ]),
-          ]),
         ]),
         div(classes: 'hero-visual', [
           div(classes: 'phone-frame', [
@@ -77,7 +51,7 @@ class Hero extends StatelessComponent {
         textAlign: .start,
       ),
       css('h1').styles(
-        maxWidth: 12.em,
+        maxWidth: 14.em,
         fontSize: 2.25.rem,
         fontWeight: .w700,
         lineHeight: 1.12.em,
@@ -89,33 +63,6 @@ class Hero extends StatelessComponent {
         fontSize: 1.0625.rem,
         fontWeight: .w500,
       ),
-      css('.hero-proof').styles(
-        display: .flex,
-        width: 100.percent,
-        margin: .only(top: 8.px),
-        flexDirection: .column,
-        gap: .all(10.px),
-      ),
-      css('.proof-card', [
-        css('&').styles(
-          padding: .all(14.px),
-          border: const Border.all(style: .solid, color: Color('#e4e8ef'), width: Unit.pixels(1)),
-          radius: .circular(16.px),
-          backgroundColor: const Color('#ffffffcc'),
-        ),
-        css('p').styles(
-          fontSize: 0.875.rem,
-          fontWeight: .w500,
-          lineHeight: 1.4.em,
-        ),
-        css('span').styles(
-          display: .block,
-          margin: .only(top: 6.px),
-          color: muted,
-          fontSize: 0.75.rem,
-          fontWeight: .w600,
-        ),
-      ]),
       css('.hero-visual').styles(
         display: .flex,
         justifyContent: .center,
@@ -171,7 +118,6 @@ class Hero extends StatelessComponent {
         ),
         css('.hero-copy').styles(flex: const Flex.grow(1)),
         css('h1').styles(fontSize: 3.25.rem),
-        css('.hero-proof').styles(flexDirection: .row),
         css('.phone-screen').styles(width: 260.px, height: 520.px),
       ]),
     ]),

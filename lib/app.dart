@@ -22,17 +22,17 @@ class App extends StatelessComponent {
         ),
         Route(
           path: '/paximus',
-          title: 'Paximus — Your peace of mind, like never before.',
+          title: 'Paximus — OCD & Anxiety Tracking That Feels Calm',
           builder: (context, state) => const PaximusPage(),
         ),
         Route(
           path: '/vouxe',
-          title: 'Vouxe — Build discipline you can see',
+          title: 'Vouxe — Build Discipline You Can See',
           builder: (context, state) => const VouxePage(),
         ),
         Route(
           path: '/bettertoday',
-          title: 'Better Today — Take Charge of Your Daily Growth',
+          title: 'Better Today — One Daily Reflection. A Better You.',
           builder: (context, state) => const BetterTodayPage(),
         ),
       ],

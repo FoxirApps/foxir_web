@@ -3,9 +3,8 @@ import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
 import 'store_buttons.dart';
-import 'testimonials.dart' show vouxeReviews;
 
-/// Two-column hero: copy + mini reviews + downloads | phone mockups.
+/// Two-column hero: headline + subtitle + downloads | phone mockups.
 class Hero extends StatelessComponent {
   const Hero({super.key});
 
@@ -16,16 +15,10 @@ class Hero extends StatelessComponent {
         div(classes: 'hero-copy', [
           h1([.text('Build discipline you can see')]),
           p(classes: 'hero-subtitle', [
-            .text('Turn daily effort into visible progress, powerful streaks, and proof worth sharing.'),
+            .text('Vouxe is the challenge tracker that turns daily check-ins into '
+                'visible streaks, clear stats, and milestones worth sharing.'),
           ]),
           const StoreButtons(alignStart: true),
-          div(classes: 'hero-proof', [
-            for (final review in vouxeReviews.take(2))
-              div(classes: 'proof-card', [
-                p([.text('\u201C${review.quote}\u201D')]),
-                span([.text('${review.name} · ${review.role}')]),
-              ]),
-          ]),
         ]),
         div(classes: 'hero-visual', [
           img(
@@ -69,34 +62,6 @@ class Hero extends StatelessComponent {
         fontSize: 1.0625.rem,
         fontWeight: .w500,
       ),
-      css('.hero-proof').styles(
-        display: .flex,
-        width: 100.percent,
-        margin: .only(top: 8.px),
-        flexDirection: .column,
-        gap: .all(10.px),
-      ),
-      css('.proof-card', [
-        css('&').styles(
-          padding: .all(14.px),
-          border: const Border.all(style: .solid, color: vouxeHairline, width: Unit.pixels(1)),
-          radius: .circular(16.px),
-          backgroundColor: vouxeSurface,
-        ),
-        css('p').styles(
-          color: vouxeInk,
-          fontSize: 0.875.rem,
-          fontWeight: .w500,
-          lineHeight: 1.4.em,
-        ),
-        css('span').styles(
-          display: .block,
-          margin: .only(top: 6.px),
-          color: vouxeAccent,
-          fontSize: 0.75.rem,
-          fontWeight: .w700,
-        ),
-      ]),
       css('.hero-visual').styles(
         display: .flex,
         justifyContent: .center,
@@ -119,7 +84,6 @@ class Hero extends StatelessComponent {
         css('.hero-copy').styles(flex: const Flex.grow(1)),
         css('.hero-visual').styles(flex: const Flex.grow(1)),
         css('h1').styles(fontSize: 3.25.rem),
-        css('.hero-proof').styles(flexDirection: .row),
         css('.hero-phones').styles(maxWidth: 560.px),
       ]),
     ]),

@@ -3,7 +3,7 @@ import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
 
-/// Sticky header: text brand | Features + Reviews | store links.
+/// Sticky header: text brand | store links.
 class Header extends StatelessComponent {
   const Header({super.key});
 
@@ -14,10 +14,6 @@ class Header extends StatelessComponent {
         a(classes: 'brand', href: '#top', [
           span(classes: 'brand-mark', [.text('BT')]),
           span([.text('Better Today')]),
-        ]),
-        nav(classes: 'header-nav', [
-          a(classes: 'nav-link', href: '#features', [.text('Features')]),
-          a(classes: 'nav-link', href: '#reviews', [.text('Reviews')]),
         ]),
         div(classes: 'header-stores', [
           a(classes: 'store-link', href: betterAppStoreUrl, target: .blank, [.text('App Store')]),
@@ -68,25 +64,6 @@ class Header extends StatelessComponent {
           backgroundColor: betterAccent,
         ),
       ]),
-      css('.header-nav', [
-        css('&').styles(
-          display: .none,
-          alignItems: .center,
-          gap: .all(4.px),
-        ),
-        css('.nav-link', [
-          css('&').styles(
-            padding: .symmetric(horizontal: 14.px, vertical: 8.px),
-            radius: .circular(999.px),
-            color: betterMuted,
-            fontWeight: .w600,
-          ),
-          css('&:hover').styles(
-            color: betterInk,
-            backgroundColor: betterElevated,
-          ),
-        ]),
-      ]),
       css('.header-stores', [
         css('&').styles(
           display: .flex,
@@ -112,9 +89,6 @@ class Header extends StatelessComponent {
           css('&.outline:hover').styles(backgroundColor: betterElevated),
         ]),
       ]),
-    ]),
-    css.media(desktop, [
-      css('.bettertoday header .header-nav').styles(display: .flex),
     ]),
   ];
 }

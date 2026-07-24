@@ -2,7 +2,25 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
-import 'hero.dart' show paximusReviews;
+
+/// Shared review snippets for the Paximus reviews section.
+const paximusReviews = [
+  (
+    quote: 'Finally a tracker that feels calming instead of stressful.',
+    name: 'Alex R',
+    role: 'Therapist',
+  ),
+  (
+    quote: 'Quick worry capture and end-of-day assurance changed my evenings.',
+    name: 'Sam K',
+    role: 'Designer',
+  ),
+  (
+    quote: 'Evidence gallery gives me reassurance without the spiral.',
+    name: 'Jordan M',
+    role: 'Student',
+  ),
+];
 
 /// Full reviews section anchored at `#reviews`.
 class Reviews extends StatelessComponent {
