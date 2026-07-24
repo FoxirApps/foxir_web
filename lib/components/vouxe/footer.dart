@@ -9,8 +9,8 @@ const List<({String title, List<_FooterLink> links})> _columns = [
   (
     title: 'Company',
     links: [
-      (label: 'Privacy Policy', url: vouxePrivacyUrl, external: true),
-      (label: 'Terms of Service', url: vouxeTermsUrl, external: true),
+      (label: 'Privacy Policy', url: vouxePrivacyUrl, external: false),
+      (label: 'Terms of Service', url: vouxeTermsUrl, external: false),
     ],
   ),
   (
@@ -40,7 +40,7 @@ class Footer extends StatelessComponent {
       div(classes: 'container', [
         div(classes: 'footer-top', [
           div(classes: 'footer-brand', [
-            img(src: 'images/vouxe-icon.png', alt: 'Vouxe app icon', width: 40, height: 40),
+            img(src: '/images/vouxe-icon.png', alt: 'Vouxe app icon', width: 40, height: 40),
             span([.text('Vouxe')]),
           ]),
           div(classes: 'footer-columns', [

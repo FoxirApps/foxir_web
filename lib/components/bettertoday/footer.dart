@@ -9,8 +9,8 @@ const List<({String title, List<_FooterLink> links})> _columns = [
   (
     title: 'Company',
     links: [
-      (label: 'Privacy Policy', url: betterPrivacyUrl, external: true),
-      (label: 'Terms of Service', url: betterTermsUrl, external: true),
+      (label: 'Privacy Policy', url: betterPrivacyUrl, external: false),
+      (label: 'Terms of Service', url: betterTermsUrl, external: false),
     ],
   ),
   (

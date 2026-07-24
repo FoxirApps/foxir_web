@@ -23,7 +23,7 @@ class Hero extends StatelessComponent {
         div(classes: 'hero-visual', [
           div(classes: 'phone-frame', [
             div(classes: 'phone-screen', [
-              img(src: 'images/paximus-icon.png', alt: 'Paximus app', width: 120, height: 120),
+              img(src: '/images/paximus-icon.png', alt: 'Paximus app', width: 120, height: 120),
               span(classes: 'phone-label', [.text('Paximus')]),
               span(classes: 'phone-tagline', [.text('Calm task tracking')]),
             ]),

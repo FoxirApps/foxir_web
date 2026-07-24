@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/vouxe.app/privacy-policy",
+      "destination": "/vouxe/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/vouxe.app/terms-of-service",
+      "destination": "/vouxe/terms-of-service",
+      "permanent": true
+    }
+  ]
+}

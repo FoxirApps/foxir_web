@@ -3,31 +3,31 @@ import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
 
-typedef _FooterLink = ({String label, String url});
+typedef _FooterLink = ({String label, String url, bool external});
 
 const List<({String title, List<_FooterLink> links})> _columns = [
   (
     title: 'Company',
     links: [
-      (label: 'Privacy Policy', url: privacyPolicyUrl),
-      (label: 'Terms of Service', url: termsOfServiceUrl),
+      (label: 'Privacy Policy', url: privacyPolicyUrl, external: false),
+      (label: 'Terms of Service', url: termsOfServiceUrl, external: false),
     ],
   ),
   (
     title: 'Downloads',
     links: [
-      (label: 'For iPhone', url: appStoreUrl),
-      (label: 'For Android', url: playStoreUrl),
+      (label: 'For iPhone', url: appStoreUrl, external: true),
+      (label: 'For Android', url: playStoreUrl, external: true),
     ],
   ),
   (
     title: 'Socials',
     links: [
-      (label: 'TikTok', url: tiktokUrl),
-      (label: 'Instagram', url: instagramUrl),
-      (label: 'LinkedIn', url: linkedinUrl),
-      (label: 'Twitter/X', url: twitterUrl),
-      (label: 'YouTube', url: youtubeUrl),
+      (label: 'TikTok', url: tiktokUrl, external: true),
+      (label: 'Instagram', url: instagramUrl, external: true),
+      (label: 'LinkedIn', url: linkedinUrl, external: true),
+      (label: 'Twitter/X', url: twitterUrl, external: true),
+      (label: 'YouTube', url: youtubeUrl, external: true),
     ],
   ),
 ];
@@ -42,7 +42,7 @@ class Footer extends StatelessComponent {
       div(classes: 'container', [
         div(classes: 'footer-top', [
           div(classes: 'footer-brand', [
-            img(src: 'images/paximus-icon.png', alt: 'Paximus app icon', width: 40, height: 40),
+            img(src: '/images/paximus-icon.png', alt: 'Paximus app icon', width: 40, height: 40),
             span([.text('Paximus')]),
           ]),
           div(classes: 'footer-columns', [
@@ -52,7 +52,7 @@ class Footer extends StatelessComponent {
                 ul([
                   for (final link in column.links)
                     li([
-                      a(href: link.url, target: .blank, [.text(link.label)]),
+                      a(href: link.url, target: link.external ? .blank : null, [.text(link.label)]),
                     ]),
                 ]),
               ]),

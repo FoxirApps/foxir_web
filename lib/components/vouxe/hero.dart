@@ -23,7 +23,7 @@ class Hero extends StatelessComponent {
         div(classes: 'hero-visual', [
           img(
             classes: 'hero-phones',
-            src: 'images/vouxe-phones.png',
+            src: '/images/vouxe-phones.png',
             alt: 'Vouxe app screens showing challenges, stats and streaks',
           ),
         ]),

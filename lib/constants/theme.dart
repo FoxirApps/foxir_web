@@ -105,17 +105,17 @@ const foxirWeb3FormsAccessKey = 'bbd8179a-cdae-46c4-9404-305bbb697e7f';
 const foxirWeb3FormsEndpoint = 'https://api.web3forms.com/submit';
 
 /// Official store badge SVGs (shared across all app landings).
-const appStoreBadgeSrc = 'vectors/app_store_badge.svg';
-const playStoreBadgeSrc = 'vectors/google_play_badge.svg';
+const appStoreBadgeSrc = '/vectors/app_store_badge.svg';
+const playStoreBadgeSrc = '/vectors/google_play_badge.svg';
 
 /// Better Today app icon.
-const betterTodayIconSrc = 'images/better-today-logo.png';
+const betterTodayIconSrc = '/images/better-today-logo.png';
 
 // External links — Paximus.
 const appStoreUrl = 'https://apps.apple.com/us/app/ocd-anxiety-tracker-paximus/id6745874911';
 const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.foxir.paximus';
-const privacyPolicyUrl = 'https://foxirapps.co/paximus/privacy-policy';
-const termsOfServiceUrl = 'https://foxirapps.co/paximus/terms-of-service';
+const privacyPolicyUrl = '/paximus/privacy-policy';
+const termsOfServiceUrl = '/paximus/terms-of-service';
 const tiktokUrl = 'https://www.tiktok.com/@paximus.app';
 const instagramUrl = 'https://www.instagram.com/paximus.app/';
 const linkedinUrl = 'https://www.linkedin.com/company/foxirapps/';
@@ -125,8 +125,8 @@ const youtubeUrl = 'https://www.youtube.com/@FoxirApps';
 // External links — Vouxe.
 const vouxeAppStoreUrl = 'https://apps.apple.com/us/app/vouxe-challenge-tracker/id6756347081';
 const vouxePlayStoreUrl = 'https://play.google.com/store/apps/details?id=com.foxir.vouxe';
-const vouxePrivacyUrl = 'https://foxirapps.co/vouxe.app/privacy-policy';
-const vouxeTermsUrl = 'https://foxirapps.co/vouxe.app/terms-of-service';
+const vouxePrivacyUrl = '/vouxe/privacy-policy';
+const vouxeTermsUrl = '/vouxe/terms-of-service';
 const vouxeTiktokUrl = 'https://www.tiktok.com/@vouxe.app';
 const vouxeInstagramUrl = 'https://www.instagram.com/vouxe.app';
 
@@ -135,7 +135,7 @@ const betterAppStoreUrl =
     'https://apps.apple.com/us/app/better-today-daily-growth/id6748441674';
 const betterPlayStoreUrl =
     'https://play.google.com/store/apps/details?id=com.foxir.bettertoday';
-const betterPrivacyUrl = 'https://foxirapps.co/bettertoday/privacy-policy';
-const betterTermsUrl = 'https://foxirapps.co/bettertoday/terms-of-service';
+const betterPrivacyUrl = '/bettertoday/privacy-policy';
+const betterTermsUrl = '/bettertoday/terms-of-service';
 const betterTiktokUrl = 'https://www.tiktok.com/@bettertoday.app';
 const betterInstagramUrl = 'https://www.instagram.com/bettertoday.app';

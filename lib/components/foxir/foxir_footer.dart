@@ -43,7 +43,7 @@ class FoxirFooter extends StatelessComponent {
       div(classes: 'container', [
         div(classes: 'footer-top', [
           div(classes: 'footer-brand', [
-            img(src: 'images/foxir-logo.png', alt: 'Foxir Apps logo', width: 32, height: 32),
+            img(src: '/images/foxir-logo.png', alt: 'Foxir Apps logo', width: 32, height: 32),
             span([.text('Foxir Apps')]),
           ]),
           div(classes: 'footer-columns', [

@@ -4,6 +4,7 @@ import 'package:jaspr_router/jaspr_router.dart';
 import 'pages/bettertoday.dart';
 import 'pages/contact.dart';
 import 'pages/home.dart';
+import 'pages/legal/legal_pages.dart';
 import 'pages/not_found.dart';
 import 'pages/paximus.dart';
 import 'pages/vouxe.dart';
@@ -32,14 +33,44 @@ class App extends StatelessComponent {
           builder: (context, state) => const PaximusPage(),
         ),
         Route(
+          path: '/paximus/privacy-policy',
+          title: 'Privacy Policy — Paximus',
+          builder: (context, state) => const PaximusPrivacyPage(),
+        ),
+        Route(
+          path: '/paximus/terms-of-service',
+          title: 'Terms of Service — Paximus',
+          builder: (context, state) => const PaximusTermsPage(),
+        ),
+        Route(
           path: '/vouxe',
           title: 'Vouxe — Build Discipline You Can See',
           builder: (context, state) => const VouxePage(),
         ),
         Route(
+          path: '/vouxe/privacy-policy',
+          title: 'Privacy Policy — Vouxe',
+          builder: (context, state) => const VouxePrivacyPage(),
+        ),
+        Route(
+          path: '/vouxe/terms-of-service',
+          title: 'Terms of Service — Vouxe',
+          builder: (context, state) => const VouxeTermsPage(),
+        ),
+        Route(
           path: '/bettertoday',
           title: 'Better Today — One Daily Reflection. A Better You.',
           builder: (context, state) => const BetterTodayPage(),
+        ),
+        Route(
+          path: '/bettertoday/privacy-policy',
+          title: 'Privacy Policy — Better Today',
+          builder: (context, state) => const BetterTodayPrivacyPage(),
+        ),
+        Route(
+          path: '/bettertoday/terms-of-service',
+          title: 'Terms of Service — Better Today',
+          builder: (context, state) => const BetterTodayTermsPage(),
         ),
       ],
       errorBuilder: (context, state) => const NotFoundPage(),

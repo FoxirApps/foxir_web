@@ -12,7 +12,7 @@ class FoxirHeader extends StatelessComponent {
     return header([
       div(classes: 'container header-inner', [
         a(classes: 'brand', href: '/', [
-          img(src: 'images/foxir-logo.png', alt: 'Foxir Apps logo', width: 28, height: 28),
+          img(src: '/images/foxir-logo.png', alt: 'Foxir Apps logo', width: 28, height: 28),
           span([.text('Foxir Apps')]),
         ]),
         nav([

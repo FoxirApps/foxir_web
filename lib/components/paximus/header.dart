@@ -13,7 +13,7 @@ class Header extends StatelessComponent {
     return header([
       div(classes: 'container header-inner', [
         a(classes: 'brand', href: '/paximus#top', [
-          img(src: 'images/paximus-icon.png', alt: 'Paximus app icon', width: 32, height: 32),
+          img(src: '/images/paximus-icon.png', alt: 'Paximus app icon', width: 32, height: 32),
           span([.text('Paximus')]),
         ]),
         const StoreButtons(

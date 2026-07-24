@@ -18,6 +18,8 @@ import 'package:foxir_web/components/foxir/foxir_cta.dart' as _foxir_cta;
 import 'package:foxir_web/components/foxir/foxir_footer.dart' as _foxir_footer;
 import 'package:foxir_web/components/foxir/foxir_header.dart' as _foxir_header;
 import 'package:foxir_web/components/foxir/foxir_hero.dart' as _foxir_hero;
+import 'package:foxir_web/components/legal/legal_document_view.dart'
+    as _legal_document_view;
 import 'package:foxir_web/components/paximus/cta.dart' as _paximus_cta;
 import 'package:foxir_web/components/paximus/features.dart'
     as _paximus_features;
@@ -71,6 +73,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._foxir_footer.FoxirFooter.styles,
     ..._foxir_header.FoxirHeader.styles,
     ..._foxir_hero.FoxirHero.styles,
+    ..._legal_document_view.LegalDocumentView.styles,
     ..._paximus_cta.Cta.styles,
     ..._paximus_features.Features.styles,
     ..._paximus_footer.Footer.styles,

@@ -22,7 +22,7 @@ const List<_AppEntry> _apps = [
     tagline: 'OCD & Anxiety Tracker',
     description: 'Finally, OCD & anxiety tracking that feels calm. Capture worries, '
         'validate tasks with evidence, and close every day with quiet reassurance.',
-    icon: 'images/paximus-icon.png',
+    icon: '/images/paximus-icon.png',
     initials: 'PX',
     pageUrl: '/paximus',
     appStore: appStoreUrl,
@@ -33,7 +33,7 @@ const List<_AppEntry> _apps = [
     tagline: 'Challenge Tracker',
     description: 'Build discipline you can see. Turn daily check-ins into visible streaks, '
         'clear stats, and milestones worth sharing.',
-    icon: 'images/vouxe-icon.png',
+    icon: '/images/vouxe-icon.png',
     initials: 'VX',
     pageUrl: '/vouxe',
     appStore: vouxeAppStoreUrl,
