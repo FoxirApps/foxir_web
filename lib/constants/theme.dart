@@ -1,0 +1,96 @@
+import 'package:jaspr/dom.dart';
+
+// Shared / Paximus (light) tokens.
+
+/// Primary text color (light surfaces).
+const ink = Color('#1d1d1f');
+
+/// Secondary / muted text color (light surfaces).
+const muted = Color('#6e6e73');
+
+/// Light gray surface for cards and alternating sections.
+const surface = Color('#f5f5f7');
+
+/// Hairline border color (light surfaces).
+const hairline = Color('#e8e8ed');
+
+/// Dark background for CTA section and buttons.
+const dark = Color('#111113');
+
+/// Muted text on dark backgrounds.
+const mutedOnDark = Color('#a1a1a6');
+
+// Foxir Apps (dark) tokens — matched to foxirapps.co.
+
+/// Page base charcoal.
+const foxirBg = Color('#0d0d0d');
+
+/// Brand orange accent from the live site.
+const foxirAccent = Color('#ff520e');
+
+/// Primary text on dark surfaces.
+const foxirInk = Color('#f5f5f7');
+
+/// Secondary text on dark surfaces.
+const foxirMuted = Color('#a1a1a6');
+
+/// Elevated card / panel surface.
+const foxirSurface = Color('#161616');
+
+/// Slightly brighter elevated surface.
+const foxirElevated = Color('#1c1c1c');
+
+/// Subtle border on dark surfaces.
+const foxirHairline = Color('#2a2a2e');
+
+// Vouxe (dark + lime) tokens — matched to foxirapps.co/vouxe.app.
+
+/// Page base near-black.
+const vouxeBg = Color('#0a0a0a');
+
+/// Lime accent from the live Vouxe brand.
+const vouxeAccent = Color('#c8f000');
+
+/// Primary text on dark surfaces.
+const vouxeInk = Color('#f5f5f7');
+
+/// Secondary text on dark surfaces.
+const vouxeMuted = Color('#a8a8ad');
+
+/// Elevated card / panel surface.
+const vouxeSurface = Color('#121212');
+
+/// Slightly brighter elevated surface.
+const vouxeElevated = Color('#1a1a1a');
+
+/// Subtle border on dark surfaces.
+const vouxeHairline = Color('#2a2a2e');
+
+/// Max content width of the page.
+final contentMaxWidth = 1100.px;
+
+/// Desktop breakpoint used across components.
+const desktop = MediaQuery.screen(minWidth: Unit.pixels(768));
+
+// External links — Foxir Apps.
+const foxirContactUrl = 'https://foxirapps.co/contact';
+const foxirInstagramUrl = 'https://www.instagram.com/foxirapps/';
+
+// External links — Paximus.
+const appStoreUrl = 'https://apps.apple.com/us/app/ocd-anxiety-tracker-paximus/id6745874911';
+const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.foxir.paximus';
+const privacyPolicyUrl = 'https://foxirapps.co/paximus/privacy-policy';
+const termsOfServiceUrl = 'https://foxirapps.co/paximus/terms-of-service';
+const tiktokUrl = 'https://www.tiktok.com/@paximus.app';
+const instagramUrl = 'https://www.instagram.com/paximus.app/';
+const linkedinUrl = 'https://www.linkedin.com/company/foxirapps/';
+const twitterUrl = 'https://x.com/foxirapps';
+const youtubeUrl = 'https://www.youtube.com/@FoxirApps';
+
+// External links — Vouxe.
+const vouxeAppStoreUrl = 'https://apps.apple.com/us/app/vouxe-challenge-tracker/id6756347081';
+const vouxePlayStoreUrl = 'https://play.google.com/store/apps/details?id=com.foxir.vouxe';
+const vouxePrivacyUrl = 'https://foxirapps.co/vouxe.app/privacy-policy';
+const vouxeTermsUrl = 'https://foxirapps.co/vouxe.app/terms-of-service';
+const vouxeTiktokUrl = 'https://www.tiktok.com/@vouxe.app';
+const vouxeInstagramUrl = 'https://www.instagram.com/vouxe.app';
