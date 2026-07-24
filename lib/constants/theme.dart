@@ -108,6 +108,9 @@ const foxirWeb3FormsEndpoint = 'https://api.web3forms.com/submit';
 const appStoreBadgeSrc = 'vectors/app_store_badge.svg';
 const playStoreBadgeSrc = 'vectors/google_play_badge.svg';
 
+/// Better Today app icon.
+const betterTodayIconSrc = 'images/better-today-logo.png';
+
 // External links — Paximus.
 const appStoreUrl = 'https://apps.apple.com/us/app/ocd-anxiety-tracker-paximus/id6745874911';
 const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.foxir.paximus';

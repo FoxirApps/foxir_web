@@ -4,7 +4,7 @@ import 'package:jaspr/jaspr.dart';
 import '../../constants/theme.dart';
 import '../store_buttons.dart';
 
-/// Sticky header: text brand | store badges.
+/// Sticky header: logo | store badges.
 class Header extends StatelessComponent {
   const Header({super.key});
 
@@ -12,8 +12,8 @@ class Header extends StatelessComponent {
   Component build(BuildContext context) {
     return header([
       div(classes: 'container header-inner', [
-        a(classes: 'brand', href: '#top', [
-          span(classes: 'brand-mark', [.text('BT')]),
+        a(classes: 'brand', href: '/bettertoday#top', [
+          img(src: betterTodayIconSrc, alt: 'Better Today app icon', width: 32, height: 32),
           span([.text('Better Today')]),
         ]),
         const StoreButtons(
@@ -52,19 +52,7 @@ class Header extends StatelessComponent {
           fontWeight: .w700,
           whiteSpace: .noWrap,
         ),
-        css('.brand-mark').styles(
-          display: .flex,
-          width: 32.px,
-          height: 32.px,
-          radius: .circular(8.px),
-          justifyContent: .center,
-          alignItems: .center,
-          color: betterBg,
-          fontSize: 0.6875.rem,
-          fontWeight: .w700,
-          letterSpacing: 0.04.em,
-          backgroundColor: betterAccent,
-        ),
+        css('img').styles(radius: .circular(8.px)),
       ]),
     ]),
   ];

@@ -40,7 +40,7 @@ class Footer extends StatelessComponent {
       div(classes: 'container', [
         div(classes: 'footer-top', [
           div(classes: 'footer-brand', [
-            span(classes: 'brand-mark', [.text('BT')]),
+            img(src: betterTodayIconSrc, alt: 'Better Today app icon', width: 40, height: 40),
             span([.text('Better Today')]),
           ]),
           div(classes: 'footer-columns', [
@@ -85,19 +85,7 @@ class Footer extends StatelessComponent {
           fontSize: 1.25.rem,
           fontWeight: .w700,
         ),
-        css('.brand-mark').styles(
-          display: .flex,
-          width: 40.px,
-          height: 40.px,
-          radius: .circular(10.px),
-          justifyContent: .center,
-          alignItems: .center,
-          color: betterBg,
-          fontSize: 0.8125.rem,
-          fontWeight: .w700,
-          letterSpacing: 0.04.em,
-          backgroundColor: betterAccent,
-        ),
+        css('img').styles(radius: .circular(10.px)),
       ]),
       css('.footer-columns').styles(
         display: .grid,

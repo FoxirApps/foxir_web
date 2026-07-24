@@ -44,7 +44,7 @@ const List<_AppEntry> _apps = [
     tagline: 'Daily Growth',
     description: 'One daily reflection. A better you. Reflect honestly, set clear intentions, '
         'and build the Mamba Mentality—small steps that compound into lifelong excellence.',
-    icon: null,
+    icon: betterTodayIconSrc,
     initials: 'BT',
     pageUrl: '/bettertoday',
     appStore: betterAppStoreUrl,

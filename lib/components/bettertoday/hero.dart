@@ -4,7 +4,7 @@ import 'package:jaspr/jaspr.dart';
 import '../../constants/theme.dart';
 import 'store_buttons.dart';
 
-/// Two-column hero: headline + subtitle + downloads | CSS phone placeholder.
+/// Two-column hero: headline + subtitle + downloads | phone visual.
 class Hero extends StatelessComponent {
   const Hero({super.key});
 
@@ -24,7 +24,7 @@ class Hero extends StatelessComponent {
           div(classes: 'phone-glow', [
             div(classes: 'phone-frame', [
               div(classes: 'phone-screen', [
-                span(classes: 'phone-mark', [.text('BT')]),
+                img(src: betterTodayIconSrc, alt: 'Better Today app', width: 120, height: 120),
                 span(classes: 'phone-label', [.text('Better Today')]),
                 span(classes: 'phone-tagline', [.text('Daily growth, one reflection at a time')]),
               ]),
@@ -108,19 +108,7 @@ class Hero extends StatelessComponent {
               'radial-gradient(ellipse 80% 50% at 50% 20%, rgba(255, 215, 0, 0.18), transparent 70%)',
         },
       ),
-      css('.phone-mark').styles(
-        display: .flex,
-        width: 72.px,
-        height: 72.px,
-        radius: .circular(20.px),
-        justifyContent: .center,
-        alignItems: .center,
-        color: betterBg,
-        fontSize: 1.25.rem,
-        fontWeight: .w700,
-        letterSpacing: 0.04.em,
-        backgroundColor: betterAccent,
-      ),
+      css('.phone-screen img').styles(radius: .circular(28.px)),
       css('.phone-label').styles(
         color: betterInk,
         fontSize: 1.25.rem,

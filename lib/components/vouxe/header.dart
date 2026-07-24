@@ -12,7 +12,7 @@ class Header extends StatelessComponent {
   Component build(BuildContext context) {
     return header([
       div(classes: 'container header-inner', [
-        a(classes: 'brand', href: '#top', [
+        a(classes: 'brand', href: '/vouxe#top', [
           img(src: 'images/vouxe-icon.png', alt: 'Vouxe app icon', width: 32, height: 32),
           span([.text('Vouxe')]),
         ]),
