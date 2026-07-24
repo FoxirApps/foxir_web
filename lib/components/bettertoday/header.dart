@@ -2,8 +2,9 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
+import '../store_buttons.dart';
 
-/// Sticky header: text brand | store links.
+/// Sticky header: text brand | store badges.
 class Header extends StatelessComponent {
   const Header({super.key});
 
@@ -15,10 +16,11 @@ class Header extends StatelessComponent {
           span(classes: 'brand-mark', [.text('BT')]),
           span([.text('Better Today')]),
         ]),
-        div(classes: 'header-stores', [
-          a(classes: 'store-link', href: betterAppStoreUrl, target: .blank, [.text('App Store')]),
-          a(classes: 'store-link outline', href: betterPlayStoreUrl, target: .blank, [.text('Google Play')]),
-        ]),
+        const StoreButtons(
+          appStoreUrl: betterAppStoreUrl,
+          playStoreUrl: betterPlayStoreUrl,
+          compact: true,
+        ),
       ]),
     ]);
   }
@@ -36,9 +38,9 @@ class Header extends StatelessComponent {
       css('.header-inner').styles(
         display: .flex,
         height: 64.px,
-        justifyContent: .spaceBetween,
         alignItems: .center,
         gap: .all(12.px),
+        justifyContent: .spaceBetween,
       ),
       css('.brand', [
         css('&').styles(
@@ -63,31 +65,6 @@ class Header extends StatelessComponent {
           letterSpacing: 0.04.em,
           backgroundColor: betterAccent,
         ),
-      ]),
-      css('.header-stores', [
-        css('&').styles(
-          display: .flex,
-          alignItems: .center,
-          gap: .all(8.px),
-        ),
-        css('.store-link', [
-          css('&').styles(
-            padding: .symmetric(horizontal: 14.px, vertical: 8.px),
-            radius: .circular(999.px),
-            color: betterBg,
-            fontSize: 0.8125.rem,
-            fontWeight: .w700,
-            whiteSpace: .noWrap,
-            backgroundColor: betterAccent,
-          ),
-          css('&:hover').styles(backgroundColor: const Color('#ffe34d')),
-          css('&.outline').styles(
-            border: const Border.all(style: .solid, color: betterHairline, width: Unit.pixels(1)),
-            color: betterInk,
-            backgroundColor: const Color('#ffffff0a'),
-          ),
-          css('&.outline:hover').styles(backgroundColor: betterElevated),
-        ]),
       ]),
     ]),
   ];

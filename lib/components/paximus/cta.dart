@@ -17,7 +17,7 @@ class Cta extends StatelessComponent {
           .text('Reduce stress and reclaim your calm. Discover how Paximus\u2019s simplicity '
               'can bring you peace every day—on your terms.'),
         ]),
-        const StoreButtons(inverted: true),
+        const StoreButtons(),
       ]),
     ]);
   }

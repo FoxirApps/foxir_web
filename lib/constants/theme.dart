@@ -104,6 +104,10 @@ const foxirInstagramUrl = 'https://www.instagram.com/foxirapps/';
 const foxirWeb3FormsAccessKey = 'bbd8179a-cdae-46c4-9404-305bbb697e7f';
 const foxirWeb3FormsEndpoint = 'https://api.web3forms.com/submit';
 
+/// Official store badge SVGs (shared across all app landings).
+const appStoreBadgeSrc = 'vectors/app_store_badge.svg';
+const playStoreBadgeSrc = 'vectors/google_play_badge.svg';
+
 // External links — Paximus.
 const appStoreUrl = 'https://apps.apple.com/us/app/ocd-anxiety-tracker-paximus/id6745874911';
 const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.foxir.paximus';

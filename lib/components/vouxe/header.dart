@@ -2,8 +2,9 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
+import '../store_buttons.dart';
 
-/// Sticky header: logo | store links.
+/// Sticky header: logo | store badges.
 class Header extends StatelessComponent {
   const Header({super.key});
 
@@ -15,10 +16,11 @@ class Header extends StatelessComponent {
           img(src: 'images/vouxe-icon.png', alt: 'Vouxe app icon', width: 32, height: 32),
           span([.text('Vouxe')]),
         ]),
-        div(classes: 'header-stores', [
-          a(classes: 'store-link', href: vouxeAppStoreUrl, target: .blank, [.text('App Store')]),
-          a(classes: 'store-link outline', href: vouxePlayStoreUrl, target: .blank, [.text('Google Play')]),
-        ]),
+        const StoreButtons(
+          appStoreUrl: vouxeAppStoreUrl,
+          playStoreUrl: vouxePlayStoreUrl,
+          compact: true,
+        ),
       ]),
     ]);
   }
@@ -36,9 +38,9 @@ class Header extends StatelessComponent {
       css('.header-inner').styles(
         display: .flex,
         height: 64.px,
-        justifyContent: .spaceBetween,
         alignItems: .center,
         gap: .all(12.px),
+        justifyContent: .spaceBetween,
       ),
       css('.brand', [
         css('&').styles(
@@ -51,31 +53,6 @@ class Header extends StatelessComponent {
           whiteSpace: .noWrap,
         ),
         css('img').styles(radius: .circular(8.px)),
-      ]),
-      css('.header-stores', [
-        css('&').styles(
-          display: .flex,
-          alignItems: .center,
-          gap: .all(8.px),
-        ),
-        css('.store-link', [
-          css('&').styles(
-            padding: .symmetric(horizontal: 14.px, vertical: 8.px),
-            radius: .circular(999.px),
-            color: vouxeBg,
-            fontSize: 0.8125.rem,
-            fontWeight: .w700,
-            whiteSpace: .noWrap,
-            backgroundColor: vouxeAccent,
-          ),
-          css('&:hover').styles(backgroundColor: const Color('#d4ff33')),
-          css('&.outline').styles(
-            border: const Border.all(style: .solid, color: vouxeHairline, width: Unit.pixels(1)),
-            color: vouxeInk,
-            backgroundColor: const Color('#ffffff0a'),
-          ),
-          css('&.outline:hover').styles(backgroundColor: vouxeElevated),
-        ]),
       ]),
     ]),
   ];

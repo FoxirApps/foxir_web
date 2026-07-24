@@ -2,6 +2,7 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
+import '../store_buttons.dart';
 
 typedef _AppEntry = ({
   String name,
@@ -76,9 +77,13 @@ class FoxirApps extends StatelessComponent {
                 p([.text(app.description)]),
                 div(classes: 'app-links', [
                   a(classes: 'app-link-primary', href: app.pageUrl, [.text('Learn more')]),
-                  a(classes: 'app-link', href: app.appStore, target: .blank, [.text('App Store')]),
-                  a(classes: 'app-link', href: app.playStore, target: .blank, [.text('Google Play')]),
+                  StoreButtons(
+                    appStoreUrl: app.appStore,
+                    playStoreUrl: app.playStore,
+                    compact: true,
+                  ),
                 ]),
+
               ]),
             ]),
         ]),
@@ -162,9 +167,10 @@ class FoxirApps extends StatelessComponent {
       css('.app-links', [
         css('&').styles(
           display: .flex,
-          justifyContent: .center,
+          alignItems: .center,
           flexWrap: .wrap,
-          gap: .all(10.px),
+          gap: .all(12.px),
+          justifyContent: .center,
         ),
         css('.app-link-primary', [
           css('&').styles(
@@ -177,19 +183,8 @@ class FoxirApps extends StatelessComponent {
           ),
           css('&:hover').styles(backgroundColor: const Color('#ff6a2e')),
         ]),
-        css('.app-link', [
-          css('&').styles(
-            padding: .symmetric(horizontal: 18.px, vertical: 8.px),
-            border: const Border.all(style: .solid, color: foxirHairline, width: Unit.pixels(1)),
-            radius: .circular(999.px),
-            color: foxirInk,
-            fontSize: 0.875.rem,
-            fontWeight: .w600,
-            backgroundColor: const Color('#ffffff0a'),
-          ),
-          css('&:hover').styles(backgroundColor: foxirElevated),
-        ]),
       ]),
+
     ]),
     css.media(desktop, [
       css('.foxir .apps', [
