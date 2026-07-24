@@ -100,6 +100,10 @@ const foxirContactUrl = '/contact';
 const foxirEmail = 'foxirapps@gmail.com';
 const foxirInstagramUrl = 'https://www.instagram.com/foxirapps/';
 
+/// Public Web3Forms access key (safe for client-side use).
+const foxirWeb3FormsAccessKey = 'bbd8179a-cdae-46c4-9404-305bbb697e7f';
+const foxirWeb3FormsEndpoint = 'https://api.web3forms.com/submit';
+
 // External links — Paximus.
 const appStoreUrl = 'https://apps.apple.com/us/app/ocd-anxiety-tracker-paximus/id6745874911';
 const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.foxir.paximus';
