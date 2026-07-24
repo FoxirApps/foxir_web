@@ -1,6 +1,7 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 
+import 'pages/bettertoday.dart';
 import 'pages/home.dart';
 import 'pages/paximus.dart';
 import 'pages/vouxe.dart';
@@ -26,6 +27,11 @@ class App extends StatelessComponent {
         path: '/vouxe',
         title: 'Vouxe — Build discipline you can see',
         builder: (context, state) => const VouxePage(),
+      ),
+      Route(
+        path: '/bettertoday',
+        title: 'Better Today — Take Charge of Your Daily Growth',
+        builder: (context, state) => const BetterTodayPage(),
       ),
     ]);
   }

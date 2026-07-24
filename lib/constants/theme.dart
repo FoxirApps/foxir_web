@@ -66,6 +66,29 @@ const vouxeElevated = Color('#1a1a1a');
 /// Subtle border on dark surfaces.
 const vouxeHairline = Color('#2a2a2e');
 
+// Better Today (dark + gold) tokens — matched to AppColors.primary.
+
+/// Page base near-black.
+const betterBg = Color('#0a0a0a');
+
+/// Gold accent from the Better Today brand.
+const betterAccent = Color('#ffd700');
+
+/// Primary text on dark surfaces.
+const betterInk = Color('#f5f5f7');
+
+/// Secondary text on dark surfaces.
+const betterMuted = Color('#a8a8ad');
+
+/// Elevated card / panel surface.
+const betterSurface = Color('#121212');
+
+/// Slightly brighter elevated surface.
+const betterElevated = Color('#1a1a1a');
+
+/// Subtle border on dark surfaces.
+const betterHairline = Color('#2a2a2e');
+
 /// Max content width of the page.
 final contentMaxWidth = 1100.px;
 
@@ -94,3 +117,13 @@ const vouxePrivacyUrl = 'https://foxirapps.co/vouxe.app/privacy-policy';
 const vouxeTermsUrl = 'https://foxirapps.co/vouxe.app/terms-of-service';
 const vouxeTiktokUrl = 'https://www.tiktok.com/@vouxe.app';
 const vouxeInstagramUrl = 'https://www.instagram.com/vouxe.app';
+
+// External links — Better Today.
+const betterAppStoreUrl =
+    'https://apps.apple.com/us/app/better-today-daily-growth/id6748441674';
+const betterPlayStoreUrl =
+    'https://play.google.com/store/apps/details?id=com.foxir.bettertoday';
+const betterPrivacyUrl = 'https://foxirapps.co/bettertoday/privacy-policy';
+const betterTermsUrl = 'https://foxirapps.co/bettertoday/terms-of-service';
+const betterTiktokUrl = 'https://www.tiktok.com/@bettertoday.app';
+const betterInstagramUrl = 'https://www.instagram.com/bettertoday.app';

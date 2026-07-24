@@ -7,7 +7,8 @@ typedef _AppEntry = ({
   String name,
   String tagline,
   String description,
-  String icon,
+  String? icon,
+  String initials,
   String pageUrl,
   String appStore,
   String playStore,
@@ -21,6 +22,7 @@ const List<_AppEntry> _apps = [
     description: 'Your peace of mind, like never before. The simple, calm, and caring way to '
         'capture worries, validate tasks with evidence, and end every day with reassurance.',
     icon: 'images/paximus-icon.png',
+    initials: 'PX',
     pageUrl: '/paximus',
     appStore: appStoreUrl,
     playStore: playStoreUrl,
@@ -31,9 +33,21 @@ const List<_AppEntry> _apps = [
     description: 'Build discipline you can see. Turn daily effort into visible progress, '
         'powerful streaks, and proof worth sharing.',
     icon: 'images/vouxe-icon.png',
+    initials: 'VX',
     pageUrl: '/vouxe',
     appStore: vouxeAppStoreUrl,
     playStore: vouxePlayStoreUrl,
+  ),
+  (
+    name: 'Better Today',
+    tagline: 'Daily Growth',
+    description: 'Take charge of your daily growth. Reflect each day, embrace the Mamba Mentality, '
+        'and turn small steps into lifelong excellence.',
+    icon: null,
+    initials: 'BT',
+    pageUrl: '/bettertoday',
+    appStore: betterAppStoreUrl,
+    playStore: betterPlayStoreUrl,
   ),
 ];
 
@@ -52,7 +66,10 @@ class FoxirApps extends StatelessComponent {
         div(classes: 'apps-grid', [
           for (final app in _apps)
             div(classes: 'app-card', [
-              img(src: app.icon, alt: '${app.name} app icon', width: 72, height: 72),
+              if (app.icon case final icon?)
+                img(src: icon, alt: '${app.name} app icon', width: 72, height: 72)
+              else
+                span(classes: 'app-initials', [.text(app.initials)]),
               div(classes: 'app-info', [
                 span(classes: 'app-tagline', [.text(app.tagline)]),
                 h3([.text(app.name)]),
@@ -110,6 +127,19 @@ class FoxirApps extends StatelessComponent {
           raw: {'backdrop-filter': 'blur(12px)'},
         ),
         css('img').styles(radius: .circular(18.px)),
+        css('.app-initials').styles(
+          display: .flex,
+          width: 72.px,
+          height: 72.px,
+          radius: .circular(18.px),
+          justifyContent: .center,
+          alignItems: .center,
+          color: betterBg,
+          fontSize: 1.25.rem,
+          fontWeight: .w700,
+          letterSpacing: 0.04.em,
+          backgroundColor: betterAccent,
+        ),
         css('.app-tagline').styles(
           color: foxirAccent,
           fontSize: 0.8125.rem,
