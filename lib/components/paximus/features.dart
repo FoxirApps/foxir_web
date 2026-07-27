@@ -14,34 +14,35 @@ typedef _Feature = ({
 const List<_Feature> _features = [
   (
     kind: _FeatureKind.snap,
-    title: 'Capture proof in seconds',
+    title: 'Capture one clear record',
     description:
-        'Use Snap to save a photo and timestamp while the moment is fresh—then move forward without another check.',
+        'Save a timestamped photo as you complete an everyday task, then let Paximus keep it organized for you.',
   ),
   (
     kind: _FeatureKind.routines,
-    title: 'Turn checks into calm routines',
-    description: 'Follow simple, proof-friendly steps for leaving home, bedtime, kitchen safety, work, or travel.',
+    title: 'Build calmer routines',
+    description: 'Create simple steps for leaving home, bedtime, kitchen safety, work, personal care, or travel.',
   ),
   (
     kind: _FeatureKind.history,
-    title: 'Find the moment when doubt returns',
-    description: 'Your snaps, completed routines, notes, moods, and calm sessions stay organized in one clear history.',
+    title: 'Find the moment, fast',
+    description:
+        'See photo records, completed routines, notes, moods, and calm sessions together in one clear history.',
   ),
   (
     kind: _FeatureKind.mood,
-    title: 'Check in with how you feel',
-    description: 'Track today’s mood and notice patterns without scores, streaks, or pressure.',
+    title: 'Notice how your day feels',
+    description: 'Log your mood and spot patterns over time, without scores, streaks, or judgment.',
   ),
   (
     kind: _FeatureKind.notes,
-    title: 'Write it—or say it out loud',
-    description: 'Save a thought as a text or voice note, with its mood and time attached.',
+    title: 'Write it—or say it',
+    description: 'Save a personal text or voice note with its mood and time attached.',
   ),
   (
     kind: _FeatureKind.calm,
-    title: 'Reset in a few quiet minutes',
-    description: 'Choose guided breathing, grounding, body release, sleep prep, or desk-break exercises.',
+    title: 'Reset when thoughts feel loud',
+    description: 'Choose a short breathing, grounding, body-release, sleep-prep, or desk-break exercise.',
   ),
 ];
 
@@ -56,12 +57,12 @@ class Features extends StatelessComponent {
         div(classes: 'features-heading', [
           div(classes: 'features-title-group', [
             //span(classes: 'features-eyebrow', [.text('Features')]),
-            h2([.text('Everything you need to trust the moment.')]),
+            h2([.text('More than a photo. One calm place for everyday doubt.')]),
           ]),
           p(classes: 'features-intro', [
             .text(
-              'Capture reassuring proof, build calmer routines, and find gentle ways '
-              'to settle your mind when doubt returns.',
+              'Capture a moment, follow a routine, notice patterns, and use short '
+              'grounding tools—without streaks, scores, or pressure.',
             ),
           ]),
         ]),

@@ -1,6 +1,7 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 
+import 'components/paximus/metadata.dart';
 import 'pages/bettertoday.dart';
 import 'pages/contact.dart';
 import 'pages/home.dart';
@@ -29,7 +30,7 @@ class App extends StatelessComponent {
         ),
         Route(
           path: '/paximus',
-          title: 'Paximus — OCD & Anxiety Tracking That Feels Calm',
+          title: paximusPageTitle,
           builder: (context, state) => const PaximusPage(),
         ),
         Route(

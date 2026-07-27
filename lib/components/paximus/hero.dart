@@ -13,15 +13,19 @@ class Hero extends StatelessComponent {
     return section(id: 'top', classes: 'hero', [
       div(classes: 'container hero-grid', [
         div(classes: 'hero-copy', [
-          h1([.text('When OCD asks, “Did I lock the door?” show it the proof.')]),
+          span(classes: 'hero-eyebrow', [.text('OCD & ANXIETY TRACKER')]),
+          h1([.text('“Did I lock it?” Save the moment. Keep moving.')]),
           p(classes: 'hero-subtitle', [
             .text(
-              'Paximus is a private OCD and anxiety tracker that saves photo evidence '
-              'for completed daily tasks—so when doubt returns, you can trust the moment, '
-              'avoid another check, and move forward.',
+              'Capture one timestamped photo as you complete an everyday task. '
+              'Paximus keeps calming routines, mood check-ins, personal notes, '
+              'and guided resets close when thoughts feel loud.',
             ),
           ]),
           const StoreButtons(alignStart: true),
+          p(classes: 'hero-trust', [
+            .text('Free to download \u2022 Available on iPhone & Android'),
+          ]),
         ]),
         div(classes: 'hero-visual', [
           div(classes: 'phone-showcase', [
@@ -77,7 +81,10 @@ class Hero extends StatelessComponent {
         position: const Position.relative(),
         padding: .symmetric(vertical: 48.px),
         overflow: Overflow.hidden,
-        raw: {'isolation': 'isolate'},
+        raw: {
+          'isolation': 'isolate',
+          'scroll-margin-top': '64px',
+        },
       ),
       css('&::before').styles(
         opacity: 0.72,
@@ -126,6 +133,13 @@ class Hero extends StatelessComponent {
         gap: .all(20.px),
         textAlign: .start,
       ),
+      css('.hero-eyebrow').styles(
+        color: const Color('#60778a'),
+        fontSize: 0.8125.rem,
+        fontWeight: .w700,
+        textTransform: .upperCase,
+        letterSpacing: 0.14.em,
+      ),
       css('h1').styles(
         maxWidth: 14.em,
         fontSize: 2.25.rem,
@@ -138,6 +152,12 @@ class Hero extends StatelessComponent {
         color: muted,
         fontSize: 1.0625.rem,
         fontWeight: .w500,
+      ),
+      css('.hero-trust').styles(
+        color: const Color('#60778a'),
+        fontSize: 0.8125.rem,
+        fontWeight: .w600,
+        letterSpacing: 0.01.em,
       ),
       css('.hero-visual').styles(
         display: .flex,

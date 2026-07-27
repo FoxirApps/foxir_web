@@ -12,14 +12,20 @@ class Cta extends StatelessComponent {
   Component build(BuildContext context) {
     return section(id: 'download', classes: 'cta', [
       div(classes: 'container cta-inner', [
-        h2([.text('You checked it. Paximus remembers.')]),
-        p([
+        h2([.text('Your mind doesn’t have to hold every detail.')]),
+        p(classes: 'cta-copy', [
           .text(
-            'Save photo evidence once. When doubt returns, open Paximus, '
-            'trust the moment, and move forward—without checking twice.',
+            'Keep everyday records, routines, notes, moods, and calming tools '
+            'together in Paximus—and get back to what matters.',
           ),
         ]),
         const StoreButtons(),
+        p(classes: 'cta-disclaimer', [
+          .text(
+            'Paximus is a wellness support tool, not a substitute for professional '
+            'medical advice, diagnosis, or treatment.',
+          ),
+        ]),
       ]),
     ]);
   }
@@ -115,11 +121,19 @@ class Cta extends StatelessComponent {
         letterSpacing: (-0.02).em,
         lineHeight: 1.15.em,
       ),
-      css('p').styles(
+      css('.cta-copy').styles(
         maxWidth: 32.em,
         color: mutedOnDark,
         fontSize: 1.125.rem,
         fontWeight: .w500,
+      ),
+      css('.cta-disclaimer').styles(
+        maxWidth: 48.em,
+        margin: .only(top: 8.px),
+        color: const Color('#85858b'),
+        fontSize: 0.8125.rem,
+        fontWeight: .w500,
+        lineHeight: 1.55.em,
       ),
     ]),
     css.media(desktop, [

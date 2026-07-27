@@ -7,6 +7,7 @@ import '../components/paximus/features.dart';
 import '../components/paximus/footer.dart';
 import '../components/paximus/header.dart';
 import '../components/paximus/hero.dart';
+import '../components/paximus/metadata.dart';
 import '../constants/theme.dart';
 
 /// The Paximus app landing page, served at `/paximus`.
@@ -16,6 +17,7 @@ class PaximusPage extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'paximus', const [
+      PaximusMetadata(),
       AppFavicon(href: paximusIconSrc),
       Header(),
       Hero(),

@@ -59,7 +59,7 @@ class Footer extends StatelessComponent {
           ]),
         ]),
         div(classes: 'footer-bottom', [
-          span([.text('\u00A9 2025 Paximus. All rights reserved.')]),
+          span([.text('\u00A9 2026 Paximus. All rights reserved.')]),
           a(href: '/', [.text('Made by Foxir Apps')]),
         ]),
       ]),
@@ -119,7 +119,9 @@ class Footer extends StatelessComponent {
           display: .flex,
           margin: .only(top: 48.px),
           padding: .symmetric(vertical: 24.px),
-          border: const Border.only(top: BorderSide(style: .solid, color: hairline, width: Unit.pixels(1))),
+          border: const Border.only(
+            top: BorderSide(style: .solid, color: hairline, width: Unit.pixels(1)),
+          ),
           justifyContent: .spaceBetween,
           flexWrap: .wrap,
           gap: .all(8.px),

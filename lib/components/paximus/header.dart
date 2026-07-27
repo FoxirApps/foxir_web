@@ -16,7 +16,7 @@ class Header extends StatelessComponent {
           span([.text('Paximus')]),
         ]),
         a(classes: 'download-cta', href: '/paximus#download', [
-          span([.text('Download now')]),
+          span([.text('Get Paximus')]),
           span(classes: 'download-cta-icon', [.text('↓')]),
         ]),
       ]),
