@@ -26,7 +26,6 @@ import 'package:foxir_web/components/paximus/features.dart'
 import 'package:foxir_web/components/paximus/footer.dart' as _paximus_footer;
 import 'package:foxir_web/components/paximus/header.dart' as _paximus_header;
 import 'package:foxir_web/components/paximus/hero.dart' as _paximus_hero;
-import 'package:foxir_web/components/paximus/reviews.dart' as _reviews;
 import 'package:foxir_web/components/vouxe/cta.dart' as _vouxe_cta;
 import 'package:foxir_web/components/vouxe/features.dart' as _vouxe_features;
 import 'package:foxir_web/components/vouxe/footer.dart' as _vouxe_footer;
@@ -79,7 +78,6 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._paximus_footer.Footer.styles,
     ..._paximus_header.Header.styles,
     ..._paximus_hero.Hero.styles,
-    ..._reviews.Reviews.styles,
     ..._vouxe_cta.Cta.styles,
     ..._vouxe_features.Features.styles,
     ..._vouxe_footer.Footer.styles,

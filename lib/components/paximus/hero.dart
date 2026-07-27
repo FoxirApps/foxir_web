@@ -13,20 +13,28 @@ class Hero extends StatelessComponent {
     return section(id: 'top', classes: 'hero', [
       div(classes: 'container hero-grid', [
         div(classes: 'hero-copy', [
-          h1([.text('Finally, OCD & anxiety tracking that feels calm')]),
+          h1([.text('When OCD asks, “Did I lock the door?” show it the proof.')]),
           p(classes: 'hero-subtitle', [
-            .text('Paximus helps you capture worries, validate tasks with evidence, '
-                'and close every day with quiet reassurance—without the spiral.'),
+            .text(
+              'Paximus is a private OCD and anxiety tracker that saves photo evidence '
+              'for completed daily tasks—so when doubt returns, you can trust the moment, '
+              'avoid another check, and move forward.',
+            ),
           ]),
           const StoreButtons(alignStart: true),
         ]),
         div(classes: 'hero-visual', [
-          div(classes: 'phone-frame', [
-            div(classes: 'phone-screen', [
-              img(src: '/images/paximus-icon.png', alt: 'Paximus app', width: 120, height: 120),
-              span(classes: 'phone-label', [.text('Paximus')]),
-              span(classes: 'phone-tagline', [.text('Calm task tracking')]),
-            ]),
+          div(classes: 'phone-showcase', [
+            img(
+              classes: 'phone-mockup phone-mockup-a',
+              src: '/images/land_1.png',
+              alt: 'Paximus OCD and anxiety tracker capturing photo evidence of a locked front door',
+            ),
+            img(
+              classes: 'phone-mockup phone-mockup-b',
+              src: '/images/land_2.png',
+              alt: 'Paximus confirmation screen showing saved evidence that the front door is locked',
+            ),
           ]),
         ]),
       ]),
@@ -35,6 +43,13 @@ class Hero extends StatelessComponent {
 
   @css
   static List<StyleRule> get styles => [
+    css.keyframes('pax-phone-fade', {
+      '0%': Styles(opacity: 1),
+      '33%': Styles(opacity: 1),
+      '50%': Styles(opacity: 0),
+      '83%': Styles(opacity: 0),
+      '100%': Styles(opacity: 1),
+    }),
     css('.paximus .hero', [
       css('&').styles(padding: .symmetric(vertical: 48.px)),
       css('.hero-grid').styles(
@@ -54,8 +69,8 @@ class Hero extends StatelessComponent {
         maxWidth: 14.em,
         fontSize: 2.25.rem,
         fontWeight: .w700,
-        lineHeight: 1.12.em,
         letterSpacing: (-0.03).em,
+        lineHeight: 1.12.em,
       ),
       css('.hero-subtitle').styles(
         maxWidth: 34.em,
@@ -65,46 +80,34 @@ class Hero extends StatelessComponent {
       ),
       css('.hero-visual').styles(
         display: .flex,
-        justifyContent: .center,
         width: 100.percent,
-      ),
-      css('.phone-frame').styles(
-        padding: .all(12.px),
-        border: const Border.all(style: .solid, color: Color('#d8dde6'), width: Unit.pixels(1)),
-        radius: .circular(40.px),
-        backgroundColor: const Color('#1d1d1f'),
-        shadow: const BoxShadow(
-          offsetX: Unit.zero,
-          offsetY: Unit.pixels(24),
-          blur: Unit.pixels(48),
-          color: Color('#1d1d1f22'),
-        ),
-      ),
-      css('.phone-screen').styles(
-        display: .flex,
-        width: 240.px,
-        height: 480.px,
-        padding: .all(28.px),
-        radius: .circular(30.px),
-        flexDirection: .column,
         justifyContent: .center,
-        alignItems: .center,
-        gap: .all(16.px),
-        backgroundColor: const Color('#f5f7fa'),
+      ),
+      css('.phone-showcase').styles(
+        position: const Position.relative(),
+        width: 250.px,
+        maxWidth: 78.vw,
         raw: {
-          'background-image':
-              'radial-gradient(ellipse 80% 50% at 50% 20%, rgba(120, 160, 200, 0.25), transparent 70%)',
+          'aspect-ratio': '1231 / 2488',
+          'filter': 'drop-shadow(0 24px 36px rgba(29, 29, 31, 0.16))',
         },
       ),
-      css('.phone-screen img').styles(radius: .circular(28.px)),
-      css('.phone-label').styles(
-        fontSize: 1.25.rem,
-        fontWeight: .w700,
+      css('.phone-mockup').styles(
+        position: const Position.absolute(top: Unit.zero, left: Unit.zero, right: Unit.zero, bottom: Unit.zero),
+        width: 100.percent,
+        height: 100.percent,
+        opacity: 0,
+        raw: {
+          'object-fit': 'contain',
+          'will-change': 'opacity',
+        },
       ),
-      css('.phone-tagline').styles(
-        color: muted,
-        fontSize: 0.875.rem,
-        fontWeight: .w500,
+      css('.phone-mockup-a').styles(
+        opacity: 1,
+        raw: {'animation': 'pax-phone-fade 7s ease-in-out infinite both'},
+      ),
+      css('.phone-mockup-b').styles(
+        raw: {'animation': 'pax-phone-fade 7s -3.5s ease-in-out infinite both'},
       ),
     ]),
     css.media(desktop, [
@@ -118,7 +121,7 @@ class Hero extends StatelessComponent {
         ),
         css('.hero-copy').styles(flex: const Flex.grow(1)),
         css('h1').styles(fontSize: 3.25.rem),
-        css('.phone-screen').styles(width: 260.px, height: 520.px),
+        css('.phone-showcase').styles(width: 270.px),
       ]),
     ]),
   ];
