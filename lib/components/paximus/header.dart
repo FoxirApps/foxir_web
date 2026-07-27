@@ -15,7 +15,7 @@ class Header extends StatelessComponent {
           img(src: '/images/paximus-icon.png', alt: 'Paximus app icon', width: 32, height: 32),
           span([.text('Paximus')]),
         ]),
-        a(classes: 'download-cta', href: '/paximus#top', [
+        a(classes: 'download-cta', href: '/paximus#download', [
           span([.text('Download now')]),
           span(classes: 'download-cta-icon', [.text('↓')]),
         ]),
