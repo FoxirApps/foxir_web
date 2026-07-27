@@ -50,10 +50,71 @@ class Hero extends StatelessComponent {
       '83%': Styles(opacity: 0),
       '100%': Styles(opacity: 1),
     }),
+    css.keyframes('pax-gradient-flow-cool', {
+      '0%': const Styles(
+        raw: {'transform': 'translate3d(-3%, -2%, 0) scale(1)'},
+      ),
+      '50%': const Styles(
+        raw: {'transform': 'translate3d(2%, 3%, 0) scale(1.06)'},
+      ),
+      '100%': const Styles(
+        raw: {'transform': 'translate3d(4%, -1%, 0) scale(1.02)'},
+      ),
+    }),
+    css.keyframes('pax-gradient-flow-warm', {
+      '0%': const Styles(
+        raw: {'transform': 'translate3d(3%, 2%, 0) scale(1.04)'},
+      ),
+      '50%': const Styles(
+        raw: {'transform': 'translate3d(-4%, -2%, 0) scale(1)'},
+      ),
+      '100%': const Styles(
+        raw: {'transform': 'translate3d(1%, -4%, 0) scale(1.07)'},
+      ),
+    }),
     css('.paximus .hero', [
-      css('&').styles(padding: .symmetric(vertical: 48.px)),
+      css('&').styles(
+        position: const Position.relative(),
+        padding: .symmetric(vertical: 48.px),
+        overflow: Overflow.hidden,
+        raw: {'isolation': 'isolate'},
+      ),
+      css('&::before').styles(
+        opacity: 0.72,
+        raw: {
+          'content': '""',
+          'position': 'absolute',
+          'z-index': '0',
+          'inset': '-18% -12%',
+          'pointer-events': 'none',
+          'background':
+              'radial-gradient(ellipse 44% 48% at 16% 30%, rgba(121, 168, 255, 0.28), transparent 70%), '
+              'radial-gradient(ellipse 40% 45% at 86% 20%, rgba(112, 215, 184, 0.23), transparent 72%)',
+          'filter': 'blur(28px)',
+          'will-change': 'transform',
+          'animation': 'pax-gradient-flow-cool 18s ease-in-out infinite alternate',
+        },
+      ),
+      css('&::after').styles(
+        opacity: 0.56,
+        raw: {
+          'content': '""',
+          'position': 'absolute',
+          'z-index': '0',
+          'inset': '-14% -10%',
+          'pointer-events': 'none',
+          'background':
+              'radial-gradient(ellipse 42% 38% at 58% 76%, rgba(255, 181, 128, 0.24), transparent 72%), '
+              'radial-gradient(ellipse 30% 34% at 28% 68%, rgba(231, 151, 205, 0.17), transparent 74%)',
+          'filter': 'blur(34px)',
+          'will-change': 'transform',
+          'animation': 'pax-gradient-flow-warm 22s ease-in-out infinite alternate',
+        },
+      ),
       css('.hero-grid').styles(
         display: .flex,
+        position: const Position.relative(),
+        zIndex: const ZIndex(1),
         flexDirection: .column,
         alignItems: .center,
         gap: .all(40.px),
@@ -122,6 +183,8 @@ class Hero extends StatelessComponent {
         css('.hero-copy').styles(flex: const Flex.grow(1)),
         css('h1').styles(fontSize: 3.25.rem),
         css('.phone-showcase').styles(width: 270.px),
+        css('&::before').styles(opacity: 0.86),
+        css('&::after').styles(opacity: 0.68),
       ]),
     ]),
   ];
