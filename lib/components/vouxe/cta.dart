@@ -10,11 +10,13 @@ class Cta extends StatelessComponent {
 
   @override
   Component build(BuildContext context) {
-    return section(classes: 'cta', [
+    return section(id: 'download', classes: 'cta', [
       div(classes: 'container cta-inner', [
         h2([
-          .text('A premium challenge app for building discipline, tracking progress, '
-              'and turning consistency into proof.'),
+          .text(
+            'A premium challenge app for building discipline, tracking progress, '
+            'and turning consistency into proof.',
+          ),
         ]),
         const StoreButtons(),
       ]),
@@ -38,8 +40,7 @@ class Cta extends StatelessComponent {
         textAlign: .center,
         backgroundColor: vouxeSurface,
         raw: {
-          'background-image':
-              'radial-gradient(ellipse 80% 70% at 50% 0%, rgba(200, 240, 0, 0.16), transparent 65%)',
+          'background-image': 'radial-gradient(ellipse 80% 70% at 50% 0%, rgba(200, 240, 0, 0.16), transparent 65%)',
         },
       ),
       css('h2').styles(

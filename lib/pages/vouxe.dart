@@ -7,7 +7,6 @@ import '../components/vouxe/features.dart';
 import '../components/vouxe/footer.dart';
 import '../components/vouxe/header.dart';
 import '../components/vouxe/hero.dart';
-import '../components/vouxe/testimonials.dart';
 import '../constants/theme.dart';
 
 /// The Vouxe app landing page, served at `/vouxe`.
@@ -23,7 +22,6 @@ class VouxePage extends StatelessComponent {
       Header(),
       Hero(),
       Features(),
-      Testimonials(),
       Cta(),
       Footer(),
     ]);
