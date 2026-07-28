@@ -56,6 +56,13 @@ void main() {
     ],
     head: [
       link(id: 'site-favicon', rel: 'icon', type: 'image/png', href: foxirFaviconSrc),
+      script(
+        content:
+            'window.va = window.va || function () { '
+            '(window.vaq = window.vaq || []).push(arguments); '
+            '};',
+      ),
+      script(src: '/_vercel/insights/script.js', defer: true),
     ],
     body: App(),
   ));

@@ -1,6 +1,16 @@
 {
   "redirects": [
     {
+      "source": "/.well-known/app-ads.txt",
+      "destination": "/app-ads.txt",
+      "permanent": true
+    },
+    {
+      "source": "/vouxe.app",
+      "destination": "/vouxe",
+      "permanent": true
+    },
+    {
       "source": "/vouxe.app/privacy-policy",
       "destination": "/vouxe/privacy-policy",
       "permanent": true
