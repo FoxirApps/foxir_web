@@ -32,6 +32,7 @@ class VouxePage extends StatelessComponent {
     css('.vouxe').styles(
       minHeight: 100.vh,
       color: vouxeInk,
+      fontFamily: const .list([FontFamily('Space Grotesk'), FontFamilies.sansSerif]),
       backgroundColor: vouxeBg,
       raw: {
         'background-image':
