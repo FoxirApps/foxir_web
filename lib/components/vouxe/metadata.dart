@@ -48,6 +48,10 @@ class VouxeMetadata extends StatelessComponent {
         meta(name: 'twitter:description', content: vouxePageDescription),
         meta(name: 'twitter:image', content: vouxeOgImageUrl),
         meta(name: 'twitter:image:alt', content: vouxeOgImageAlt),
+        meta(
+          name: 'apple-itunes-app',
+          content: 'app-id=6756347081, app-argument=$vouxeCanonicalUrl',
+        ),
         script(
           id: 'vouxe-structured-data',
           attributes: const {'type': 'application/ld+json'},
