@@ -88,8 +88,8 @@ class Hero extends StatelessComponent {
         width: 100.percent,
       ),
       css('.hero-phones').styles(
-        width: 100.percent,
-        maxWidth: 520.px,
+        width: 110.percent,
+        maxWidth: 570.px,
       ),
     ]),
     css.media(desktop, [
@@ -104,7 +104,10 @@ class Hero extends StatelessComponent {
         css('.hero-copy').styles(flex: const Flex.grow(1)),
         css('.hero-visual').styles(flex: const Flex.grow(1)),
         css('.hero-headline').styles(fontSize: 3.25.rem),
-        css('.hero-phones').styles(maxWidth: 560.px),
+        css('.hero-phones').styles(
+          width: 100.percent,
+          maxWidth: 640.px,
+        ),
       ]),
     ]),
   ];
