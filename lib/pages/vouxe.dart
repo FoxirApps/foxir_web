@@ -7,6 +7,7 @@ import '../components/vouxe/features.dart';
 import '../components/vouxe/footer.dart';
 import '../components/vouxe/header.dart';
 import '../components/vouxe/hero.dart';
+import '../components/vouxe/metadata.dart';
 import '../constants/theme.dart';
 
 /// The Vouxe app landing page, served at `/vouxe`.
@@ -18,6 +19,7 @@ class VouxePage extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'vouxe', const [
+      VouxeMetadata(),
       AppFavicon(href: vouxeIconSrc),
       Header(),
       Hero(),
