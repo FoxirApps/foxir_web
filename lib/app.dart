@@ -2,6 +2,7 @@ import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 
 import 'components/paximus/metadata.dart';
+import 'components/vouxe/metadata.dart';
 import 'pages/bettertoday.dart';
 import 'pages/contact.dart';
 import 'pages/home.dart';
@@ -45,7 +46,7 @@ class App extends StatelessComponent {
         ),
         Route(
           path: '/vouxe',
-          title: 'Vouxe — Build Discipline You Can See',
+          title: vouxePageTitle,
           builder: (context, state) => const VouxePage(),
         ),
         Route(

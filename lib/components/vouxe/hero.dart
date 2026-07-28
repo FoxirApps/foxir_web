@@ -13,10 +13,16 @@ class Hero extends StatelessComponent {
     return section(id: 'top', classes: 'hero', [
       div(classes: 'container hero-grid', [
         div(classes: 'hero-copy', [
-          h1([.text('Build discipline you can see')]),
+          h1(classes: 'hero-headline', [
+            span(classes: 'headline-line', [.text('Commit.')]),
+            span(classes: 'headline-line', [.text('Show up.')]),
+            span(classes: 'headline-line headline-accent', [.text('Level up.')]),
+          ]),
           p(classes: 'hero-subtitle', [
-            .text('Vouxe is the challenge tracker that turns daily check-ins into '
-                'visible streaks, clear stats, and milestones worth sharing.'),
+            .text(
+              'Sign your challenge, check in every day, and turn consistency '
+              'into streaks, XP, and wins.',
+            ),
           ]),
           const StoreButtons(alignStart: true),
         ]),
@@ -34,7 +40,10 @@ class Hero extends StatelessComponent {
   @css
   static List<StyleRule> get styles => [
     css('.vouxe .hero', [
-      css('&').styles(padding: .symmetric(vertical: 48.px)),
+      css('&').styles(
+        padding: .symmetric(vertical: 48.px),
+        raw: {'scroll-margin-top': '64px'},
+      ),
       css('.hero-grid').styles(
         display: .flex,
         flexDirection: .column,
@@ -48,13 +57,24 @@ class Hero extends StatelessComponent {
         gap: .all(20.px),
         textAlign: .start,
       ),
-      css('h1').styles(
+      css('.hero-headline').styles(
+        display: .flex,
         maxWidth: 11.em,
         color: vouxeInk,
+        flexDirection: .column,
+        gap: .all(2.px),
         fontSize: 2.25.rem,
         fontWeight: .w700,
-        lineHeight: 1.1.em,
-        letterSpacing: (-0.03).em,
+        lineHeight: 0.96.em,
+        letterSpacing: (-0.04).em,
+        textTransform: .upperCase,
+      ),
+      css('.headline-line').styles(
+        display: .block,
+        whiteSpace: .noWrap,
+      ),
+      css('.headline-accent').styles(
+        color: vouxeAccent,
       ),
       css('.hero-subtitle').styles(
         maxWidth: 34.em,
@@ -68,8 +88,8 @@ class Hero extends StatelessComponent {
         width: 100.percent,
       ),
       css('.hero-phones').styles(
-        width: 100.percent,
-        maxWidth: 520.px,
+        width: 110.percent,
+        maxWidth: 570.px,
       ),
     ]),
     css.media(desktop, [
@@ -83,8 +103,11 @@ class Hero extends StatelessComponent {
         ),
         css('.hero-copy').styles(flex: const Flex.grow(1)),
         css('.hero-visual').styles(flex: const Flex.grow(1)),
-        css('h1').styles(fontSize: 3.25.rem),
-        css('.hero-phones').styles(maxWidth: 560.px),
+        css('.hero-headline').styles(fontSize: 3.25.rem),
+        css('.hero-phones').styles(
+          width: 100.percent,
+          maxWidth: 640.px,
+        ),
       ]),
     ]),
   ];
