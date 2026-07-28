@@ -78,21 +78,50 @@ class Features extends StatelessComponent {
                 attributes: {'aria-label': _features[i].title},
               ),
             div(classes: 'features-layout', [
-              div(classes: 'feature-menu', [
-                for (var i = 0; i < _features.length; i++)
-                  label(
-                    htmlFor: 'vouxe-feature-${i + 1}',
-                    classes: 'feature-option feature-option-${i + 1}',
-                    [
-                      span(classes: 'feature-index', [
-                        .text((i + 1).toString().padLeft(2, '0')),
-                      ]),
-                      div(classes: 'feature-option-copy', [
-                        h3([.text(_features[i].title)]),
-                        p([.text(_features[i].description)]),
-                      ]),
-                    ],
-                  ),
+              div(classes: 'feature-navigation', [
+                div(classes: 'feature-menu', [
+                  for (var i = 0; i < _features.length; i++)
+                    label(
+                      htmlFor: 'vouxe-feature-${i + 1}',
+                      classes: 'feature-option feature-option-${i + 1}',
+                      [
+                        span(classes: 'feature-index', [
+                          .text((i + 1).toString().padLeft(2, '0')),
+                        ]),
+                        div(classes: 'feature-option-copy', [
+                          h3([.text(_features[i].title)]),
+                          p([.text(_features[i].description)]),
+                        ]),
+                      ],
+                    ),
+                ]),
+                div(classes: 'feature-controls', [
+                  for (var i = 0; i < _features.length; i++)
+                    div(classes: 'feature-control-set feature-control-set-${i + 1}', [
+                      label(
+                        htmlFor: 'vouxe-feature-${i == 0 ? _features.length : i}',
+                        classes: 'feature-arrow feature-arrow-previous',
+                        attributes: const {
+                          'aria-label': 'Previous feature',
+                          'title': 'Previous feature',
+                        },
+                        [
+                          span(attributes: const {'aria-hidden': 'true'}, []),
+                        ],
+                      ),
+                      label(
+                        htmlFor: 'vouxe-feature-${i == _features.length - 1 ? 1 : i + 2}',
+                        classes: 'feature-arrow feature-arrow-next',
+                        attributes: const {
+                          'aria-label': 'Next feature',
+                          'title': 'Next feature',
+                        },
+                        [
+                          span(attributes: const {'aria-hidden': 'true'}, []),
+                        ],
+                      ),
+                    ]),
+                ]),
               ]),
               div(classes: 'phone-stage', [
                 for (var i = 0; i < _features.length; i++)
@@ -104,33 +133,6 @@ class Features extends StatelessComponent {
                     height: 2488,
                     attributes: const {'decoding': 'async'},
                   ),
-              ]),
-              div(classes: 'feature-controls', [
-                for (var i = 0; i < _features.length; i++)
-                  div(classes: 'feature-control-set feature-control-set-${i + 1}', [
-                    label(
-                      htmlFor: 'vouxe-feature-${i == 0 ? _features.length : i}',
-                      classes: 'feature-arrow feature-arrow-previous',
-                      attributes: const {
-                        'aria-label': 'Previous feature',
-                        'title': 'Previous feature',
-                      },
-                      [
-                        span(attributes: const {'aria-hidden': 'true'}, [.text('‹')]),
-                      ],
-                    ),
-                    label(
-                      htmlFor: 'vouxe-feature-${i == _features.length - 1 ? 1 : i + 2}',
-                      classes: 'feature-arrow feature-arrow-next',
-                      attributes: const {
-                        'aria-label': 'Next feature',
-                        'title': 'Next feature',
-                      },
-                      [
-                        span(attributes: const {'aria-hidden': 'true'}, [.text('›')]),
-                      ],
-                    ),
-                  ]),
               ]),
             ]),
           ],
@@ -177,7 +179,7 @@ class Features extends StatelessComponent {
         margin: .only(top: 44.px),
       ),
       css('.feature-toggle').styles(
-        position: const Position.absolute(),
+        position: const Position.fixed(left: Unit.zero, top: Unit.percent(50)),
         width: 1.px,
         height: 1.px,
         padding: .zero,
@@ -193,21 +195,26 @@ class Features extends StatelessComponent {
       css('.features-layout').styles(
         display: .flex,
         flexDirection: .column,
-        gap: .all(36.px),
+        gap: .all(24.px),
+      ),
+      css('.feature-navigation').styles(
+        position: const Position.relative(),
+        width: 100.percent,
+        raw: {'order': '2'},
       ),
       css('.feature-menu', [
         css('&').styles(
           display: .flex,
           width: 100.percent,
+          padding: .symmetric(horizontal: 12.px),
           overflow: Overflow.visible,
-          raw: {'order': '3'},
         ),
       ]),
       css('.feature-option', [
         css('&').styles(
           display: .flex,
           minWidth: 272.px,
-          padding: .all(20.px),
+          padding: .symmetric(vertical: 20.px, horizontal: 34.px),
           border: const Border.all(
             style: .solid,
             color: vouxeHairline,
@@ -319,22 +326,29 @@ class Features extends StatelessComponent {
       ),
       css('.feature-controls').styles(
         display: .flex,
+        position: const Position.absolute(
+          left: Unit.zero,
+          top: Unit.zero,
+          bottom: Unit.zero,
+        ),
+        zIndex: const ZIndex(2),
         width: 100.percent,
-        minHeight: 54.px,
         alignItems: .center,
         justifyContent: .center,
-        raw: {'order': '2'},
+        raw: {'pointer-events': 'none'},
       ),
       css('.feature-control-set').styles(
         display: Display.none,
+        width: 100.percent,
+        height: 100.percent,
         alignItems: .center,
-        gap: .all(12.px),
+        justifyContent: .spaceBetween,
       ),
       css('.feature-arrow', [
         css('&').styles(
           display: .flex,
-          width: 54.px,
-          height: 54.px,
+          width: 48.px,
+          height: 48.px,
           border: const Border.all(
             style: .solid,
             color: vouxeHairline,
@@ -346,10 +360,11 @@ class Features extends StatelessComponent {
           color: vouxeInk,
           backgroundColor: vouxeElevated,
           cursor: Cursor.pointer,
-          fontSize: 2.rem,
+          fontSize: 1.75.rem,
           fontWeight: .w500,
           lineHeight: 1.em,
           raw: {
+            'pointer-events': 'auto',
             'transition':
                 'transform 180ms ease, border-color 180ms ease, '
                 'background-color 180ms ease',
@@ -367,6 +382,22 @@ class Features extends StatelessComponent {
       css('.feature-arrow-next').styles(
         color: vouxeBg,
         backgroundColor: vouxeAccent,
+      ),
+      css('.feature-arrow span').styles(
+        width: 11.px,
+        height: 11.px,
+        raw: {
+          'display': 'block',
+          'box-sizing': 'border-box',
+          'border': 'solid currentColor',
+          'border-width': '0 3px 3px 0',
+        },
+      ),
+      css('.feature-arrow-previous span').styles(
+        raw: {'transform': 'rotate(135deg)'},
+      ),
+      css('.feature-arrow-next span').styles(
+        raw: {'transform': 'rotate(-45deg)'},
       ),
       for (var i = 1; i <= _features.length; i++) ...[
         css('#vouxe-feature-$i:checked ~ .features-layout .feature-option-$i').styles(
@@ -537,13 +568,16 @@ class Features extends StatelessComponent {
           alignItems: .center,
           gap: .all(64.px),
         ),
-        css('.feature-menu').styles(
+        css('.feature-navigation').styles(
           width: 42.percent,
+          raw: {'order': '1'},
+        ),
+        css('.feature-menu').styles(
+          width: 100.percent,
           padding: .zero,
           flexDirection: .column,
           gap: .all(12.px),
           overflow: Overflow.visible,
-          raw: {'order': '1'},
         ),
         css('.feature-option').styles(
           display: .flex,
