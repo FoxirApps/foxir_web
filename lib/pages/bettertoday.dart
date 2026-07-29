@@ -8,6 +8,7 @@ import '../components/bettertoday/footer.dart';
 import '../components/bettertoday/header.dart';
 import '../components/bettertoday/hero.dart';
 import '../components/bettertoday/metadata.dart';
+import '../components/bettertoday/video_story.dart';
 import '../constants/theme.dart';
 
 /// The Better Today app landing page, served at `/bettertoday`.
@@ -23,6 +24,7 @@ class BetterTodayPage extends StatelessComponent {
       AppFavicon(href: betterTodayIconSrc),
       Header(),
       Hero(),
+      VideoStory(),
       Features(),
       Cta(),
       Footer(),

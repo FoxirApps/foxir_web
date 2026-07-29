@@ -13,20 +13,19 @@ class Hero extends StatelessComponent {
     return section(id: 'top', classes: 'hero', [
       div(classes: 'container hero-grid', [
         div(classes: 'hero-copy', [
-          span(classes: 'hero-eyebrow', [.text('Daily self-improvement, simplified')]),
+          span(classes: 'hero-eyebrow', [.text('One question. Every day.')]),
           h1([
-            .text('A better life is built '),
-            span([.text('one honest day at a time.')]),
+            .text('Better starts with '),
+            span([.text('one honest answer.')]),
           ]),
           p(classes: 'hero-subtitle', [
             .text(
-              'Better Today? is a daily self-improvement app built around one '
-              'question: Did you get better today? Reflect in seconds and build '
-              'consistency that lasts.',
+              'Better Today? is the daily self-reflection app that turns a few '
+              'honest seconds into progress you can see—and sustain for years.',
             ),
           ]),
           p(classes: 'hero-principle', [
-            .text('No task lists. No goal systems. Just one honest daily ritual.'),
+            .text('No task lists. No pressure. Just show up.'),
           ]),
           const StoreButtons(alignStart: true),
         ]),
