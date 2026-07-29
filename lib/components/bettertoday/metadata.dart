@@ -8,6 +8,9 @@ const betterTodayPageDescription =
     'Better Today? is a daily self-improvement app built around one honest '
     'question. Reflect in seconds, build consistency, and see your growth over time.';
 const betterTodayCanonicalUrl = 'https://foxirapps.co/bettertoday';
+const betterTodayOgImageUrl = 'https://foxirapps.co/images/bettertoday-og.png';
+const betterTodayOgImageAlt =
+    'Better Today daily reflection app with the message One honest question. A lifetime of growth.';
 
 /// Page-specific search, social sharing, and app metadata for `/bettertoday`.
 class BetterTodayMetadata extends StatelessComponent {
@@ -28,9 +31,24 @@ class BetterTodayMetadata extends StatelessComponent {
           content: betterTodayPageDescription,
         ),
         meta(attributes: const {'property': 'og:url'}, content: betterTodayCanonicalUrl),
-        meta(name: 'twitter:card', content: 'summary'),
+        meta(attributes: const {'property': 'og:image'}, content: betterTodayOgImageUrl),
+        meta(
+          attributes: const {'property': 'og:image:width'},
+          content: '1200',
+        ),
+        meta(
+          attributes: const {'property': 'og:image:height'},
+          content: '630',
+        ),
+        meta(
+          attributes: const {'property': 'og:image:alt'},
+          content: betterTodayOgImageAlt,
+        ),
+        meta(name: 'twitter:card', content: 'summary_large_image'),
         meta(name: 'twitter:title', content: betterTodayPageTitle),
         meta(name: 'twitter:description', content: betterTodayPageDescription),
+        meta(name: 'twitter:image', content: betterTodayOgImageUrl),
+        meta(name: 'twitter:image:alt', content: betterTodayOgImageAlt),
         meta(
           name: 'apple-itunes-app',
           content: 'app-id=6748441674, app-argument=$betterTodayCanonicalUrl',
@@ -46,7 +64,7 @@ class BetterTodayMetadata extends StatelessComponent {
   "name": "Better Today?",
   "url": "$betterTodayCanonicalUrl",
   "description": "$betterTodayPageDescription",
-  "applicationCategory": "LifestyleApplication",
+  "applicationCategory": "HealthApplication",
   "operatingSystem": "iOS, Android",
   "downloadUrl": [
     "$betterAppStoreUrl",
@@ -57,7 +75,12 @@ class BetterTodayMetadata extends StatelessComponent {
     "$betterPlayStoreUrl",
     "$betterTiktokUrl",
     "$betterInstagramUrl"
-  ]
+  ],
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
 }
 ''',
         ),
