@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import '../common/responsive_image.dart';
 import '../../constants/theme.dart';
 import 'store_buttons.dart';
 
@@ -30,10 +31,16 @@ class Cta extends StatelessComponent {
             const StoreButtons(alignStart: true),
           ]),
           div(classes: 'cta-visual', [
-            img(
+            ResponsiveImage(
               src: betterTodayDownloadSrc,
+              webpSrcSet:
+                  '/images/optimized/bt-bottom-640.webp 640w, '
+                  '/images/optimized/bt-bottom-1280.webp 1280w',
+              sizes: '(max-width: 767px) 100vw, 590px',
               alt: 'Better Today? daily reflection and progress screens',
-              attributes: {'decoding': 'async', 'loading': 'lazy'},
+              width: 5224,
+              height: 4804,
+              loading: MediaLoading.lazy,
             ),
           ]),
         ]),

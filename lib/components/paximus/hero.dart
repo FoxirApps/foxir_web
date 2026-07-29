@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import '../common/responsive_image.dart';
 import '../../constants/theme.dart';
 import 'store_buttons.dart';
 
@@ -29,15 +30,29 @@ class Hero extends StatelessComponent {
         ]),
         div(classes: 'hero-visual', [
           div(classes: 'phone-showcase', [
-            img(
+            ResponsiveImage(
               classes: 'phone-mockup phone-mockup-a',
               src: '/images/land_1.png',
+              webpSrcSet:
+                  '/images/optimized/paximus-hero-a-320.webp 320w, '
+                  '/images/optimized/paximus-hero-a-640.webp 640w',
+              sizes: '(max-width: 320px) 78vw, 250px',
               alt: 'Paximus OCD and anxiety tracker capturing photo evidence of a locked front door',
+              width: 1231,
+              height: 2488,
+              attributes: const {'fetchpriority': 'high'},
             ),
-            img(
+            ResponsiveImage(
               classes: 'phone-mockup phone-mockup-b',
               src: '/images/land_2.png',
+              webpSrcSet:
+                  '/images/optimized/paximus-hero-b-320.webp 320w, '
+                  '/images/optimized/paximus-hero-b-640.webp 640w',
+              sizes: '(max-width: 320px) 78vw, 250px',
               alt: 'Paximus confirmation screen showing saved evidence that the front door is locked',
+              width: 1231,
+              height: 2488,
+              attributes: const {'fetchpriority': 'low'},
             ),
           ]),
         ]),

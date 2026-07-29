@@ -111,8 +111,8 @@ const playStoreBadgeSrc = '/vectors/google_play_badge.svg';
 /// Site / app icons (also used as per-route favicons).
 const foxirFaviconSrc = '/favicon.png';
 const paximusIconSrc = '/images/paximus-icon.png';
-const vouxeIconSrc = '/images/vouxe-icon.png';
-const betterTodayIconSrc = '/images/bt_logo_transparent.png';
+const vouxeIconSrc = '/images/optimized/vouxe-icon-96.webp';
+const betterTodayIconSrc = '/images/optimized/better-today-icon-96.webp';
 const betterTodayHeroSrc = '/images/bt_top.png';
 const betterTodayDownloadSrc = '/images/bt_bottom.png';
 

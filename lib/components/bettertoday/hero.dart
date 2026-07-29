@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import '../common/responsive_image.dart';
 import '../../constants/theme.dart';
 import 'store_buttons.dart';
 
@@ -30,11 +31,17 @@ class Hero extends StatelessComponent {
           const StoreButtons(alignStart: true),
         ]),
         div(classes: 'hero-visual', [
-          img(
+          ResponsiveImage(
             classes: 'hero-product-image',
             src: betterTodayHeroSrc,
+            webpSrcSet:
+                '/images/optimized/bt-top-720.webp 720w, '
+                '/images/optimized/bt-top-1360.webp 1360w',
+            sizes: '(max-width: 767px) 100vw, 680px',
             alt: 'Better Today? app showing the daily reflection, consistency streak, and long-term progress',
-            attributes: {'decoding': 'async', 'fetchpriority': 'high'},
+            width: 6088,
+            height: 4804,
+            attributes: const {'fetchpriority': 'high'},
           ),
         ]),
       ]),

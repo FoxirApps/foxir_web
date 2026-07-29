@@ -8,19 +8,23 @@ import 'package:jaspr/server.dart';
 class AppFavicon extends StatelessComponent {
   const AppFavicon({
     required this.href,
-    this.type = 'image/png',
+    this.type,
     super.key,
   });
 
   final String href;
-  final String type;
+  final String? type;
 
   static const elementId = 'site-favicon';
 
   @override
   Component build(BuildContext context) {
-    return Document.head(children: [
-      link(id: elementId, rel: 'icon', type: type, href: href),
-    ]);
+    final resolvedType = type ?? (href.endsWith('.webp') ? 'image/webp' : 'image/png');
+
+    return Document.head(
+      children: [
+        link(id: elementId, rel: 'icon', type: resolvedType, href: href),
+      ],
+    );
   }
 }
