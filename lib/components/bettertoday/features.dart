@@ -7,28 +7,28 @@ typedef _Feature = ({String title, String description});
 
 const List<_Feature> _features = [
   (
-    title: 'The Mirror Moment',
-    description: 'End each day by looking inward and answering one honest question.',
+    title: 'One Honest Question',
+    description: 'Answer “Did I get better today?” in seconds and end the day with clarity.',
   ),
   (
-    title: 'One Question Flow',
-    description: 'No tasks, goals, or complicated systems—just a simple daily ritual.',
+    title: 'Progress Without Pressure',
+    description: 'No tasks, scores, or complicated systems—just a daily reflection you can keep.',
   ),
   (
-    title: 'Consistency Calendar',
-    description: 'Watch small daily answers turn into a rhythm you can see and sustain.',
+    title: 'Consistency You Can See',
+    description: 'Turn daily check-ins into a visual rhythm across your calendar and streaks.',
   ),
   (
-    title: 'Masterpiece Timeline',
-    description: 'Zoom out across months, years, and decades to see who you are becoming.',
+    title: 'The Long View',
+    description: 'Zoom out from today to months, years, and decades—and see who you are becoming.',
   ),
   (
     title: 'Mamba Moments',
-    description: 'Return to the mindset that progress is built through the process, not shortcuts.',
+    description: 'Stay close to a process-first mindset: show up, do the work, and let time compound it.',
   ),
   (
     title: 'Gentle Reminders',
-    description: 'Receive one respectful nudge that brings you back to the ritual without pressure.',
+    description: 'Get one respectful nudge to pause, reflect, and return to the ritual.',
   ),
 ];
 
@@ -40,9 +40,12 @@ class Features extends StatelessComponent {
   Component build(BuildContext context) {
     return section(id: 'features', classes: 'features', [
       div(classes: 'container', [
-        h2([.text('Build your masterpiece, one day at a time.')]),
+        h2([.text('Simple enough for today. Meaningful enough for years.')]),
         p(classes: 'features-subtitle', [
-          .text('Everything you need to keep one honest ritual alive for years. Nothing more.'),
+          .text(
+            'One daily reflection, gentle reminders, and a visual record of '
+            'the days you chose to show up.',
+          ),
         ]),
         div(classes: 'features-grid', [
           for (var i = 0; i < _features.length; i++)
@@ -61,7 +64,21 @@ class Features extends StatelessComponent {
     css('.bettertoday .features', [
       css('&').styles(
         padding: .symmetric(vertical: 72.px),
+        border: const Border.symmetric(
+          horizontal: BorderSide(
+            style: .solid,
+            color: Color('#ffffff12'),
+            width: Unit.pixels(1),
+          ),
+        ),
         textAlign: .center,
+        backgroundColor: const Color('#07090dc7'),
+        backdropFilter: const Filter.blur(Unit.pixels(18)),
+        raw: {
+          'box-shadow':
+              'inset 0 1px 0 rgba(255, 255, 255, 0.025), '
+              'inset 0 -1px 0 rgba(255, 215, 0, 0.025)',
+        },
       ),
       css('h2').styles(
         maxWidth: 16.em,
@@ -89,9 +106,29 @@ class Features extends StatelessComponent {
       css('.feature-card', [
         css('&').styles(
           padding: .all(24.px),
-          border: const Border.all(style: .solid, color: betterHairline, width: Unit.pixels(1)),
+          border: const Border.all(
+            style: .solid,
+            color: Color('#ffffff16'),
+            width: Unit.pixels(1),
+          ),
           radius: .circular(20.px),
-          backgroundColor: betterSurface,
+          backgroundColor: const Color('#0c0f15d9'),
+          backdropFilter: const Filter.blur(Unit.pixels(20)),
+          raw: {
+            'box-shadow':
+                '0 18px 50px rgba(0, 0, 0, 0.24), '
+                'inset 0 1px 0 rgba(255, 255, 255, 0.035)',
+            'transition': 'transform 180ms ease, border-color 180ms ease, background-color 180ms ease',
+          },
+        ),
+        css('&:hover').styles(
+          border: const Border.all(
+            style: .solid,
+            color: Color('#ffd7004a'),
+            width: Unit.pixels(1),
+          ),
+          backgroundColor: const Color('#11151ddf'),
+          raw: {'transform': 'translateY(-3px)'},
         ),
         css('.feature-index').styles(
           color: betterAccent,

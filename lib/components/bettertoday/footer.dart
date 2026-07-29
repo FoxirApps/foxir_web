@@ -72,6 +72,11 @@ class Footer extends StatelessComponent {
         border: const Border.only(
           top: BorderSide(style: .solid, color: betterHairline, width: Unit.pixels(1)),
         ),
+        backgroundColor: const Color('#040507c9'),
+        backdropFilter: const Filter.blur(Unit.pixels(20)),
+        raw: {
+          'box-shadow': '0 -24px 72px rgba(0, 0, 0, 0.2)',
+        },
       ),
       css('.footer-top').styles(
         display: .flex,

@@ -20,7 +20,8 @@ const List<_AppEntry> _apps = [
   (
     name: 'Paximus',
     tagline: 'OCD & Anxiety Tracker',
-    description: 'Finally, OCD & anxiety tracking that feels calm. Capture worries, '
+    description:
+        'Finally, OCD & anxiety tracking that feels calm. Capture worries, '
         'validate tasks with evidence, and close every day with quiet reassurance.',
     icon: paximusIconSrc,
     initials: 'PX',
@@ -31,7 +32,8 @@ const List<_AppEntry> _apps = [
   (
     name: 'Vouxe',
     tagline: 'Challenge Tracker',
-    description: 'Build discipline you can see. Turn daily check-ins into visible streaks, '
+    description:
+        'Build discipline you can see. Turn daily check-ins into visible streaks, '
         'clear stats, and milestones worth sharing.',
     icon: vouxeIconSrc,
     initials: 'VX',
@@ -41,9 +43,10 @@ const List<_AppEntry> _apps = [
   ),
   (
     name: 'Better Today',
-    tagline: 'Daily Growth',
-    description: 'One daily reflection. A better you. Reflect honestly, set clear intentions, '
-        'and build the Mamba Mentality—small steps that compound into lifelong excellence.',
+    tagline: 'Daily Reflection',
+    description:
+        'One honest question at the end of each day. Reflect in seconds, '
+        'build consistency you can see, and turn small steps into lifelong growth.',
     icon: betterTodayIconSrc,
     initials: 'BT',
     pageUrl: '/bettertoday',
@@ -83,7 +86,6 @@ class FoxirApps extends StatelessComponent {
                     compact: true,
                   ),
                 ]),
-
               ]),
             ]),
         ]),
@@ -184,7 +186,6 @@ class FoxirApps extends StatelessComponent {
           css('&:hover').styles(backgroundColor: const Color('#ff6a2e')),
         ]),
       ]),
-
     ]),
     css.media(desktop, [
       css('.foxir .apps', [

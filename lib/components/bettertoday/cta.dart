@@ -14,18 +14,18 @@ class Cta extends StatelessComponent {
       div(classes: 'container', [
         div(classes: 'cta-panel', [
           div(classes: 'cta-copy', [
-            span(classes: 'cta-eyebrow', [.text('Your masterpiece starts today')]),
+            span(classes: 'cta-eyebrow', [.text('One question. Start tonight.')]),
             h2([
-              .text('Your masterpiece isn’t built in a day.'),
+              .text('Don’t wait for a better year. Start with a better today.'),
             ]),
             p(classes: 'cta-subtitle', [
               .text(
-                'It’s built by showing up, looking in the mirror, and asking one '
-                'honest question—day after day, year after year.',
+                'Download Better Today? and turn one honest daily reflection '
+                'into consistency you can see—and a life you can shape.',
               ),
             ]),
             span(classes: 'cta-principle', [
-              .text('Small steps. Long horizon. Lifelong growth.'),
+              .text('Reflect in seconds. Grow for years.'),
             ]),
             const StoreButtons(alignStart: true),
           ]),
@@ -53,22 +53,16 @@ class Cta extends StatelessComponent {
         position: const Position.relative(),
         minHeight: 600.px,
         padding: .only(top: 44.px, left: 28.px, right: 28.px),
-        border: const Border.all(
-          style: .solid,
-          color: Color('#ffd7002e'),
-          width: Unit.pixels(1),
-        ),
         radius: .circular(32.px),
         flexDirection: .column,
         gap: .all(32.px),
         overflow: Overflow.hidden,
-        backgroundColor: const Color('#100b16'),
+        backgroundColor: const Color('#0b111b'),
         raw: {
           'background-image':
-              'radial-gradient(ellipse 70% 85% at 84% 80%, rgba(255, 215, 0, 0.14), transparent 70%), '
-              'radial-gradient(ellipse 58% 70% at 12% 10%, rgba(92, 45, 120, 0.24), transparent 72%), '
-              'linear-gradient(135deg, #15101d 0%, #09070d 62%, #060607 100%)',
-          'box-shadow': '0 36px 100px rgba(0, 0, 0, 0.44), inset 0 1px 0 rgba(255, 255, 255, 0.04)',
+              'radial-gradient(ellipse 74% 86% at 8% 4%, rgba(39, 82, 148, 0.20), transparent 74%), '
+              'linear-gradient(140deg, #111b2a 0%, #0a1019 52%, #0c0e10 100%)',
+          'box-shadow': '0 30px 80px rgba(0, 0, 0, 0.28)',
         },
       ),
       css('.cta-copy').styles(
@@ -142,14 +136,14 @@ class Cta extends StatelessComponent {
         css('.cta-visual').styles(
           width: 54.percent,
           height: 100.percent,
-          alignSelf: .end,
+          alignSelf: .center,
           flex: const Flex(grow: 0, shrink: 0),
           margin: .zero,
         ),
         css('.cta-visual img').styles(
           width: 590.px,
           maxWidth: 115.percent,
-          raw: {'transform': 'translate(2%, 5%)'},
+          raw: {'transform': 'translateX(2%)'},
         ),
       ]),
     ]),
