@@ -7,28 +7,28 @@ typedef _Feature = ({String title, String description});
 
 const List<_Feature> _features = [
   (
-    title: 'Daily Mirror Check-In',
-    description: 'End each day with one honest question and capture a single takeaway.',
+    title: 'The Mirror Moment',
+    description: 'End each day by looking inward and answering one honest question.',
   ),
   (
-    title: 'Insightful Trends',
-    description: 'See what truly moves you forward with clear patterns and simple analytics.',
+    title: 'One Question Flow',
+    description: 'No tasks, goals, or complicated systems—just a simple daily ritual.',
+  ),
+  (
+    title: 'Consistency Calendar',
+    description: 'Watch small daily answers turn into a rhythm you can see and sustain.',
   ),
   (
     title: 'Masterpiece Timeline',
-    description: 'Track weeks and years of progress on a clean timeline that highlights consistency.',
+    description: 'Zoom out across months, years, and decades to see who you are becoming.',
   ),
   (
-    title: 'Set Clear Intentions',
-    description: 'Define one small, meaningful intention for tomorrow—no endless to-do lists.',
+    title: 'Mamba Moments',
+    description: 'Return to the mindset that progress is built through the process, not shortcuts.',
   ),
   (
-    title: 'Smart Reminders',
-    description: 'Get gentle nudges for reflections and streaks without noise or pressure.',
-  ),
-  (
-    title: 'Secure & Private',
-    description: 'Your reflections are protected with strong privacy controls—your journey stays yours.',
+    title: 'Gentle Reminders',
+    description: 'Receive one respectful nudge that brings you back to the ritual without pressure.',
   ),
 ];
 
@@ -40,9 +40,9 @@ class Features extends StatelessComponent {
   Component build(BuildContext context) {
     return section(id: 'features', classes: 'features', [
       div(classes: 'container', [
-        h2([.text('Own Your Growth Journey')]),
+        h2([.text('Build your masterpiece, one day at a time.')]),
         p(classes: 'features-subtitle', [
-          .text('Build clarity, keep momentum, and turn small steps into lasting excellence.'),
+          .text('Everything you need to keep one honest ritual alive for years. Nothing more.'),
         ]),
         div(classes: 'features-grid', [
           for (var i = 0; i < _features.length; i++)

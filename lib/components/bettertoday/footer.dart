@@ -40,8 +40,8 @@ class Footer extends StatelessComponent {
       div(classes: 'container', [
         div(classes: 'footer-top', [
           div(classes: 'footer-brand', [
-            img(src: betterTodayIconSrc, alt: 'Better Today app icon', width: 40, height: 40),
-            span([.text('Better Today')]),
+            img(src: betterTodayIconSrc, alt: 'Better Today? logo', width: 42, height: 42),
+            span([.text('Better Today?')]),
           ]),
           div(classes: 'footer-columns', [
             for (final column in _columns)
@@ -57,7 +57,7 @@ class Footer extends StatelessComponent {
           ]),
         ]),
         div(classes: 'footer-bottom', [
-          span([.text('\u00A9 2026 Better Today. All rights reserved.')]),
+          span([.text('\u00A9 2026 Better Today?. All rights reserved.')]),
           a(href: '/', [.text('Made by Foxir Apps')]),
         ]),
       ]),
@@ -69,7 +69,9 @@ class Footer extends StatelessComponent {
     css('.bettertoday footer', [
       css('&').styles(
         padding: .only(top: 56.px),
-        border: const Border.only(top: BorderSide(style: .solid, color: betterHairline, width: Unit.pixels(1))),
+        border: const Border.only(
+          top: BorderSide(style: .solid, color: betterHairline, width: Unit.pixels(1)),
+        ),
       ),
       css('.footer-top').styles(
         display: .flex,
@@ -85,7 +87,7 @@ class Footer extends StatelessComponent {
           fontSize: 1.25.rem,
           fontWeight: .w700,
         ),
-        css('img').styles(radius: .circular(10.px)),
+        css('img').styles(raw: {'object-fit': 'contain'}),
       ]),
       css('.footer-columns').styles(
         display: .grid,
@@ -119,7 +121,9 @@ class Footer extends StatelessComponent {
           display: .flex,
           margin: .only(top: 48.px),
           padding: .symmetric(vertical: 24.px),
-          border: const Border.only(top: BorderSide(style: .solid, color: betterHairline, width: Unit.pixels(1))),
+          border: const Border.only(
+            top: BorderSide(style: .solid, color: betterHairline, width: Unit.pixels(1)),
+          ),
           justifyContent: .spaceBetween,
           flexWrap: .wrap,
           gap: .all(8.px),

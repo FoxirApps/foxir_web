@@ -61,7 +61,7 @@ class App extends StatelessComponent {
         ),
         Route(
           path: '/bettertoday',
-          title: 'Better Today — One Daily Reflection. A Better You.',
+          title: 'Better Today? — Did You Get Better Today?',
           builder: (context, state) => const BetterTodayPage(),
         ),
         Route(

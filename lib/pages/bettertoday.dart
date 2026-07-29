@@ -7,7 +7,6 @@ import '../components/bettertoday/features.dart';
 import '../components/bettertoday/footer.dart';
 import '../components/bettertoday/header.dart';
 import '../components/bettertoday/hero.dart';
-import '../components/bettertoday/testimonials.dart';
 import '../constants/theme.dart';
 
 /// The Better Today app landing page, served at `/bettertoday`.
@@ -23,7 +22,6 @@ class BetterTodayPage extends StatelessComponent {
       Header(),
       Hero(),
       Features(),
-      Testimonials(),
       Cta(),
       Footer(),
     ]);
@@ -35,6 +33,7 @@ class BetterTodayPage extends StatelessComponent {
       minHeight: 100.vh,
       color: betterInk,
       backgroundColor: betterBg,
+      fontFamily: const .list([FontFamily('Space Grotesk'), FontFamilies.sansSerif]),
       raw: {
         'background-image':
             'radial-gradient(ellipse 80% 50% at 10% -5%, rgba(255, 215, 0, 0.16), transparent 55%), '
@@ -45,6 +44,10 @@ class BetterTodayPage extends StatelessComponent {
         'background-size': 'auto, auto, 24px 24px, 24px 24px, auto',
         'background-attachment': 'fixed',
       },
+    ),
+    css('.bettertoday h1, .bettertoday h2, .bettertoday h3').styles(
+      fontWeight: .w700,
+      letterSpacing: (-0.035).em,
     ),
   ];
 }
