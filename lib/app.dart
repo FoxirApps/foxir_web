@@ -1,6 +1,7 @@
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_router/jaspr_router.dart';
 
+import 'components/bettertoday/metadata.dart';
 import 'components/paximus/metadata.dart';
 import 'components/vouxe/metadata.dart';
 import 'pages/bettertoday.dart';
@@ -61,7 +62,7 @@ class App extends StatelessComponent {
         ),
         Route(
           path: '/bettertoday',
-          title: 'Better Today — One Daily Reflection. A Better You.',
+          title: betterTodayPageTitle,
           builder: (context, state) => const BetterTodayPage(),
         ),
         Route(

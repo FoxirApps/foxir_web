@@ -7,28 +7,28 @@ typedef _Feature = ({String title, String description});
 
 const List<_Feature> _features = [
   (
-    title: 'Daily Mirror Check-In',
-    description: 'End each day with one honest question and capture a single takeaway.',
+    title: 'One Honest Question',
+    description: 'Answer “Did I get better today?” in seconds and end the day with clarity.',
   ),
   (
-    title: 'Insightful Trends',
-    description: 'See what truly moves you forward with clear patterns and simple analytics.',
+    title: 'Progress Without Pressure',
+    description: 'No tasks, scores, or complicated systems—just a daily reflection you can keep.',
   ),
   (
-    title: 'Masterpiece Timeline',
-    description: 'Track weeks and years of progress on a clean timeline that highlights consistency.',
+    title: 'Consistency You Can See',
+    description: 'Turn daily check-ins into a visual rhythm across your calendar and streaks.',
   ),
   (
-    title: 'Set Clear Intentions',
-    description: 'Define one small, meaningful intention for tomorrow—no endless to-do lists.',
+    title: 'The Long View',
+    description: 'Zoom out from today to months, years, and decades—and see who you are becoming.',
   ),
   (
-    title: 'Smart Reminders',
-    description: 'Get gentle nudges for reflections and streaks without noise or pressure.',
+    title: 'Mamba Moments',
+    description: 'Stay close to a process-first mindset: show up, do the work, and let time compound it.',
   ),
   (
-    title: 'Secure & Private',
-    description: 'Your reflections are protected with strong privacy controls—your journey stays yours.',
+    title: 'Gentle Reminders',
+    description: 'Get one respectful nudge to pause, reflect, and return to the ritual.',
   ),
 ];
 
@@ -40,9 +40,12 @@ class Features extends StatelessComponent {
   Component build(BuildContext context) {
     return section(id: 'features', classes: 'features', [
       div(classes: 'container', [
-        h2([.text('Own Your Growth Journey')]),
+        h2([.text('Simple enough for today. Meaningful enough for years.')]),
         p(classes: 'features-subtitle', [
-          .text('Build clarity, keep momentum, and turn small steps into lasting excellence.'),
+          .text(
+            'One daily reflection, gentle reminders, and a visual record of '
+            'the days you chose to show up.',
+          ),
         ]),
         div(classes: 'features-grid', [
           for (var i = 0; i < _features.length; i++)
@@ -61,7 +64,21 @@ class Features extends StatelessComponent {
     css('.bettertoday .features', [
       css('&').styles(
         padding: .symmetric(vertical: 72.px),
+        border: const Border.symmetric(
+          horizontal: BorderSide(
+            style: .solid,
+            color: Color('#ffffff12'),
+            width: Unit.pixels(1),
+          ),
+        ),
         textAlign: .center,
+        backgroundColor: const Color('#07090dc7'),
+        backdropFilter: const Filter.blur(Unit.pixels(18)),
+        raw: {
+          'box-shadow':
+              'inset 0 1px 0 rgba(255, 255, 255, 0.025), '
+              'inset 0 -1px 0 rgba(255, 215, 0, 0.025)',
+        },
       ),
       css('h2').styles(
         maxWidth: 16.em,
@@ -89,9 +106,29 @@ class Features extends StatelessComponent {
       css('.feature-card', [
         css('&').styles(
           padding: .all(24.px),
-          border: const Border.all(style: .solid, color: betterHairline, width: Unit.pixels(1)),
+          border: const Border.all(
+            style: .solid,
+            color: Color('#ffffff16'),
+            width: Unit.pixels(1),
+          ),
           radius: .circular(20.px),
-          backgroundColor: betterSurface,
+          backgroundColor: const Color('#0c0f15d9'),
+          backdropFilter: const Filter.blur(Unit.pixels(20)),
+          raw: {
+            'box-shadow':
+                '0 18px 50px rgba(0, 0, 0, 0.24), '
+                'inset 0 1px 0 rgba(255, 255, 255, 0.035)',
+            'transition': 'transform 180ms ease, border-color 180ms ease, background-color 180ms ease',
+          },
+        ),
+        css('&:hover').styles(
+          border: const Border.all(
+            style: .solid,
+            color: Color('#ffd7004a'),
+            width: Unit.pixels(1),
+          ),
+          backgroundColor: const Color('#11151ddf'),
+          raw: {'transform': 'translateY(-3px)'},
         ),
         css('.feature-index').styles(
           color: betterAccent,

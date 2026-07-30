@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import '../common/responsive_image.dart';
 import '../../constants/theme.dart';
 import 'store_buttons.dart';
 
@@ -27,10 +28,17 @@ class Hero extends StatelessComponent {
           const StoreButtons(alignStart: true),
         ]),
         div(classes: 'hero-visual', [
-          img(
+          ResponsiveImage(
             classes: 'hero-phones',
             src: '/images/vouxe-phones.png',
+            webpSrcSet:
+                '/images/optimized/vouxe-hero-720.webp 720w, '
+                '/images/optimized/vouxe-hero-1280.webp 1280w',
+            sizes: '(max-width: 767px) 100vw, 640px',
             alt: 'Vouxe app screens showing challenges, stats and streaks',
+            width: 5976,
+            height: 4580,
+            attributes: const {'fetchpriority': 'high'},
           ),
         ]),
       ]),
@@ -89,6 +97,7 @@ class Hero extends StatelessComponent {
       ),
       css('.hero-phones').styles(
         width: 110.percent,
+        height: Unit.auto,
         maxWidth: 570.px,
       ),
     ]),

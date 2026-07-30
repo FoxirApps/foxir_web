@@ -2,6 +2,7 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
+import '../common/foxir_home_link.dart';
 
 /// Sticky header: logo | download CTA.
 class Header extends StatelessComponent {
@@ -11,9 +12,13 @@ class Header extends StatelessComponent {
   Component build(BuildContext context) {
     return header([
       div(classes: 'container header-inner', [
-        a(classes: 'brand', href: '/vouxe#top', [
-          img(src: '/images/vouxe-icon.png', alt: 'Vouxe app icon', width: 32, height: 32),
-          span([.text('Vouxe')]),
+        div(classes: 'header-brands', [
+          const FoxirHomeLink(),
+          span(classes: 'brand-divider', [.text('/')]),
+          a(classes: 'brand', href: '/vouxe#top', [
+            img(src: '/images/vouxe-icon.png', alt: 'Vouxe app icon', width: 32, height: 32),
+            span([.text('Vouxe')]),
+          ]),
         ]),
         a(classes: 'download-cta', href: '/vouxe#download', [
           span([.text('Get Vouxe')]),

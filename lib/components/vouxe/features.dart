@@ -2,11 +2,13 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
+import '../common/responsive_image.dart';
 
 typedef _Feature = ({
   String title,
   String description,
   String imageSrc,
+  String webpSrcSet,
   String imageAlt,
   int imageWidth,
 });
@@ -16,6 +18,9 @@ const List<_Feature> _features = [
     title: 'Make it official',
     description: 'Set your goal, define the rules, choose the duration, and seal the challenge with your signature.',
     imageSrc: '/images/vp1.png',
+    webpSrcSet:
+        '/images/optimized/vouxe-feature-1-256.webp 256w, '
+        '/images/optimized/vouxe-feature-1-512.webp 512w',
     imageAlt: 'Vouxe Create Challenge screen with rules, duration, and signature pledge',
     imageWidth: 1231,
   ),
@@ -23,6 +28,9 @@ const List<_Feature> _features = [
     title: 'Show up every day',
     description: 'Check in daily, protect your streak, and watch consistency become visible progress.',
     imageSrc: '/images/vp2.png',
+    webpSrcSet:
+        '/images/optimized/vouxe-feature-2-256.webp 256w, '
+        '/images/optimized/vouxe-feature-2-512.webp 512w',
     imageAlt: 'Completed 30-day Vouxe challenge with streak and journey map',
     imageWidth: 1231,
   ),
@@ -30,6 +38,9 @@ const List<_Feature> _features = [
     title: 'Turn progress into proof',
     description: 'Transform completed milestones into bold posters made to customize and share.',
     imageSrc: '/images/vp3.png',
+    webpSrcSet:
+        '/images/optimized/vouxe-feature-3-256.webp 256w, '
+        '/images/optimized/vouxe-feature-3-512.webp 512w',
     imageAlt: 'Vouxe milestone poster customization and sharing screen',
     imageWidth: 1231,
   ),
@@ -37,6 +48,9 @@ const List<_Feature> _features = [
     title: 'Level up together',
     description: 'Earn XP, collect badges, and climb the leaderboard alongside the community.',
     imageSrc: '/images/vp4.png',
+    webpSrcSet:
+        '/images/optimized/vouxe-feature-4-256.webp 256w, '
+        '/images/optimized/vouxe-feature-4-512.webp 512w',
     imageAlt: 'Vouxe leaderboard showing players ranked by XP',
     imageWidth: 1320,
   ),
@@ -125,13 +139,15 @@ class Features extends StatelessComponent {
               ]),
               div(classes: 'phone-stage', [
                 for (var i = 0; i < _features.length; i++)
-                  img(
+                  ResponsiveImage(
                     classes: 'feature-phone feature-phone-${i + 1}',
                     src: _features[i].imageSrc,
+                    webpSrcSet: _features[i].webpSrcSet,
+                    sizes: '225px',
                     alt: _features[i].imageAlt,
                     width: _features[i].imageWidth,
                     height: 2488,
-                    attributes: const {'decoding': 'async'},
+                    loading: MediaLoading.lazy,
                   ),
               ]),
             ]),

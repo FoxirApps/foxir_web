@@ -111,8 +111,10 @@ const playStoreBadgeSrc = '/vectors/google_play_badge.svg';
 /// Site / app icons (also used as per-route favicons).
 const foxirFaviconSrc = '/favicon.png';
 const paximusIconSrc = '/images/paximus-icon.png';
-const vouxeIconSrc = '/images/vouxe-icon.png';
-const betterTodayIconSrc = '/images/better-today-logo.png';
+const vouxeIconSrc = '/images/optimized/vouxe-icon-96.webp';
+const betterTodayIconSrc = '/images/optimized/better-today-icon-96.webp';
+const betterTodayHeroSrc = '/images/bt_top.png';
+const betterTodayDownloadSrc = '/images/bt_bottom.png';
 
 // External links — Paximus.
 const appStoreUrl = 'https://apps.apple.com/us/app/ocd-anxiety-tracker-paximus/id6745874911';
@@ -134,10 +136,8 @@ const vouxeTiktokUrl = 'https://www.tiktok.com/@vouxe.app';
 const vouxeInstagramUrl = 'https://www.instagram.com/vouxe.app';
 
 // External links — Better Today.
-const betterAppStoreUrl =
-    'https://apps.apple.com/us/app/better-today-daily-growth/id6748441674';
-const betterPlayStoreUrl =
-    'https://play.google.com/store/apps/details?id=com.foxir.bettertoday';
+const betterAppStoreUrl = 'https://apps.apple.com/us/app/better-today-daily-growth/id6748441674';
+const betterPlayStoreUrl = 'https://play.google.com/store/apps/details?id=com.foxir.bettertoday';
 const betterPrivacyUrl = '/bettertoday/privacy-policy';
 const betterTermsUrl = '/bettertoday/terms-of-service';
 const betterTiktokUrl = 'https://www.tiktok.com/@bettertoday.app';

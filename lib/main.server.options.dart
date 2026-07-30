@@ -10,8 +10,10 @@ import 'package:foxir_web/components/bettertoday/features.dart' as _features;
 import 'package:foxir_web/components/bettertoday/footer.dart' as _footer;
 import 'package:foxir_web/components/bettertoday/header.dart' as _header;
 import 'package:foxir_web/components/bettertoday/hero.dart' as _hero;
-import 'package:foxir_web/components/bettertoday/testimonials.dart'
-    as _testimonials;
+import 'package:foxir_web/components/bettertoday/video_story.dart'
+    as _video_story;
+import 'package:foxir_web/components/common/foxir_home_link.dart'
+    as _foxir_home_link;
 import 'package:foxir_web/components/foxir/foxir_about.dart' as _foxir_about;
 import 'package:foxir_web/components/foxir/foxir_apps.dart' as _foxir_apps;
 import 'package:foxir_web/components/foxir/foxir_cta.dart' as _foxir_cta;
@@ -63,7 +65,8 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._footer.Footer.styles,
     ..._header.Header.styles,
     ..._hero.Hero.styles,
-    ..._testimonials.Testimonials.styles,
+    ..._video_story.VideoStory.styles,
+    ..._foxir_home_link.FoxirHomeLink.styles,
     ..._foxir_about.FoxirAbout.styles,
     ..._foxir_apps.FoxirApps.styles,
     ..._foxir_cta.FoxirCta.styles,

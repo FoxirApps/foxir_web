@@ -2,6 +2,7 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
+import '../common/responsive_image.dart';
 
 enum _FeatureKind { snap, routines, history, mood, notes, calm }
 
@@ -804,25 +805,46 @@ class Features extends StatelessComponent {
 
 Component _featureVisual(_FeatureKind kind) {
   return switch (kind) {
-    _FeatureKind.snap => _assetVisual('/images/feat1.png'),
-    _FeatureKind.routines => _assetVisual('/images/paximus-feature-calm-routines.png'),
+    _FeatureKind.snap => _assetVisual(
+      '/images/feat1.png',
+      '/images/optimized/paximus-feature-snap-640.webp 640w, '
+          '/images/optimized/paximus-feature-snap-1280.webp 1280w',
+    ),
+    _FeatureKind.routines => _assetVisual(
+      '/images/paximus-feature-calm-routines.png',
+      '/images/optimized/paximus-feature-routines-640.webp 640w, '
+          '/images/optimized/paximus-feature-routines-1280.webp 1280w',
+    ),
     _FeatureKind.history => _assetVisual(
       '/images/paximus-feature-history.png',
+      '/images/optimized/paximus-feature-history-640.webp 640w, '
+          '/images/optimized/paximus-feature-history-1280.webp 1280w',
       width: 1713,
       height: 918,
     ),
-    _FeatureKind.mood => _assetVisual('/images/feat_mood.png'),
+    _FeatureKind.mood => _assetVisual(
+      '/images/feat_mood.png',
+      '/images/optimized/paximus-feature-mood-640.webp 640w, '
+          '/images/optimized/paximus-feature-mood-1280.webp 1280w',
+    ),
     _FeatureKind.notes => _assetVisual(
       '/images/paximus-feature-notes.png',
+      '/images/optimized/paximus-feature-notes-640.webp 640w, '
+          '/images/optimized/paximus-feature-notes-1280.webp 1280w',
       width: 1619,
       height: 971,
     ),
-    _FeatureKind.calm => _assetVisual('/images/paximus-feature-meditation.png'),
+    _FeatureKind.calm => _assetVisual(
+      '/images/paximus-feature-meditation.png',
+      '/images/optimized/paximus-feature-meditation-640.webp 640w, '
+          '/images/optimized/paximus-feature-meditation-1280.webp 1280w',
+    ),
   };
 }
 
 Component _assetVisual(
-  String src, {
+  String src,
+  String webpSrcSet, {
   int width = 1536,
   int height = 1024,
 }) {
@@ -830,16 +852,15 @@ Component _assetVisual(
     classes: 'feature-visual feature-visual--asset',
     attributes: const {'aria-hidden': 'true'},
     [
-      img(
+      ResponsiveImage(
         classes: 'feature-asset',
         src: src,
+        webpSrcSet: webpSrcSet,
+        sizes: '(max-width: 767px) 100vw, 600px',
         alt: '',
         width: width,
         height: height,
-        attributes: const {
-          'loading': 'lazy',
-          'decoding': 'async',
-        },
+        loading: MediaLoading.lazy,
       ),
     ],
   );
