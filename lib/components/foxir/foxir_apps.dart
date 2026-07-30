@@ -4,6 +4,9 @@ import 'package:jaspr/jaspr.dart';
 import '../../constants/theme.dart';
 import '../store_buttons.dart';
 
+const _vouxeAppStoreIconSrc = '/images/optimized/vouxe-app-store-icon-144.webp';
+const _betterTodayAppStoreIconSrc = '/images/optimized/better-today-app-store-icon-144.webp';
+
 typedef _AppEntry = ({
   String name,
   String tagline,
@@ -35,7 +38,7 @@ const List<_AppEntry> _apps = [
     description:
         'Build discipline you can see. Turn daily check-ins into visible streaks, '
         'clear stats, and milestones worth sharing.',
-    icon: vouxeIconSrc,
+    icon: _vouxeAppStoreIconSrc,
     initials: 'VX',
     pageUrl: '/vouxe',
     appStore: vouxeAppStoreUrl,
@@ -47,7 +50,7 @@ const List<_AppEntry> _apps = [
     description:
         'One honest question at the end of each day. Reflect in seconds, '
         'build consistency you can see, and turn small steps into lifelong growth.',
-    icon: betterTodayIconSrc,
+    icon: _betterTodayAppStoreIconSrc,
     initials: 'BT',
     pageUrl: '/bettertoday',
     appStore: betterAppStoreUrl,

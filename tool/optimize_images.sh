@@ -44,6 +44,10 @@ encode_lossless() {
     -o "$output_dir/$output_name"
 }
 
+# Foxir Apps showcase
+encode better-today-app-store-icon.jpg better-today-app-store-icon-144.webp 144
+encode vouxe-app-store-icon.jpg vouxe-app-store-icon-144.webp 144
+
 # Better Today
 encode bt_top.png bt-top-720.webp 720
 encode bt_top.png bt-top-1360.webp 1360
