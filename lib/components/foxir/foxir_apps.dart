@@ -72,7 +72,10 @@ class FoxirApps extends StatelessComponent {
             ),
           ]),
         ]),
-        span(classes: 'apps-count', [.text('03 live products')]),
+        a(classes: 'apps-all', href: '/apps', [
+          span([.text('All projects')]),
+          span(attributes: const {'aria-hidden': 'true'}, [.text('→')]),
+        ]),
       ]),
       div(classes: 'apps-grid', [
         _projectCard(_paximus, sizeClass: 'is-large'),
@@ -135,22 +138,40 @@ class FoxirApps extends StatelessComponent {
         fontWeight: .w300,
         lineHeight: 1.6.em,
       ),
-      css('.apps-count').styles(
-        alignSelf: .start,
-        padding: .only(bottom: 8.px),
-        border: const Border.only(
-          bottom: BorderSide(
-            style: .solid,
-            color: foxirInk,
-            width: Unit.pixels(2),
+      css('.apps-all', [
+        css('&').styles(
+          display: .flex,
+          alignSelf: .start,
+          padding: .only(bottom: 8.px),
+          border: const Border.only(
+            bottom: BorderSide(
+              style: .solid,
+              color: foxirInk,
+              width: Unit.pixels(2),
+            ),
           ),
+          alignItems: .center,
+          gap: .all(14.px),
+          color: foxirInk,
+          fontSize: 0.6875.rem,
+          fontWeight: .w600,
+          letterSpacing: 0.1.em,
+          textTransform: .upperCase,
+          raw: {
+            'transition': 'color 160ms ease, border-color 160ms ease',
+          },
         ),
-        color: foxirInk,
-        fontSize: 0.6875.rem,
-        fontWeight: .w600,
-        letterSpacing: 0.1.em,
-        textTransform: .upperCase,
-      ),
+        css('&:hover, &:focus-visible').styles(
+          border: const Border.only(
+            bottom: BorderSide(
+              style: .solid,
+              color: foxirAccent,
+              width: Unit.pixels(2),
+            ),
+          ),
+          color: foxirAccent,
+        ),
+      ]),
       css('.apps-grid').styles(
         display: .flex,
         margin: .only(top: 40.px),
@@ -304,7 +325,7 @@ class FoxirApps extends StatelessComponent {
           fontSize: 1.25.rem,
           lineHeight: 1.6.em,
         ),
-        css('.apps-count').styles(alignSelf: .end),
+        css('.apps-all').styles(alignSelf: .end),
         css('.apps-grid').styles(
           height: 600.px,
           margin: .only(top: 96.px),

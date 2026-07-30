@@ -5,8 +5,13 @@ import '../../constants/theme.dart';
 
 /// Shared Foxir Apps navigation, based on the product-studio Figma shell.
 class FoxirHeader extends StatelessComponent {
-  const FoxirHeader({this.contactActive = false, super.key});
+  const FoxirHeader({
+    this.appsActive = false,
+    this.contactActive = false,
+    super.key,
+  });
 
+  final bool appsActive;
   final bool contactActive;
 
   @override
@@ -30,11 +35,15 @@ class FoxirHeader extends StatelessComponent {
           attributes: const {'aria-label': 'Primary navigation'},
           [
             a(
-              classes: 'nav-link${contactActive ? '' : ' is-active'}',
+              classes: 'nav-link${!appsActive && !contactActive ? ' is-active' : ''}',
               href: '/',
               [.text('Home')],
             ),
-            a(classes: 'nav-link', href: '/#apps', [.text('Apps')]),
+            a(
+              classes: 'nav-link${appsActive ? ' is-active' : ''}',
+              href: '/apps',
+              [.text('Apps')],
+            ),
             a(
               classes: 'nav-link${contactActive ? ' is-active' : ''}',
               href: foxirContactUrl,

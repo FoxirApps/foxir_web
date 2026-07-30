@@ -17,6 +17,7 @@ const List<({String title, List<_FooterLink> links})> _columns = [
   (
     title: 'Apps',
     links: [
+      (label: 'All Apps', url: '/apps', external: false),
       (label: 'Paximus', url: '/paximus', external: false),
       (label: 'Vouxe', url: '/vouxe', external: false),
       (label: 'Better Today', url: '/bettertoday', external: false),

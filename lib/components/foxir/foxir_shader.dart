@@ -1,7 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
-enum FoxirShaderVariant { liquid, ember }
+enum FoxirShaderVariant { liquid, ember, archive }
 
 /// Reusable, dependency-free WebGL atmosphere for key Foxir surfaces.
 class FoxirShader extends StatelessComponent {
@@ -28,6 +28,7 @@ class FoxirShader extends StatelessComponent {
           'data-shader-variant': switch (variant) {
             FoxirShaderVariant.liquid => 'liquid',
             FoxirShaderVariant.ember => 'ember',
+            FoxirShaderVariant.archive => 'archive',
           },
         },
       ),
@@ -173,13 +174,54 @@ vec3 emberShader(vec2 uv, vec2 mouse_norm, float t) {
   return base + color_accent * ember;
 }
 
+vec3 archiveShader(vec2 uv, vec2 mouse_norm, float t) {
+  vec2 p = uv - 0.5;
+  p.x *= u_resolution.x / max(u_resolution.y, 1.0);
+  p += (mouse_norm - 0.5) * 0.018;
+
+  float angle = -0.24;
+  mat2 rotation = mat2(
+    cos(angle),
+    -sin(angle),
+    sin(angle),
+    cos(angle)
+  );
+  p = rotation * p;
+
+  float warp = snoise(
+    p * 1.55 + vec2(-t * 0.12, t * 0.08)
+  );
+  float facets = snoise(
+    p * 4.4 +
+    vec2(warp * 1.8, -warp * 1.2) +
+    vec2(t * 0.06, -t * 0.04)
+  );
+  float edge = pow(max(0.0, 1.0 - abs(facets)), 13.0);
+  float beam = smoothstep(
+    0.8,
+    0.0,
+    abs(p.y + p.x * 0.22 + warp * 0.18)
+  );
+  float glow = edge * 0.13 + beam * max(0.0, warp) * 0.055;
+
+  vec3 coolSurface = vec3(0.055, 0.061, 0.072);
+  vec3 base = mix(
+    color_bg,
+    coolSurface,
+    (facets * 0.5 + 0.5) * 0.72
+  );
+  return base + color_accent * glow;
+}
+
 void main() {
   vec2 uv = v_texCoord;
   vec2 mouse_norm = u_mouse / u_resolution;
   float t = u_time * 0.2;
   vec3 final_color;
 
-  if (u_variant > 0.5) {
+  if (u_variant > 1.5) {
+    final_color = archiveShader(uv, mouse_norm, t);
+  } else if (u_variant > 0.5) {
     final_color = emberShader(uv, mouse_norm, t);
   } else {
     final_color = liquidShader(uv, mouse_norm, t);
@@ -234,6 +276,7 @@ void main() {
   const mouseLocation = gl.getUniformLocation(program, 'u_mouse');
   const variantLocation = gl.getUniformLocation(program, 'u_variant');
   const isEmber = canvas.dataset.shaderVariant === 'ember';
+  const isArchive = canvas.dataset.shaderVariant === 'archive';
   const reducedMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)'
   );
@@ -272,7 +315,12 @@ void main() {
       gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
     }
     if (mouseLocation) gl.uniform2f(mouseLocation, mouseX, mouseY);
-    if (variantLocation) gl.uniform1f(variantLocation, isEmber ? 1.0 : 0.0);
+    if (variantLocation) {
+      gl.uniform1f(
+        variantLocation,
+        isArchive ? 2.0 : (isEmber ? 1.0 : 0.0)
+      );
+    }
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
   }
 

@@ -32,6 +32,7 @@ import 'package:foxir_web/components/vouxe/footer.dart' as _vouxe_footer;
 import 'package:foxir_web/components/vouxe/header.dart' as _vouxe_header;
 import 'package:foxir_web/components/vouxe/hero.dart' as _vouxe_hero;
 import 'package:foxir_web/components/store_buttons.dart' as _store_buttons;
+import 'package:foxir_web/pages/apps.dart' as _apps;
 import 'package:foxir_web/pages/bettertoday.dart' as _bettertoday;
 import 'package:foxir_web/pages/contact.dart' as _contact;
 import 'package:foxir_web/pages/home.dart' as _home;
@@ -80,6 +81,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._vouxe_footer.Footer.styles,
     ..._vouxe_header.Header.styles,
     ..._vouxe_hero.Hero.styles,
+    ..._apps.AppsPage.styles,
     ..._bettertoday.BetterTodayPage.styles,
     ..._contact.ContactPage.styles,
     ..._home.HomePage.styles,
