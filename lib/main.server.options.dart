@@ -14,9 +14,7 @@ import 'package:foxir_web/components/bettertoday/video_story.dart'
     as _video_story;
 import 'package:foxir_web/components/common/foxir_home_link.dart'
     as _foxir_home_link;
-import 'package:foxir_web/components/foxir/foxir_about.dart' as _foxir_about;
 import 'package:foxir_web/components/foxir/foxir_apps.dart' as _foxir_apps;
-import 'package:foxir_web/components/foxir/foxir_cta.dart' as _foxir_cta;
 import 'package:foxir_web/components/foxir/foxir_footer.dart' as _foxir_footer;
 import 'package:foxir_web/components/foxir/foxir_header.dart' as _foxir_header;
 import 'package:foxir_web/components/foxir/foxir_hero.dart' as _foxir_hero;
@@ -67,9 +65,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._hero.Hero.styles,
     ..._video_story.VideoStory.styles,
     ..._foxir_home_link.FoxirHomeLink.styles,
-    ..._foxir_about.FoxirAbout.styles,
     ..._foxir_apps.FoxirApps.styles,
-    ..._foxir_cta.FoxirCta.styles,
     ..._foxir_footer.FoxirFooter.styles,
     ..._foxir_header.FoxirHeader.styles,
     ..._foxir_hero.FoxirHero.styles,

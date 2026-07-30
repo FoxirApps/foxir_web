@@ -20,28 +20,28 @@ const dark = Color('#111113');
 /// Muted text on dark backgrounds.
 const mutedOnDark = Color('#a1a1a6');
 
-// Foxir Apps (dark) tokens — matched to foxirapps.co.
+// Foxir Apps (dark) tokens — matched to the Foxir product-studio identity.
 
 /// Page base charcoal.
-const foxirBg = Color('#0d0d0d');
+const foxirBg = Color('#0e0e0e');
 
-/// Brand orange accent from the live site.
-const foxirAccent = Color('#ff520e');
+/// Brand orange accent.
+const foxirAccent = Color('#ff5722');
 
 /// Primary text on dark surfaces.
-const foxirInk = Color('#f5f5f7');
+const foxirInk = Color('#e5e2e1');
 
 /// Secondary text on dark surfaces.
-const foxirMuted = Color('#a1a1a6');
+const foxirMuted = Color('#e4beb4');
 
 /// Elevated card / panel surface.
-const foxirSurface = Color('#161616');
+const foxirSurface = Color('#1a1a1a');
 
 /// Slightly brighter elevated surface.
-const foxirElevated = Color('#1c1c1c');
+const foxirElevated = Color('#202020');
 
 /// Subtle border on dark surfaces.
-const foxirHairline = Color('#2a2a2e');
+const foxirHairline = Color('#2a2a2a');
 
 // Vouxe (dark + lime) tokens — matched to foxirapps.co/vouxe.app.
 

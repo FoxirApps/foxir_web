@@ -12,44 +12,75 @@ class ContactPage extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'foxir', [
-      const FoxirHeader(),
+      const FoxirHeader(contactActive: true),
       section(id: 'top', classes: 'contact', [
-        div(classes: 'container contact-inner', [
-          h1([.text('Contact')]),
-          p(classes: 'contact-soft', [
-            .text('We build our own apps first. If you have an idea you\u2019d love to '
-                'explore together, send a note and we\u2019ll get back to you.'),
+        div(classes: 'contact-inner', [
+          div(classes: 'contact-intro', [
+            h1([
+              span([.text('Have an idea?')]),
+              span(classes: 'contact-title-accent', [
+                .text("Let's make it real."),
+              ]),
+            ]),
+            p(classes: 'contact-soft', [
+              .text(
+                'We build our own products from zero to one. If there is an '
+                'idea you want to explore with us, tell us where it starts.',
+              ),
+            ]),
+            div(classes: 'contact-meta', [
+              div(classes: 'contact-meta-group', [
+                span(classes: 'contact-meta-label', [.text('Direct')]),
+                a(href: 'mailto:$foxirEmail', [.text(foxirEmail)]),
+              ]),
+              div(classes: 'contact-meta-group', [
+                span(classes: 'contact-meta-label', [.text('Explore')]),
+                div(classes: 'contact-app-links', [
+                  a(href: '/paximus', [.text('Paximus')]),
+                  a(href: '/vouxe', [.text('Vouxe')]),
+                  a(href: '/bettertoday', [.text('Better Today')]),
+                ]),
+              ]),
+            ]),
           ]),
-          p(id: 'contact-status', classes: 'contact-status', []),
-          div(id: 'contact-panel', classes: 'contact-panel', [
-            form(
-              id: 'contact-form',
-              classes: 'contact-form',
-              action: foxirWeb3FormsEndpoint,
-              method: .post,
-              [
-                input(
-                  type: .hidden,
-                  name: 'access_key',
-                  value: foxirWeb3FormsAccessKey,
+          div(classes: 'contact-form-column', [
+            div(classes: 'contact-form-heading', [
+              span([.text('Project inquiry')]),
+              p([
+                .text(
+                  'Three simple fields. Share the idea and we will take it from there.',
                 ),
-                input(
-                  type: .hidden,
-                  name: 'subject',
-                  value: 'New message from Foxir Apps contact',
-                ),
-                input(
-                  type: .checkbox,
-                  name: 'botcheck',
-                  attributes: const {
-                    'style': 'display:none',
-                    'tabindex': '-1',
-                    'autocomplete': 'off',
-                  },
-                ),
-                div(classes: 'contact-row', [
+              ]),
+            ]),
+            p(id: 'contact-status', classes: 'contact-status', []),
+            div(id: 'contact-panel', classes: 'contact-panel', [
+              form(
+                id: 'contact-form',
+                classes: 'contact-form',
+                action: foxirWeb3FormsEndpoint,
+                method: .post,
+                [
+                  input(
+                    type: .hidden,
+                    name: 'access_key',
+                    value: foxirWeb3FormsAccessKey,
+                  ),
+                  input(
+                    type: .hidden,
+                    name: 'subject',
+                    value: 'New message from Foxir Apps contact',
+                  ),
+                  input(
+                    type: .checkbox,
+                    name: 'botcheck',
+                    attributes: const {
+                      'style': 'display:none',
+                      'tabindex': '-1',
+                      'autocomplete': 'off',
+                    },
+                  ),
                   div(classes: 'contact-field', [
-                    label(htmlFor: 'contact-name', [.text('Name*')]),
+                    label(htmlFor: 'contact-name', [.text('01 / Name*')]),
                     input(
                       type: .text,
                       name: 'name',
@@ -62,7 +93,7 @@ class ContactPage extends StatelessComponent {
                     ),
                   ]),
                   div(classes: 'contact-field', [
-                    label(htmlFor: 'contact-email', [.text('Email*')]),
+                    label(htmlFor: 'contact-email', [.text('02 / Email*')]),
                     input(
                       type: .email,
                       name: 'email',
@@ -74,47 +105,56 @@ class ContactPage extends StatelessComponent {
                       },
                     ),
                   ]),
-                ]),
-                div(classes: 'contact-field', [
-                  label(htmlFor: 'contact-message', [.text('Message*')]),
-                  textarea(
-                    name: 'message',
-                    id: 'contact-message',
-                    rows: 5,
-                    required: true,
-                    placeholder: 'Your message...',
-                    [],
-                  ),
-                ]),
-                button(
-                  type: .submit,
-                  id: 'contact-submit',
-                  classes: 'contact-submit',
-                  [.text('Submit')],
-                ),
-              ],
-            ),
-            p(classes: 'contact-note', [
-              .text('Or reach us anytime at '),
-              a(href: 'mailto:$foxirEmail', [.text(foxirEmail)]),
-              .text('.'),
-            ]),
-            div(
-              id: 'contact-success',
-              classes: 'contact-success',
-              attributes: const {'aria-hidden': 'true'},
-              [
-                div(classes: 'contact-success-card', [
-                  span(classes: 'contact-success-eyebrow', [.text('Sent')]),
-                  h2([.text('Thanks — we got your message.')]),
-                  p([
-                    .text('We\u2019ll read it soon and get back to you. '
-                        'In the meantime, explore the apps we craft.'),
+                  div(classes: 'contact-field', [
+                    label(htmlFor: 'contact-message', [
+                      .text('03 / Message*'),
+                    ]),
+                    textarea(
+                      name: 'message',
+                      id: 'contact-message',
+                      rows: 5,
+                      required: true,
+                      placeholder: 'Tell us about the idea...',
+                      [],
+                    ),
                   ]),
-                  a(classes: 'contact-success-home', href: '/', [.text('Back to home')]),
-                ]),
-              ],
-            ),
+                  button(
+                    type: .submit,
+                    id: 'contact-submit',
+                    classes: 'contact-submit',
+                    [
+                      span([.text('Send inquiry')]),
+                      span(
+                        attributes: const {'aria-hidden': 'true'},
+                        [
+                          .text('↗'),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              div(
+                id: 'contact-success',
+                classes: 'contact-success',
+                attributes: const {'aria-hidden': 'true'},
+                [
+                  div(classes: 'contact-success-card', [
+                    span(classes: 'contact-success-eyebrow', [.text('Sent')]),
+                    h2([.text('Thanks — we got your message.')]),
+                    p([
+                      .text(
+                        'We\u2019ll read it soon and get back to you. '
+                        'In the meantime, explore the apps we craft.',
+                      ),
+                    ]),
+                    a(classes: 'contact-success-home', href: '/', [
+                      .text('Back to home'),
+                    ]),
+                  ]),
+                ],
+              ),
+            ]),
           ]),
         ]),
       ]),
@@ -175,71 +215,221 @@ class ContactPage extends StatelessComponent {
       minHeight: 100.vh,
       color: foxirInk,
       backgroundColor: foxirBg,
+      fontFamily: const .list([
+        FontFamily('Geist'),
+        FontFamilies.sansSerif,
+      ]),
       raw: {
         'background-image':
-            'radial-gradient(ellipse 90% 55% at 15% -5%, rgba(255, 82, 14, 0.32), transparent 55%), '
-            'radial-gradient(ellipse 70% 45% at 95% 15%, rgba(255, 82, 14, 0.14), transparent 50%), '
-            'radial-gradient(ellipse 60% 50% at 50% 110%, rgba(255, 82, 14, 0.10), transparent 55%), '
-            'linear-gradient(180deg, #121212 0%, #0d0d0d 45%, #0a0a0a 100%)',
+            'radial-gradient(ellipse 90% 55% at 15% -5%, rgba(255, 87, 34, 0.32), transparent 55%), '
+            'radial-gradient(ellipse 70% 45% at 95% 15%, rgba(255, 87, 34, 0.14), transparent 50%), '
+            'radial-gradient(ellipse 60% 50% at 50% 110%, rgba(255, 87, 34, 0.10), transparent 55%), '
+            'linear-gradient(180deg, #121212 0%, #0e0e0e 45%, #0a0a0a 100%)',
         'background-attachment': 'fixed',
       },
     ),
     css('.foxir .contact', [
-      css('&').styles(padding: .symmetric(vertical: 72.px)),
+      css('&').styles(backgroundColor: foxirBg),
       css('.contact-inner').styles(
         display: .flex,
-        maxWidth: 560.px,
-        margin: .symmetric(horizontal: Unit.auto),
+        width: 100.percent,
+        minHeight: 760.px,
+        border: const Border.only(
+          left: BorderSide(
+            style: .solid,
+            color: Color('#2a2a2a80'),
+            width: Unit.pixels(2),
+          ),
+          right: BorderSide(
+            style: .solid,
+            color: Color('#2a2a2a80'),
+            width: Unit.pixels(2),
+          ),
+          bottom: BorderSide(
+            style: .solid,
+            color: Color('#2a2a2a80'),
+            width: Unit.pixels(2),
+          ),
+        ),
         flexDirection: .column,
-        alignItems: .stretch,
-        gap: .all(20.px),
+      ),
+      css('.contact-intro').styles(
+        position: const Position.relative(),
+        display: .flex,
+        padding: .symmetric(horizontal: 24.px, vertical: 64.px),
+        flex: const Flex.grow(1),
+        flexDirection: .column,
+        justifyContent: .center,
+        overflow: .hidden,
+        raw: {
+          'background-image':
+              'radial-gradient(circle at 12% 12%, rgba(255,87,34,.16), transparent 38%), '
+              'linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), '
+              'linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px)',
+          'background-size': 'auto, 48px 48px, 48px 48px',
+        },
       ),
       css('h1').styles(
+        display: .flex,
+        flexDirection: .column,
         color: foxirInk,
-        fontSize: 2.5.rem,
-        fontWeight: .w700,
-        letterSpacing: (-0.03).em,
-        lineHeight: 1.1.em,
-        textAlign: .center,
+        fontFamily: const .list([
+          FontFamily('Hanken Grotesk'),
+          FontFamilies.sansSerif,
+        ]),
+        fontWeight: .w900,
+        letterSpacing: (-0.05).em,
+        lineHeight: 0.92.em,
+        textTransform: .upperCase,
+        raw: {'font-size': 'clamp(3.5rem, 7vw, 7rem)'},
       ),
+      css('.contact-title-accent').styles(color: foxirAccent),
       css('.contact-soft').styles(
+        maxWidth: 600.px,
+        margin: .only(top: 36.px),
         color: foxirMuted,
         fontSize: 1.0625.rem,
-        fontWeight: .w500,
-        textAlign: .center,
+        fontWeight: .w300,
+        lineHeight: 1.65.em,
+      ),
+      css('.contact-meta').styles(
+        display: .grid,
+        margin: .only(top: 56.px),
+        padding: .only(top: 32.px),
+        border: const Border.only(
+          top: BorderSide(
+            style: .solid,
+            color: Color('#2a2a2a80'),
+            width: Unit.pixels(2),
+          ),
+        ),
+        gap: .all(32.px),
+        gridTemplate: const GridTemplate(
+          columns: GridTracks([
+            GridTrack(TrackSize.fr(1)),
+            GridTrack(TrackSize.fr(1)),
+          ]),
+        ),
+      ),
+      css('.contact-meta-group').styles(
+        display: .flex,
+        minWidth: .zero,
+        flexDirection: .column,
+        alignItems: .start,
+        gap: .all(12.px),
+      ),
+      css('.contact-meta-label').styles(
+        color: foxirAccent,
+        fontSize: 0.6875.rem,
+        fontWeight: .w600,
+        letterSpacing: 0.1.em,
+        textTransform: .upperCase,
+      ),
+      css('.contact-meta-group a', [
+        css('&').styles(
+          color: foxirInk,
+          fontFamily: const .list([
+            FontFamily('Hanken Grotesk'),
+            FontFamilies.sansSerif,
+          ]),
+          fontSize: 1.125.rem,
+          fontWeight: .w600,
+          raw: {
+            'overflow-wrap': 'anywhere',
+            'transition': 'color 160ms ease',
+          },
+        ),
+        css('&:hover, &:focus-visible').styles(color: foxirAccent),
+      ]),
+      css('.contact-app-links').styles(
+        display: .flex,
+        flexWrap: .wrap,
+        gap: .all(8.px),
+      ),
+      css('.contact-app-links a:not(:last-child)::after').styles(
+        margin: .only(left: 8.px),
+        color: const Color('#6f625f'),
+        raw: {'content': '"/"'},
+      ),
+      css('.contact-form-column').styles(
+        display: .flex,
+        padding: .symmetric(horizontal: 24.px, vertical: 56.px),
+        border: const Border.only(
+          top: BorderSide(
+            style: .solid,
+            color: foxirHairline,
+            width: Unit.pixels(2),
+          ),
+        ),
+        flex: const Flex.grow(1),
+        flexDirection: .column,
+        justifyContent: .center,
+        backgroundColor: const Color('#111111'),
+      ),
+      css('.contact-form-heading').styles(
+        display: .flex,
+        margin: .only(bottom: 28.px),
+        justifyContent: .spaceBetween,
+        alignItems: .end,
+        gap: .all(24.px),
+      ),
+      css('.contact-form-heading > span').styles(
+        color: foxirAccent,
+        fontSize: 0.6875.rem,
+        fontWeight: .w600,
+        letterSpacing: 0.1.em,
+        textTransform: .upperCase,
+      ),
+      css('.contact-form-heading p').styles(
+        maxWidth: 340.px,
+        color: foxirMuted,
+        fontSize: 0.875.rem,
+        fontWeight: .w300,
+        lineHeight: 1.5.em,
+        textAlign: .end,
       ),
       css('.contact-status', [
         css('&').styles(
           display: .none,
-          padding: .symmetric(horizontal: 14.px, vertical: 10.px),
-          radius: .circular(12.px),
-          fontSize: 0.9375.rem,
+          margin: .only(bottom: 16.px),
+          padding: .symmetric(horizontal: 18.px, vertical: 14.px),
+          border: const Border.all(
+            style: .solid,
+            color: foxirHairline,
+            width: Unit.pixels(2),
+          ),
+          fontSize: 0.75.rem,
           fontWeight: .w600,
-          textAlign: .center,
+          letterSpacing: 0.08.em,
+          textTransform: .upperCase,
         ),
         css('&.is-pending, &.is-error').styles(display: .block),
         css('&.is-pending').styles(
           color: foxirMuted,
-          backgroundColor: foxirElevated,
+          backgroundColor: foxirSurface,
         ),
         css('&.is-error').styles(
           color: foxirInk,
-          backgroundColor: const Color('#3d1f1f'),
+          backgroundColor: const Color('#3d1814'),
         ),
       ]),
       css('.contact-panel', [
         css('&').styles(
           position: const Position.relative(),
-          display: .flex,
-          flexDirection: .column,
-          gap: .all(16.px),
+          padding: .all(24.px),
+          border: const Border.all(
+            style: .solid,
+            color: foxirHairline,
+            width: Unit.pixels(2),
+          ),
+          backgroundColor: foxirBg,
         ),
-        css('&.is-sent .contact-form, &.is-sent .contact-note').styles(
+        css('&.is-sent .contact-form').styles(
           raw: {
-            'filter': 'blur(8px)',
+            'filter': 'blur(6px)',
             'pointer-events': 'none',
             'user-select': 'none',
-            'opacity': '0.45',
+            'opacity': '0.28',
           },
         ),
         css('&.is-sent .contact-success').styles(
@@ -250,73 +440,95 @@ class ContactPage extends StatelessComponent {
       css('.contact-form').styles(
         display: .flex,
         flexDirection: .column,
-        gap: .all(16.px),
+        gap: .all(24.px),
         raw: {'transition': 'filter 240ms ease, opacity 240ms ease'},
-      ),
-      css('.contact-row').styles(
-        display: .flex,
-        flexDirection: .column,
-        gap: .all(16.px),
       ),
       css('.contact-field', [
         css('&').styles(
           display: .flex,
           width: 100.percent,
           flexDirection: .column,
-          gap: .all(8.px),
+          gap: .all(10.px),
         ),
         css('label').styles(
-          color: foxirInk,
-          fontSize: 0.875.rem,
+          color: foxirAccent,
+          fontSize: 0.6875.rem,
           fontWeight: .w600,
+          letterSpacing: 0.1.em,
+          textTransform: .upperCase,
         ),
         css('input, textarea').styles(
           width: 100.percent,
-          padding: .symmetric(horizontal: 16.px, vertical: 14.px),
-          border: const Border.all(style: .solid, color: foxirHairline, width: Unit.pixels(1)),
-          radius: .circular(14.px),
-          color: foxirBg,
+          padding: .symmetric(horizontal: 18.px, vertical: 16.px),
+          border: const Border.all(
+            style: .solid,
+            color: foxirHairline,
+            width: Unit.pixels(2),
+          ),
+          color: foxirInk,
           fontFamily: FontFamily.inherit,
           fontSize: 1.rem,
-          fontWeight: .w500,
-          backgroundColor: const Color('#e8e8ed'),
-          raw: {'outline': 'none'},
+          fontWeight: .w400,
+          backgroundColor: foxirSurface,
+          raw: {
+            'outline': 'none',
+            'transition': 'border-color 160ms ease, background-color 160ms ease, box-shadow 160ms ease',
+          },
         ),
         css('textarea').styles(
-          minHeight: 140.px,
+          minHeight: 190.px,
           raw: {'resize': 'vertical'},
+        ),
+        css('input:focus, textarea:focus').styles(
+          border: const Border.all(
+            style: .solid,
+            color: foxirAccent,
+            width: Unit.pixels(2),
+          ),
+          backgroundColor: foxirElevated,
+          raw: {'box-shadow': '0 0 0 3px rgba(255,87,34,.12)'},
+        ),
+        css('input::placeholder, textarea::placeholder').styles(
+          color: const Color('#766864'),
         ),
       ]),
       css('.contact-submit', [
         css('&').styles(
+          display: .flex,
           width: 100.percent,
-          padding: .symmetric(vertical: 14.px),
-          border: Border.none,
-          radius: .circular(14.px),
+          minHeight: 64.px,
+          padding: .symmetric(horizontal: 24.px),
+          border: const Border.all(
+            style: .solid,
+            color: foxirAccent,
+            width: Unit.pixels(2),
+          ),
+          justifyContent: .spaceBetween,
+          alignItems: .center,
           color: Colors.white,
           cursor: .pointer,
           fontFamily: FontFamily.inherit,
-          fontSize: 1.rem,
-          fontWeight: .w700,
+          fontSize: 0.75.rem,
+          fontWeight: .w600,
+          letterSpacing: 0.1.em,
+          textTransform: .upperCase,
           backgroundColor: foxirAccent,
+          raw: {
+            'transition': 'background-color 160ms ease, color 160ms ease, border-color 160ms ease',
+          },
         ),
-        css('&:hover').styles(backgroundColor: const Color('#ff6a2e')),
+        css('&:hover, &:focus-visible').styles(
+          border: const Border.all(
+            style: .solid,
+            color: foxirInk,
+            width: Unit.pixels(2),
+          ),
+          color: foxirBg,
+          backgroundColor: foxirInk,
+        ),
         css('&:disabled').styles(
           cursor: .notAllowed,
-          opacity: 0.7,
-        ),
-      ]),
-      css('.contact-note', [
-        css('&').styles(
-          color: foxirMuted,
-          fontSize: 0.875.rem,
-          fontWeight: .w500,
-          textAlign: .center,
-          raw: {'transition': 'filter 240ms ease, opacity 240ms ease'},
-        ),
-        css('a').styles(
-          color: foxirAccent,
-          fontWeight: .w700,
+          opacity: 0.55,
         ),
       ]),
       css('.contact-success', [
@@ -327,7 +539,7 @@ class ContactPage extends StatelessComponent {
             'inset': '0',
             'align-items': 'center',
             'justify-content': 'center',
-            'padding': '24px',
+            'padding': '20px',
             'opacity': '0',
             'transition': 'opacity 240ms ease',
             'z-index': '2',
@@ -337,15 +549,18 @@ class ContactPage extends StatelessComponent {
       css('.contact-success-card', [
         css('&').styles(
           display: .flex,
-          maxWidth: 380.px,
-          padding: .all(28.px),
-          border: const Border.all(style: .solid, color: foxirHairline, width: Unit.pixels(1)),
-          radius: .circular(24.px),
+          maxWidth: 420.px,
+          padding: .all(32.px),
+          border: const Border.all(
+            style: .solid,
+            color: foxirAccent,
+            width: Unit.pixels(2),
+          ),
           flexDirection: .column,
-          alignItems: .center,
-          gap: .all(12.px),
-          textAlign: .center,
-          backgroundColor: const Color('#121212f2'),
+          alignItems: .start,
+          gap: .all(16.px),
+          textAlign: .start,
+          backgroundColor: const Color('#0e0e0ef2'),
           shadow: const BoxShadow(
             offsetX: Unit.zero,
             offsetY: Unit.pixels(18),
@@ -366,36 +581,77 @@ class ContactPage extends StatelessComponent {
         ),
         css('h2').styles(
           color: foxirInk,
-          fontSize: 1.5.rem,
-          fontWeight: .w700,
-          letterSpacing: (-0.02).em,
-          lineHeight: 1.2.em,
+          fontFamily: const .list([
+            FontFamily('Hanken Grotesk'),
+            FontFamilies.sansSerif,
+          ]),
+          fontSize: 1.75.rem,
+          fontWeight: .w800,
+          letterSpacing: (-0.03).em,
+          lineHeight: 1.1.em,
+          textTransform: .upperCase,
         ),
         css('p').styles(
           color: foxirMuted,
           fontSize: 0.9375.rem,
-          fontWeight: .w500,
+          fontWeight: .w300,
         ),
       ]),
       css('.contact-success-home', [
         css('&').styles(
           margin: .only(top: 8.px),
-          padding: .symmetric(horizontal: 22.px, vertical: 12.px),
-          radius: .circular(999.px),
+          padding: .symmetric(horizontal: 22.px, vertical: 14.px),
+          border: const Border.all(
+            style: .solid,
+            color: foxirAccent,
+            width: Unit.pixels(2),
+          ),
           color: Colors.white,
-          fontSize: 0.9375.rem,
-          fontWeight: .w700,
+          fontSize: 0.6875.rem,
+          fontWeight: .w600,
+          letterSpacing: 0.1.em,
+          textTransform: .upperCase,
           backgroundColor: foxirAccent,
         ),
-        css('&:hover').styles(backgroundColor: const Color('#ff6a2e')),
+        css('&:hover, &:focus-visible').styles(
+          color: foxirBg,
+          backgroundColor: foxirInk,
+        ),
       ]),
     ]),
     css.media(desktop, [
       css('.foxir .contact', [
-        css('&').styles(padding: .symmetric(vertical: 96.px)),
-        css('h1').styles(fontSize: 3.25.rem),
-        css('.contact-row').styles(flexDirection: .row),
-        css('.contact-success-card h2').styles(fontSize: 1.75.rem),
+        css('.contact-inner').styles(flexDirection: .row),
+        css('.contact-intro').styles(
+          width: 50.percent,
+          minHeight: 820.px,
+          padding: .symmetric(vertical: 96.px),
+          raw: {
+            'padding-left': 'clamp(48px, 6vw, 112px)',
+            'padding-right': 'clamp(48px, 6vw, 112px)',
+          },
+        ),
+        css('.contact-soft').styles(
+          fontSize: 1.25.rem,
+          lineHeight: 1.6.em,
+        ),
+        css('.contact-form-column').styles(
+          width: 50.percent,
+          minHeight: 820.px,
+          padding: .symmetric(vertical: 96.px),
+          border: const Border.only(
+            left: BorderSide(
+              style: .solid,
+              color: foxirHairline,
+              width: Unit.pixels(2),
+            ),
+          ),
+          raw: {
+            'padding-left': 'clamp(48px, 6vw, 112px)',
+            'padding-right': 'clamp(48px, 6vw, 112px)',
+          },
+        ),
+        css('.contact-panel').styles(padding: .all(36.px)),
       ]),
     ]),
   ];

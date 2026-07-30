@@ -25,12 +25,14 @@ void main() {
       meta: {
         'description':
             'Foxir Apps is home to the products we craft in-house—Paximus, Vouxe, Better Today, and more. Explore our apps, and if you have an idea, let\'s talk.',
-        'theme-color': '#0d0d0d',
+        'theme-color': '#0e0e0e',
       },
       styles: [
         css.import(
           'https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700'
-          '&family=Space+Grotesk:wght@400;500;600;700&display=swap',
+          '&family=Space+Grotesk:wght@400;500;600;700'
+          '&family=Geist:wght@300;400;600;700'
+          '&family=Hanken+Grotesk:wght@600;800;900&display=swap',
         ),
         css('*, *::before, *::after').styles(
           padding: .zero,
