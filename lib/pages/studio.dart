@@ -674,7 +674,8 @@ class StudioPage extends StatelessComponent {
       ),
     ),
     css('.foxir .studio-process-track::before, .foxir .studio-process-track::after').styles(
-      position: .absolute(left: 9.px, top: .zero, bottom: .zero),
+      position: .absolute(left: 14.px, top: .zero, bottom: .zero),
+      zIndex: const ZIndex(0),
       width: 1.px,
       raw: {
         'content': '""',
@@ -696,13 +697,15 @@ class StudioPage extends StatelessComponent {
     ),
     css('.foxir .studio-process-step').styles(
       position: const Position.relative(),
-      padding: .only(left: 42.px),
+      zIndex: const ZIndex(1),
+      padding: .only(left: 52.px),
     ),
     css('.foxir .studio-process-number').styles(
       position: .absolute(left: .zero, top: 2.px),
       display: .flex,
-      width: 19.px,
-      height: 19.px,
+      zIndex: const ZIndex(2),
+      width: 29.px,
+      height: 29.px,
       border: const Border.all(
         style: .solid,
         color: foxirAccent,
@@ -710,11 +713,14 @@ class StudioPage extends StatelessComponent {
       ),
       justifyContent: .center,
       alignItems: .center,
-      color: foxirAccent,
+      color: foxirInk,
       backgroundColor: const Color('#111111'),
-      fontSize: 0.4375.rem,
+      fontSize: 0.5625.rem,
       fontWeight: .w700,
-      raw: {'border-radius': '50%'},
+      raw: {
+        'border-radius': '50%',
+        'box-shadow': '0 0 0 6px #111111',
+      },
     ),
     css('.foxir .studio-process-step h3').styles(
       color: foxirInk,
@@ -820,39 +826,33 @@ class StudioPage extends StatelessComponent {
     ),
     css('.foxir .studio-product-links').styles(
       display: .flex,
+      overflow: .hidden,
+      border: const Border.all(
+        style: .solid,
+        color: Color('#ffffff18'),
+        width: Unit.pixels(1),
+      ),
       flexDirection: .column,
+      gap: .all(1.px),
+      backgroundColor: const Color('#ffffff18'),
+      raw: {'border-radius': '18px'},
     ),
     css('.foxir .studio-product-links > a', [
       css('&').styles(
         display: .flex,
         minHeight: 130.px,
-        padding: .symmetric(vertical: 24.px),
-        border: const Border.only(
-          top: BorderSide(
-            style: .solid,
-            color: Color('#ffffff18'),
-            width: Unit.pixels(1),
-          ),
-        ),
+        padding: .all(24.px),
         justifyContent: .spaceBetween,
         alignItems: .center,
         gap: .all(24.px),
+        backgroundColor: const Color('#111111'),
         raw: {
-          'transition': 'color 180ms ease, padding 220ms ease',
+          'transition': 'color 180ms ease, background-color 180ms ease',
         },
-      ),
-      css('&:last-child').styles(
-        border: const Border.symmetric(
-          horizontal: BorderSide(
-            style: .solid,
-            color: Color('#ffffff18'),
-            width: Unit.pixels(1),
-          ),
-        ),
       ),
       css('&:hover, &:focus-visible').styles(
         color: foxirAccent,
-        raw: {'padding-left': '12px', 'padding-right': '12px'},
+        backgroundColor: const Color('#171412'),
       ),
       css('span:first-child').styles(
         color: const Color('#8d817e'),
@@ -873,32 +873,36 @@ class StudioPage extends StatelessComponent {
         letterSpacing: (-0.035).em,
         textTransform: .upperCase,
       ),
+      css('&:hover h3, &:focus-visible h3').styles(
+        color: foxirAccent,
+      ),
     ]),
     css('.foxir .studio-product-arrow').styles(
       color: foxirInk,
       fontSize: 1.25.rem,
+      raw: {'transition': 'color 180ms ease, transform 180ms ease'},
     ),
     css(
       '.foxir .studio-product-links > a:hover .studio-product-arrow, .foxir .studio-product-links > a:focus-visible .studio-product-arrow',
     ).styles(
       color: foxirAccent,
+      raw: {'transform': 'translate(3px, -3px)'},
     ),
     css('.foxir .studio-cta').styles(
       display: .flex,
-      margin: .symmetric(horizontal: 24.px, vertical: 72.px),
-      padding: .all(28.px),
+      margin: .symmetric(horizontal: 24.px, vertical: 64.px),
+      padding: .all(26.px),
       border: const Border.all(
         style: .solid,
-        color: Color('#ffffff12'),
+        color: Color('#ffffff18'),
         width: Unit.pixels(1),
       ),
       flexDirection: .column,
       alignItems: .start,
-      gap: .all(30.px),
-      backgroundColor: const Color('#ffffff05'),
+      gap: .all(24.px),
+      backgroundColor: const Color('#111111'),
       raw: {
-        'border-radius': '22px',
-        'background-image': 'radial-gradient(circle at 82% 18%, rgba(255,87,34,.12), transparent 32%)',
+        'border-radius': '18px',
       },
     ),
     css('.foxir .studio-cta > div > span').styles(
@@ -917,34 +921,46 @@ class StudioPage extends StatelessComponent {
         FontFamilies.sansSerif,
       ]),
       fontWeight: .w900,
-      letterSpacing: (-0.045).em,
-      lineHeight: 0.98.em,
+      letterSpacing: (-0.035).em,
+      lineHeight: 1.em,
       textTransform: .upperCase,
-      raw: {'font-size': 'clamp(2.5rem, 7vw, 5rem)'},
+      raw: {'font-size': 'clamp(1.75rem, 4.5vw, 2.75rem)'},
     ),
     css('.foxir .studio-cta-link', [
       css('&').styles(
         display: .flex,
-        minHeight: 58.px,
-        padding: .symmetric(horizontal: 24.px),
+        minHeight: 36.px,
+        padding: .only(bottom: 7.px),
+        border: const Border.only(
+          bottom: BorderSide(
+            style: .solid,
+            color: Color('#ffffff55'),
+            width: Unit.pixels(1),
+          ),
+        ),
         justifyContent: .center,
         alignItems: .center,
-        gap: .all(18.px),
-        color: Colors.white,
-        backgroundColor: foxirAccent,
+        gap: .all(14.px),
+        color: foxirInk,
+        backgroundColor: Colors.transparent,
         fontSize: 0.6875.rem,
         fontWeight: .w600,
         letterSpacing: 0.1.em,
         textTransform: .upperCase,
+        whiteSpace: .noWrap,
         raw: {
-          'border-radius': '12px',
-          'transition': 'background-color 160ms ease, color 160ms ease, transform 160ms ease',
+          'transition': 'border-color 160ms ease, color 160ms ease',
         },
       ),
       css('&:hover, &:focus-visible').styles(
-        color: foxirBg,
-        backgroundColor: foxirInk,
-        raw: {'transform': 'translateY(-2px)'},
+        border: const Border.only(
+          bottom: BorderSide(
+            style: .solid,
+            color: foxirAccent,
+            width: Unit.pixels(1),
+          ),
+        ),
+        color: foxirAccent,
       ),
     ]),
     css('.foxir.studio-page.has-motion .studio-title-line').styles(
@@ -1056,7 +1072,7 @@ class StudioPage extends StatelessComponent {
         ),
       ),
       css('.foxir .studio-process-track::before, .foxir .studio-process-track::after').styles(
-        position: .absolute(left: .zero, top: 9.px, right: .zero),
+        position: .absolute(left: .zero, top: 14.px, right: .zero),
         width: Unit.auto,
         height: 1.px,
         raw: {'transform-origin': 'left'},
@@ -1068,7 +1084,7 @@ class StudioPage extends StatelessComponent {
         raw: {'transform': 'scaleX(1)'},
       ),
       css('.foxir .studio-process-step').styles(
-        padding: .only(top: 46.px, left: .zero),
+        padding: .only(top: 58.px, left: .zero),
       ),
       css('.foxir .studio-process-number').styles(
         position: .absolute(left: .zero, top: .zero),
@@ -1117,20 +1133,40 @@ class StudioPage extends StatelessComponent {
       ),
       css('.foxir .studio-products-heading h2').styles(width: 62.percent),
       css('.foxir .studio-product-links > a').styles(
-        minHeight: 160.px,
-        padding: .symmetric(horizontal: 8.px, vertical: 30.px),
+        minHeight: 280.px,
+        padding: .all(30.px),
+        flexDirection: .column,
+        alignItems: .start,
       ),
-      css('.foxir .studio-product-links > a h3').styles(fontSize: 3.rem),
+      css('.foxir .studio-product-links').styles(
+        display: .grid,
+        gridTemplate: const GridTemplate(
+          columns: GridTracks([
+            GridTrack(TrackSize.fr(1)),
+            GridTrack(TrackSize.fr(1)),
+            GridTrack(TrackSize.fr(1)),
+          ]),
+        ),
+      ),
+      css('.foxir .studio-product-links > a h3').styles(
+        fontSize: 2.5.rem,
+      ),
+      css('.foxir .studio-product-arrow').styles(
+        alignSelf: .end,
+      ),
       css('.foxir .studio-cta').styles(
         margin: .symmetric(
-          vertical: 96.px,
-          horizontal: Unit.auto,
+          vertical: 72.px,
+          horizontal: .zero,
         ),
-        maxWidth: 1136.px,
-        padding: .all(48.px),
+        padding: .symmetric(horizontal: 34.px, vertical: 30.px),
         flexDirection: .row,
         justifyContent: .spaceBetween,
-        alignItems: .end,
+        alignItems: .center,
+        raw: {
+          'margin-left': 'clamp(48px, 6vw, 112px)',
+          'margin-right': 'clamp(48px, 6vw, 112px)',
+        },
       ),
     ]),
     css.media(const MediaQuery.raw('(prefers-reduced-motion: reduce)'), [
