@@ -2,6 +2,7 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
+import '../common/foxir_home_link.dart';
 
 /// Sticky header: logo | download CTA.
 class Header extends StatelessComponent {
@@ -11,9 +12,13 @@ class Header extends StatelessComponent {
   Component build(BuildContext context) {
     return header([
       div(classes: 'container header-inner', [
-        a(classes: 'brand', href: '/paximus#top', [
-          img(src: '/images/paximus-icon.png', alt: 'Paximus app icon', width: 32, height: 32),
-          span([.text('Paximus')]),
+        div(classes: 'header-brands', [
+          const FoxirHomeLink(),
+          span(classes: 'brand-divider', [.text('/')]),
+          a(classes: 'brand', href: '/paximus#top', [
+            img(src: '/images/paximus-icon.png', alt: 'Paximus app icon', width: 32, height: 32),
+            span([.text('Paximus')]),
+          ]),
         ]),
         a(classes: 'download-cta', href: '/paximus#download', [
           span([.text('Get Paximus')]),

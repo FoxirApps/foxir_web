@@ -2,6 +2,7 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
+import '../common/foxir_home_link.dart';
 
 /// Sticky header: logo | primary download CTA.
 class Header extends StatelessComponent {
@@ -11,9 +12,13 @@ class Header extends StatelessComponent {
   Component build(BuildContext context) {
     return header([
       div(classes: 'container header-inner', [
-        a(classes: 'brand', href: '/bettertoday#top', [
-          img(src: betterTodayIconSrc, alt: 'Better Today? logo', width: 34, height: 34),
-          span([.text('Better Today?')]),
+        div(classes: 'header-brands', [
+          const FoxirHomeLink(),
+          span(classes: 'brand-divider', [.text('/')]),
+          a(classes: 'brand', href: '/bettertoday#top', [
+            img(src: betterTodayIconSrc, alt: 'Better Today? logo', width: 34, height: 34),
+            span([.text('Better Today?')]),
+          ]),
         ]),
         a(classes: 'header-cta', href: '/bettertoday#download', [
           span([.text('Get Better Today')]),
