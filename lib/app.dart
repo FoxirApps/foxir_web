@@ -4,12 +4,14 @@ import 'package:jaspr_router/jaspr_router.dart';
 import 'components/bettertoday/metadata.dart';
 import 'components/paximus/metadata.dart';
 import 'components/vouxe/metadata.dart';
+import 'pages/apps.dart';
 import 'pages/bettertoday.dart';
 import 'pages/contact.dart';
 import 'pages/home.dart';
 import 'pages/legal/legal_pages.dart';
 import 'pages/not_found.dart';
 import 'pages/paximus.dart';
+import 'pages/studio.dart';
 import 'pages/vouxe.dart';
 
 /// The root component: the Foxir Apps umbrella site with one route per app.
@@ -29,6 +31,16 @@ class App extends StatelessComponent {
           path: '/contact',
           title: 'Contact — Foxir Apps',
           builder: (context, state) => const ContactPage(),
+        ),
+        Route(
+          path: '/apps',
+          title: 'App Archive — Foxir Apps',
+          builder: (context, state) => const AppsPage(),
+        ),
+        Route(
+          path: '/studio',
+          title: 'Studio — Foxir Apps',
+          builder: (context, state) => const StudioPage(),
         ),
         Route(
           path: '/paximus',

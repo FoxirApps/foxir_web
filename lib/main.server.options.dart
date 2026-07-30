@@ -14,9 +14,7 @@ import 'package:foxir_web/components/bettertoday/video_story.dart'
     as _video_story;
 import 'package:foxir_web/components/common/foxir_home_link.dart'
     as _foxir_home_link;
-import 'package:foxir_web/components/foxir/foxir_about.dart' as _foxir_about;
 import 'package:foxir_web/components/foxir/foxir_apps.dart' as _foxir_apps;
-import 'package:foxir_web/components/foxir/foxir_cta.dart' as _foxir_cta;
 import 'package:foxir_web/components/foxir/foxir_footer.dart' as _foxir_footer;
 import 'package:foxir_web/components/foxir/foxir_header.dart' as _foxir_header;
 import 'package:foxir_web/components/foxir/foxir_hero.dart' as _foxir_hero;
@@ -34,11 +32,13 @@ import 'package:foxir_web/components/vouxe/footer.dart' as _vouxe_footer;
 import 'package:foxir_web/components/vouxe/header.dart' as _vouxe_header;
 import 'package:foxir_web/components/vouxe/hero.dart' as _vouxe_hero;
 import 'package:foxir_web/components/store_buttons.dart' as _store_buttons;
+import 'package:foxir_web/pages/apps.dart' as _apps;
 import 'package:foxir_web/pages/bettertoday.dart' as _bettertoday;
 import 'package:foxir_web/pages/contact.dart' as _contact;
 import 'package:foxir_web/pages/home.dart' as _home;
 import 'package:foxir_web/pages/not_found.dart' as _not_found;
 import 'package:foxir_web/pages/paximus.dart' as _paximus;
+import 'package:foxir_web/pages/studio.dart' as _studio;
 import 'package:foxir_web/pages/vouxe.dart' as _vouxe;
 
 /// Default [ServerOptions] for use with your Jaspr project.
@@ -67,9 +67,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._hero.Hero.styles,
     ..._video_story.VideoStory.styles,
     ..._foxir_home_link.FoxirHomeLink.styles,
-    ..._foxir_about.FoxirAbout.styles,
     ..._foxir_apps.FoxirApps.styles,
-    ..._foxir_cta.FoxirCta.styles,
     ..._foxir_footer.FoxirFooter.styles,
     ..._foxir_header.FoxirHeader.styles,
     ..._foxir_hero.FoxirHero.styles,
@@ -84,11 +82,13 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._vouxe_footer.Footer.styles,
     ..._vouxe_header.Header.styles,
     ..._vouxe_hero.Hero.styles,
+    ..._apps.AppsPage.styles,
     ..._bettertoday.BetterTodayPage.styles,
     ..._contact.ContactPage.styles,
     ..._home.HomePage.styles,
     ..._not_found.NotFoundPage.styles,
     ..._paximus.PaximusPage.styles,
+    ..._studio.StudioPage.styles,
     ..._vouxe.VouxePage.styles,
   ],
 );
