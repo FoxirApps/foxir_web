@@ -39,15 +39,6 @@ class FoxirHero extends StatelessComponent {
           ]),
         ]),
       ]),
-      a(
-        classes: 'scroll-indicator',
-        href: '/#apps',
-        attributes: const {'aria-label': 'Scroll to featured apps'},
-        [
-          span([.text('Scroll')]),
-          span(classes: 'scroll-arrow', [.text('↓')]),
-        ],
-      ),
     ]);
   }
 
@@ -219,14 +210,13 @@ class FoxirHero extends StatelessComponent {
           backgroundColor: foxirAccent,
         ),
       ]),
-      css('.scroll-indicator').styles(display: .none),
     ]),
     css.media(desktop, [
       css('.foxir .hero', [
         css('&').styles(
           padding: .symmetric(vertical: 64.px),
           raw: {
-            'min-height': 'clamp(752px, 58.75vw, 1080px)',
+            'min-height': 'clamp(720px, 82vh, 900px)',
             'padding-left': 'clamp(48px, 6vw, 112px)',
             'padding-right': 'clamp(48px, 6vw, 112px)',
           },
@@ -247,40 +237,6 @@ class FoxirHero extends StatelessComponent {
         css('.hero-button').styles(
           minHeight: 64.px,
           padding: .symmetric(horizontal: 30.px),
-        ),
-        css('.scroll-indicator').styles(
-          position: .absolute(left: .zero, bottom: .zero),
-          zIndex: const ZIndex(3),
-          display: .flex,
-          minHeight: 64.px,
-          padding: .symmetric(horizontal: 30.px),
-          border: const Border.only(
-            top: BorderSide(
-              style: .solid,
-              color: Color('#2a2a2a80'),
-              width: Unit.pixels(2),
-            ),
-            right: BorderSide(
-              style: .solid,
-              color: Color('#2a2a2a80'),
-              width: Unit.pixels(2),
-            ),
-          ),
-          alignItems: .center,
-          gap: .all(16.px),
-          color: foxirMuted,
-          backgroundColor: foxirBg,
-          fontSize: 0.6875.rem,
-          fontWeight: .w600,
-          letterSpacing: 0.1.em,
-          textTransform: .upperCase,
-        ),
-        css('.scroll-indicator:hover, .scroll-indicator:focus-visible').styles(
-          color: foxirAccent,
-        ),
-        css('.scroll-arrow').styles(
-          color: foxirAccent,
-          fontSize: 1.rem,
         ),
       ]),
     ]),

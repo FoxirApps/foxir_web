@@ -176,6 +176,16 @@ class StudioPage extends StatelessComponent {
                     'tabindex': '0',
                   },
                   [
+                    div(
+                      classes: 'studio-principle-art art-${index + 1}',
+                      attributes: const {'aria-hidden': 'true'},
+                      [
+                        span(classes: 'art-line art-line-a', []),
+                        span(classes: 'art-line art-line-b', []),
+                        span(classes: 'art-line art-line-c', []),
+                        span(classes: 'art-line art-line-d', []),
+                      ],
+                    ),
                     span(classes: 'studio-principle-number', [
                       .text(_principles[index].number),
                     ]),
@@ -261,8 +271,9 @@ class StudioPage extends StatelessComponent {
               ]),
             ],
           ),
-          section(
+          a(
             classes: 'studio-cta studio-reveal',
+            href: foxirContactUrl,
             attributes: const {
               'data-reveal': '',
             },
@@ -271,7 +282,7 @@ class StudioPage extends StatelessComponent {
                 span([.text('Start a conversation')]),
                 h2([.text('Have an idea worth exploring?')]),
               ]),
-              a(classes: 'studio-cta-link', href: foxirContactUrl, [
+              span(classes: 'studio-cta-link', [
                 span([.text("Let's talk")]),
                 span(attributes: const {'aria-hidden': 'true'}, [.text('↗')]),
               ]),
@@ -571,7 +582,7 @@ class StudioPage extends StatelessComponent {
       css('&').styles(
         position: const Position.relative(),
         display: .flex,
-        minHeight: 270.px,
+        minHeight: 220.px,
         overflow: .hidden,
         padding: .all(26.px),
         border: const Border.all(
@@ -583,9 +594,9 @@ class StudioPage extends StatelessComponent {
         justifyContent: .end,
         backgroundColor: const Color('#121212'),
         raw: {
-          'border-radius': '22px',
-          'background-image': 'radial-gradient(circle at 80% 12%, rgba(255,87,34,.09), transparent 34%)',
-          'transition': 'transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease',
+          'border-radius': '18px',
+          'transition':
+              'transform 220ms ease, border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease',
         },
       ),
       css('&:hover, &:focus-visible').styles(
@@ -596,38 +607,12 @@ class StudioPage extends StatelessComponent {
         ),
         shadow: const BoxShadow(
           offsetX: Unit.zero,
-          offsetY: Unit.pixels(22),
-          blur: Unit.pixels(55),
-          color: Color('#00000066'),
+          offsetY: Unit.pixels(18),
+          blur: Unit.pixels(44),
+          color: Color('#00000052'),
         ),
-        raw: {'transform': 'translateY(-5px)'},
-      ),
-      css('&::before').styles(
-        position: .absolute(
-          left: 26.px,
-          top: 26.px,
-        ),
-        width: 90.px,
-        height: 90.px,
-        border: const Border.all(
-          style: .solid,
-          color: Color('#ff572224'),
-          width: Unit.pixels(1),
-        ),
-        raw: {
-          'content': '""',
-          'border-radius': '42% 58% 52% 48%',
-          'transform': 'rotate(-18deg)',
-          'transition': 'transform 500ms ease, border-color 220ms ease',
-        },
-      ),
-      css('&:hover::before, &:focus-visible::before').styles(
-        border: const Border.all(
-          style: .solid,
-          color: Color('#ff572255'),
-          width: Unit.pixels(1),
-        ),
-        raw: {'transform': 'rotate(14deg) scale(1.08)'},
+        backgroundColor: const Color('#151515'),
+        raw: {'transform': 'translateY(-3px)'},
       ),
       css('h3').styles(
         position: const Position.relative(),
@@ -653,6 +638,179 @@ class StudioPage extends StatelessComponent {
         lineHeight: 1.55.em,
       ),
     ]),
+    css('.foxir .studio-principle-art').styles(
+      position: .absolute(top: (-8).px, right: (-10).px),
+      zIndex: const ZIndex(0),
+      width: 178.px,
+      height: 128.px,
+      opacity: 0.22,
+      raw: {
+        'pointer-events': 'none',
+        'transition': 'opacity 220ms ease, transform 600ms cubic-bezier(.2,.8,.2,1)',
+      },
+    ),
+    css('.foxir .studio-principle-art .art-line').styles(
+      position: const Position.absolute(),
+      display: .block,
+      border: const Border.all(
+        style: .solid,
+        color: Color('#ff572266'),
+        width: Unit.pixels(1),
+      ),
+      raw: {
+        'transition': 'transform 600ms cubic-bezier(.2,.8,.2,1), border-color 220ms ease',
+      },
+    ),
+    css(
+      '.foxir .studio-principle-card:hover .studio-principle-art, .foxir .studio-principle-card:focus-visible .studio-principle-art',
+    ).styles(
+      opacity: 0.42,
+      raw: {'transform': 'translate(-5px, 5px) scale(1.06)'},
+    ),
+    css(
+      '.foxir .studio-principle-card:hover .art-line, .foxir .studio-principle-card:focus-visible .art-line',
+    ).styles(
+      raw: {'border-color': 'rgba(255,87,34,.78)'},
+    ),
+
+    // 01 — a focused core held by independent orbits.
+    css('.foxir .studio-principle-art.art-1 .art-line-a').styles(
+      raw: {
+        'left': '2px',
+        'top': '24px',
+        'width': '118px',
+        'height': '42px',
+        'border-radius': '50%',
+        'transform': 'rotate(-9deg)',
+      },
+    ),
+    css('.foxir .studio-principle-art.art-1 .art-line-b').styles(
+      raw: {
+        'left': '31px',
+        'top': '3px',
+        'width': '54px',
+        'height': '84px',
+        'border-radius': '50%',
+        'transform': 'rotate(34deg)',
+      },
+    ),
+    css('.foxir .studio-principle-art.art-1 .art-line-c').styles(
+      raw: {
+        'left': '53px',
+        'top': '38px',
+        'width': '12px',
+        'height': '12px',
+        'border-radius': '50%',
+        'background': '#ff5722',
+        'box-shadow': '0 0 22px rgba(255,87,34,.45)',
+      },
+    ),
+    css('.foxir .studio-principle-art.art-1 .art-line-d').styles(
+      raw: {
+        'left': '44px',
+        'top': '29px',
+        'width': '30px',
+        'height': '30px',
+        'border-radius': '50%',
+      },
+    ),
+
+    // 02 — three crafted frames meeting at one precise joint.
+    css('.foxir .studio-principle-art.art-2 .art-line').styles(
+      width: 48.px,
+      height: 48.px,
+      raw: {'transform': 'rotate(45deg)'},
+    ),
+    css('.foxir .studio-principle-art.art-2 .art-line-a').styles(
+      position: .absolute(left: 12.px, top: 12.px),
+    ),
+    css('.foxir .studio-principle-art.art-2 .art-line-b').styles(
+      position: .absolute(left: 54.px, top: 12.px),
+    ),
+    css('.foxir .studio-principle-art.art-2 .art-line-c').styles(
+      position: .absolute(left: 33.px, top: 48.px),
+    ),
+    css('.foxir .studio-principle-art.art-2 .art-line-d').styles(
+      position: .absolute(left: 51.px, top: 42.px),
+      width: 12.px,
+      height: 12.px,
+      backgroundColor: foxirAccent,
+      shadow: const BoxShadow(
+        offsetX: Unit.zero,
+        offsetY: Unit.zero,
+        blur: Unit.pixels(18),
+        color: Color('#ff572266'),
+      ),
+      raw: {
+        'border-radius': '3px',
+        'transform': 'rotate(45deg)',
+      },
+    ),
+
+    // 03 — three measured waves settling around one calm point.
+    css(
+      '.foxir .studio-principle-art.art-3 .art-line-a, .foxir .studio-principle-art.art-3 .art-line-b, .foxir .studio-principle-art.art-3 .art-line-c',
+    ).styles(
+      height: 22.px,
+      raw: {
+        'border': '0',
+        'border-top': '1px solid rgba(255,87,34,.55)',
+        'border-radius': '50%',
+      },
+    ),
+    css('.foxir .studio-principle-art.art-3 .art-line-a').styles(
+      position: .absolute(left: .zero, top: 8.px),
+      width: 126.px,
+    ),
+    css('.foxir .studio-principle-art.art-3 .art-line-b').styles(
+      position: .absolute(left: 9.px, top: 27.px),
+      width: 108.px,
+    ),
+    css('.foxir .studio-principle-art.art-3 .art-line-c').styles(
+      position: .absolute(left: 18.px, top: 46.px),
+      width: 90.px,
+    ),
+    css('.foxir .studio-principle-art.art-3 .art-line-d').styles(
+      position: .absolute(left: 56.px, top: 73.px),
+      width: 9.px,
+      height: 9.px,
+      border: Border.none,
+      backgroundColor: foxirAccent,
+      shadow: const BoxShadow(
+        offsetX: Unit.zero,
+        offsetY: Unit.zero,
+        blur: Unit.pixels(16),
+        color: Color('#ff572266'),
+      ),
+      raw: {'border-radius': '50%'},
+    ),
+
+    // 04 — modular blocks with room to keep evolving.
+    css('.foxir .studio-principle-art.art-4 .art-line').styles(
+      width: 22.px,
+      backgroundColor: const Color('#ff57220d'),
+      raw: {
+        'bottom': '0',
+        'border-radius': '4px 4px 1px 1px',
+      },
+    ),
+    css('.foxir .studio-principle-art.art-4 .art-line-a').styles(
+      position: .absolute(left: 2.px),
+      height: 22.px,
+    ),
+    css('.foxir .studio-principle-art.art-4 .art-line-b').styles(
+      position: .absolute(left: 33.px),
+      height: 42.px,
+    ),
+    css('.foxir .studio-principle-art.art-4 .art-line-c').styles(
+      position: .absolute(left: 64.px),
+      height: 63.px,
+    ),
+    css('.foxir .studio-principle-art.art-4 .art-line-d').styles(
+      position: .absolute(left: 95.px),
+      height: 86.px,
+      backgroundColor: const Color('#ff57221f'),
+    ),
     css('.foxir .studio-principle-number').styles(
       position: .absolute(right: 24.px, top: 22.px),
       zIndex: const ZIndex(1),
@@ -903,7 +1061,16 @@ class StudioPage extends StatelessComponent {
       backgroundColor: const Color('#111111'),
       raw: {
         'border-radius': '18px',
+        'transition': 'border-color 180ms ease, background-color 180ms ease',
       },
+    ),
+    css('.foxir .studio-cta:hover, .foxir .studio-cta:focus-visible').styles(
+      border: const Border.all(
+        style: .solid,
+        color: Color('#ff572266'),
+        width: Unit.pixels(1),
+      ),
+      backgroundColor: const Color('#151515'),
     ),
     css('.foxir .studio-cta > div > span').styles(
       color: foxirAccent,
@@ -942,7 +1109,6 @@ class StudioPage extends StatelessComponent {
         alignItems: .center,
         gap: .all(14.px),
         color: foxirInk,
-        backgroundColor: Colors.transparent,
         fontSize: 0.6875.rem,
         fontWeight: .w600,
         letterSpacing: 0.1.em,
@@ -952,17 +1118,27 @@ class StudioPage extends StatelessComponent {
           'transition': 'border-color 160ms ease, color 160ms ease',
         },
       ),
-      css('&:hover, &:focus-visible').styles(
-        border: const Border.only(
-          bottom: BorderSide(
-            style: .solid,
-            color: foxirAccent,
-            width: Unit.pixels(1),
-          ),
-        ),
-        color: foxirAccent,
-      ),
     ]),
+    css(
+      '.foxir .studio-cta:hover .studio-cta-link, .foxir .studio-cta:focus-visible .studio-cta-link',
+    ).styles(
+      border: const Border.only(
+        bottom: BorderSide(
+          style: .solid,
+          color: foxirAccent,
+          width: Unit.pixels(1),
+        ),
+      ),
+      color: foxirAccent,
+    ),
+    css('.foxir .studio-cta-link span:last-child').styles(
+      raw: {'transition': 'transform 180ms ease'},
+    ),
+    css(
+      '.foxir .studio-cta:hover .studio-cta-link span:last-child, .foxir .studio-cta:focus-visible .studio-cta-link span:last-child',
+    ).styles(
+      raw: {'transform': 'translate(3px, -3px)'},
+    ),
     css('.foxir.studio-page.has-motion .studio-title-line').styles(
       opacity: 0,
       raw: {
@@ -1050,7 +1226,7 @@ class StudioPage extends StatelessComponent {
         ),
       ),
       css('.foxir .studio-principle-card').styles(
-        minHeight: 330.px,
+        minHeight: 230.px,
         padding: .all(32.px),
       ),
       css('.foxir .studio-process').styles(
@@ -1193,7 +1369,7 @@ class StudioPage extends StatelessComponent {
         },
       ),
       css(
-        '.foxir.studio-page .studio-principle-card, .foxir.studio-page .studio-principle-card::before, .foxir.studio-page .studio-product-links > a, .foxir.studio-page .studio-cta-link',
+        '.foxir.studio-page .studio-principle-card, .foxir.studio-page .studio-principle-art, .foxir.studio-page .studio-principle-art .art-line, .foxir.studio-page .studio-product-links > a, .foxir.studio-page .studio-cta, .foxir.studio-page .studio-cta-link, .foxir.studio-page .studio-cta-link span',
       ).styles(
         raw: {'transition': 'none'},
       ),
