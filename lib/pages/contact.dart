@@ -13,7 +13,7 @@ class ContactPage extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'foxir', [
-      const FoxirHeader(contactActive: true),
+      const FoxirHeader(activeItem: FoxirNavItem.contact),
       section(id: 'top', classes: 'contact', [
         const FoxirShader(
           id: 'foxir-contact-shader',

@@ -38,6 +38,7 @@ import 'package:foxir_web/pages/contact.dart' as _contact;
 import 'package:foxir_web/pages/home.dart' as _home;
 import 'package:foxir_web/pages/not_found.dart' as _not_found;
 import 'package:foxir_web/pages/paximus.dart' as _paximus;
+import 'package:foxir_web/pages/studio.dart' as _studio;
 import 'package:foxir_web/pages/vouxe.dart' as _vouxe;
 
 /// Default [ServerOptions] for use with your Jaspr project.
@@ -87,6 +88,7 @@ ServerOptions get defaultServerOptions => ServerOptions(
     ..._home.HomePage.styles,
     ..._not_found.NotFoundPage.styles,
     ..._paximus.PaximusPage.styles,
+    ..._studio.StudioPage.styles,
     ..._vouxe.VouxePage.styles,
   ],
 );

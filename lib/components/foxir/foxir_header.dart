@@ -3,16 +3,16 @@ import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
 
+enum FoxirNavItem { home, apps, studio, contact }
+
 /// Shared Foxir Apps navigation, based on the product-studio Figma shell.
 class FoxirHeader extends StatelessComponent {
   const FoxirHeader({
-    this.appsActive = false,
-    this.contactActive = false,
+    this.activeItem = FoxirNavItem.home,
     super.key,
   });
 
-  final bool appsActive;
-  final bool contactActive;
+  final FoxirNavItem activeItem;
 
   @override
   Component build(BuildContext context) {
@@ -35,17 +35,22 @@ class FoxirHeader extends StatelessComponent {
           attributes: const {'aria-label': 'Primary navigation'},
           [
             a(
-              classes: 'nav-link${!appsActive && !contactActive ? ' is-active' : ''}',
+              classes: 'nav-link${activeItem == FoxirNavItem.home ? ' is-active' : ''}',
               href: '/',
               [.text('Home')],
             ),
             a(
-              classes: 'nav-link${appsActive ? ' is-active' : ''}',
+              classes: 'nav-link${activeItem == FoxirNavItem.apps ? ' is-active' : ''}',
               href: '/apps',
               [.text('Apps')],
             ),
             a(
-              classes: 'nav-link${contactActive ? ' is-active' : ''}',
+              classes: 'nav-link${activeItem == FoxirNavItem.studio ? ' is-active' : ''}',
+              href: '/studio',
+              [.text('Studio')],
+            ),
+            a(
+              classes: 'nav-link${activeItem == FoxirNavItem.contact ? ' is-active' : ''}',
               href: foxirContactUrl,
               [.text('Contact')],
             ),
@@ -93,7 +98,11 @@ class FoxirHeader extends StatelessComponent {
         width: 32.px,
         height: 32.px,
       ),
-      css('nav').styles(display: .none),
+      css('nav').styles(
+        display: .flex,
+        alignItems: .center,
+        gap: .all(14.px),
+      ),
       css('.nav-link', [
         css('&').styles(
           position: const Position.relative(),
@@ -119,7 +128,7 @@ class FoxirHeader extends StatelessComponent {
       ]),
       css('.nav-cta', [
         css('&').styles(
-          display: .flex,
+          display: .none,
           minHeight: 48.px,
           padding: .symmetric(horizontal: 22.px),
           border: const Border.all(
@@ -161,9 +170,10 @@ class FoxirHeader extends StatelessComponent {
         css('nav').styles(
           display: .flex,
           alignItems: .center,
-          gap: .all(48.px),
+          gap: .all(40.px),
         ),
         css('.nav-cta').styles(
+          display: .flex,
           minWidth: 144.px,
           padding: .symmetric(horizontal: 32.px),
         ),

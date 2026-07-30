@@ -1,7 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
-enum FoxirShaderVariant { liquid, ember, archive }
+enum FoxirShaderVariant { liquid, ember, archive, studio }
 
 /// Reusable, dependency-free WebGL atmosphere for key Foxir surfaces.
 class FoxirShader extends StatelessComponent {
@@ -29,6 +29,7 @@ class FoxirShader extends StatelessComponent {
             FoxirShaderVariant.liquid => 'liquid',
             FoxirShaderVariant.ember => 'ember',
             FoxirShaderVariant.archive => 'archive',
+            FoxirShaderVariant.studio => 'studio',
           },
         },
       ),
@@ -213,13 +214,54 @@ vec3 archiveShader(vec2 uv, vec2 mouse_norm, float t) {
   return base + color_accent * glow;
 }
 
+vec3 studioShader(vec2 uv, vec2 mouse_norm, float t) {
+  vec2 p = uv - 0.5;
+  p.x *= u_resolution.x / max(u_resolution.y, 1.0);
+  p += (mouse_norm - 0.5) * 0.014;
+
+  float broad = snoise(
+    p * vec2(0.72, 1.18) + vec2(-t * 0.08, t * 0.035)
+  );
+  float fold = snoise(
+    p * vec2(1.35, 2.15) +
+    vec2(broad * 0.95, -broad * 0.55) +
+    vec2(t * 0.045, -t * 0.03)
+  );
+
+  float path = p.y + p.x * 0.11 + broad * 0.28;
+  float ribbon = pow(
+    max(0.0, 1.0 - abs(sin(path * 7.2 + fold * 0.8))),
+    15.0
+  );
+  float echo = pow(
+    max(0.0, 1.0 - abs(sin((path + 0.34) * 5.1 - fold * 0.45))),
+    18.0
+  );
+  float focus = 1.0 - smoothstep(
+    0.24,
+    1.35,
+    length(p - vec2(0.26, -0.02))
+  );
+
+  vec3 graphite = vec3(0.060, 0.057, 0.061);
+  vec3 base = mix(
+    color_bg,
+    graphite,
+    (broad * 0.5 + 0.5) * 0.62
+  );
+  float glow = (ribbon * 0.12 + echo * 0.07) * (0.45 + focus);
+  return base + color_accent * glow;
+}
+
 void main() {
   vec2 uv = v_texCoord;
   vec2 mouse_norm = u_mouse / u_resolution;
   float t = u_time * 0.2;
   vec3 final_color;
 
-  if (u_variant > 1.5) {
+  if (u_variant > 2.5) {
+    final_color = studioShader(uv, mouse_norm, t);
+  } else if (u_variant > 1.5) {
     final_color = archiveShader(uv, mouse_norm, t);
   } else if (u_variant > 0.5) {
     final_color = emberShader(uv, mouse_norm, t);
@@ -277,6 +319,7 @@ void main() {
   const variantLocation = gl.getUniformLocation(program, 'u_variant');
   const isEmber = canvas.dataset.shaderVariant === 'ember';
   const isArchive = canvas.dataset.shaderVariant === 'archive';
+  const isStudio = canvas.dataset.shaderVariant === 'studio';
   const reducedMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)'
   );
@@ -318,7 +361,7 @@ void main() {
     if (variantLocation) {
       gl.uniform1f(
         variantLocation,
-        isArchive ? 2.0 : (isEmber ? 1.0 : 0.0)
+        isStudio ? 3.0 : (isArchive ? 2.0 : (isEmber ? 1.0 : 0.0))
       );
     }
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);

@@ -11,6 +11,7 @@ import 'pages/home.dart';
 import 'pages/legal/legal_pages.dart';
 import 'pages/not_found.dart';
 import 'pages/paximus.dart';
+import 'pages/studio.dart';
 import 'pages/vouxe.dart';
 
 /// The root component: the Foxir Apps umbrella site with one route per app.
@@ -35,6 +36,11 @@ class App extends StatelessComponent {
           path: '/apps',
           title: 'App Archive — Foxir Apps',
           builder: (context, state) => const AppsPage(),
+        ),
+        Route(
+          path: '/studio',
+          title: 'Studio — Foxir Apps',
+          builder: (context, state) => const StudioPage(),
         ),
         Route(
           path: '/paximus',

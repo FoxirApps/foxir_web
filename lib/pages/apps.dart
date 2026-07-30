@@ -77,7 +77,7 @@ class AppsPage extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return div(classes: 'foxir apps-archive', [
-      const FoxirHeader(appsActive: true),
+      const FoxirHeader(activeItem: FoxirNavItem.apps),
       Component.element(
         tag: 'main',
         children: [
