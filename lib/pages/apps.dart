@@ -13,6 +13,7 @@ typedef _ArchiveApp = ({
   String description,
   String url,
   String className,
+  String imageUrl,
 });
 
 const List<_ArchiveApp> _archiveApps = [
@@ -22,6 +23,7 @@ const List<_ArchiveApp> _archiveApps = [
     description: 'A private companion for recognizing OCD and anxiety patterns with greater clarity.',
     url: '/paximus',
     className: 'is-paximus',
+    imageUrl: '/images/foxir/apps/paximus-abstract.png',
   ),
   (
     name: 'Vouxe',
@@ -29,6 +31,7 @@ const List<_ArchiveApp> _archiveApps = [
     description: 'A focused challenge tracker for turning personal commitments into lasting momentum.',
     url: '/vouxe',
     className: 'is-vouxe',
+    imageUrl: '/images/foxir/apps/vouxe-abstract.png',
   ),
   (
     name: 'Better Today',
@@ -36,6 +39,7 @@ const List<_ArchiveApp> _archiveApps = [
     description: 'A calm daily ritual for reflection, intentional growth, and becoming a little better.',
     url: '/bettertoday',
     className: 'is-bettertoday',
+    imageUrl: '/images/foxir/apps/better-today-abstract.png',
   ),
 ];
 
@@ -52,13 +56,20 @@ class AppsPage extends StatelessComponent {
       attributes: {'aria-label': 'Explore ${app.name}'},
       [
         div(classes: 'archive-card-visual', [
+          img(
+            src: app.imageUrl,
+            alt: '',
+            width: 1536,
+            height: 1024,
+            loading: MediaLoading.lazy,
+            classes: 'archive-card-image',
+            attributes: const {
+              'aria-hidden': 'true',
+              'decoding': 'async',
+            },
+          ),
           span(classes: 'archive-card-number', [.text(number)]),
           span(classes: 'archive-card-category', [.text(app.category)]),
-          div(
-            classes: 'archive-card-signal',
-            attributes: const {'aria-hidden': 'true'},
-            [],
-          ),
         ]),
         div(classes: 'archive-card-body', [
           div([
@@ -337,25 +348,43 @@ class AppsPage extends StatelessComponent {
         overflow: .hidden,
         padding: .all(22.px),
         backgroundColor: const Color('#151515'),
+      ),
+      css('.archive-card-visual::after').styles(
+        position: .absolute(
+          left: .zero,
+          top: .zero,
+          right: .zero,
+          bottom: .zero,
+        ),
+        zIndex: const ZIndex(1),
         raw: {
-          'background-image':
-              'radial-gradient(circle at 72% 38%, rgba(255,87,34,.18), transparent 34%), '
-              'linear-gradient(135deg, rgba(255,255,255,.035), transparent 54%)',
+          'content': '""',
+          'pointer-events': 'none',
+          'background':
+              'linear-gradient(180deg, rgba(14,14,14,.08), transparent 48%, rgba(14,14,14,.2)), '
+              'linear-gradient(90deg, rgba(14,14,14,.12), transparent 42%, rgba(14,14,14,.06))',
         },
       ),
-      css('.archive-card.is-vouxe .archive-card-visual').styles(
+      css('.archive-card-image').styles(
+        position: .absolute(
+          left: .zero,
+          top: .zero,
+          right: .zero,
+          bottom: .zero,
+        ),
+        zIndex: const ZIndex(0),
+        width: 100.percent,
+        height: 100.percent,
+        opacity: 0.82,
         raw: {
-          'background-image':
-              'radial-gradient(circle at 25% 68%, rgba(255,87,34,.15), transparent 35%), '
-              'linear-gradient(155deg, rgba(255,255,255,.04), transparent 58%)',
+          'object-fit': 'cover',
+          'filter': 'saturate(.88) contrast(1.04)',
+          'transition': 'opacity 500ms ease, transform 700ms cubic-bezier(.2,.8,.2,1)',
         },
       ),
-      css('.archive-card.is-bettertoday .archive-card-visual').styles(
-        raw: {
-          'background-image':
-              'radial-gradient(circle at 66% 72%, rgba(255,87,34,.14), transparent 34%), '
-              'linear-gradient(120deg, rgba(255,255,255,.035), transparent 56%)',
-        },
+      css('.archive-card:hover .archive-card-image, .archive-card:focus-visible .archive-card-image').styles(
+        opacity: 0.96,
+        raw: {'transform': 'scale(1.035)'},
       ),
       css('.archive-card-number').styles(
         position: Position.absolute(left: 22.px, top: 20.px),
@@ -373,57 +402,6 @@ class AppsPage extends StatelessComponent {
         fontWeight: .w600,
         letterSpacing: 0.1.em,
         textTransform: .upperCase,
-      ),
-      css('.archive-card-signal').styles(
-        position: .absolute(
-          left: 50.percent,
-          top: 50.percent,
-        ),
-        width: 250.px,
-        height: 250.px,
-        border: const Border.all(
-          style: .solid,
-          color: Color('#ff57222e'),
-          width: Unit.pixels(1),
-        ),
-        raw: {
-          'border-radius': '48% 52% 43% 57%',
-          'box-shadow': '0 0 70px rgba(255,87,34,.08), inset 0 0 55px rgba(255,87,34,.04)',
-          'transform': 'translate(-50%, -50%) rotate(-18deg)',
-          'transition': 'transform 700ms cubic-bezier(.2,.8,.2,1), border-color 200ms ease',
-        },
-      ),
-      css('.archive-card-signal::before, .archive-card-signal::after').styles(
-        position: .absolute(
-          left: 50.percent,
-          top: 50.percent,
-        ),
-        border: const Border.all(
-          style: .solid,
-          color: Color('#ffffff12'),
-          width: Unit.pixels(1),
-        ),
-        raw: {
-          'content': '""',
-          'border-radius': '44% 56% 58% 42%',
-          'transform': 'translate(-50%, -50%) rotate(22deg)',
-        },
-      ),
-      css('.archive-card-signal::before').styles(
-        width: 68.percent,
-        height: 68.percent,
-      ),
-      css('.archive-card-signal::after').styles(
-        width: 36.percent,
-        height: 36.percent,
-      ),
-      css('.archive-card:hover .archive-card-signal, .archive-card:focus-visible .archive-card-signal').styles(
-        border: const Border.all(
-          style: .solid,
-          color: Color('#ff572266'),
-          width: Unit.pixels(1),
-        ),
-        raw: {'transform': 'translate(-50%, -50%) rotate(12deg) scale(1.06)'},
       ),
       css('.archive-card-body').styles(
         display: .flex,

@@ -9,41 +9,58 @@ typedef _AppEntry = ({
   String? secondLine,
   String category,
   String pageUrl,
+  String imageUrl,
 });
 
-const _paximus = (
-  name: 'Paximus',
-  secondLine: null,
-  category: 'Mental wellness',
-  pageUrl: '/paximus',
-);
-
-const List<_AppEntry> _secondaryApps = [
+const List<_AppEntry> _apps = [
+  (
+    name: 'Paximus',
+    secondLine: null,
+    category: 'Mental wellness',
+    pageUrl: '/paximus',
+    imageUrl: '/images/foxir/apps/paximus-abstract.png',
+  ),
   (
     name: 'Vouxe',
     secondLine: null,
     category: 'Challenge tracker',
     pageUrl: '/vouxe',
+    imageUrl: '/images/foxir/apps/vouxe-abstract.png',
   ),
   (
     name: 'Better',
     secondLine: 'Today',
     category: 'Daily reflection',
     pageUrl: '/bettertoday',
+    imageUrl: '/images/foxir/apps/better-today-abstract.png',
   ),
 ];
 
-/// Image-free bento showcase for Foxir's three products.
+/// Equal-width horizontal showcase for Foxir's three products.
 class FoxirApps extends StatelessComponent {
   const FoxirApps({super.key});
 
-  Component _projectCard(_AppEntry app, {required String sizeClass}) {
+  Component _projectCard(_AppEntry app) {
     return a(
-      classes: 'app-card $sizeClass',
+      classes: 'app-card',
       href: app.pageUrl,
       attributes: {'aria-label': 'Explore ${app.name}${app.secondLine == null ? '' : ' ${app.secondLine}'}'},
       [
-        span(classes: 'app-category', [.text(app.category)]),
+        div(classes: 'app-card-visual', [
+          img(
+            src: app.imageUrl,
+            alt: '',
+            width: 1536,
+            height: 1024,
+            loading: MediaLoading.lazy,
+            classes: 'app-card-image',
+            attributes: const {
+              'aria-hidden': 'true',
+              'decoding': 'async',
+            },
+          ),
+          span(classes: 'app-category', [.text(app.category)]),
+        ]),
         div(classes: 'app-card-footer', [
           h3([
             span([.text(app.name)]),
@@ -75,10 +92,7 @@ class FoxirApps extends StatelessComponent {
         ]),
       ]),
       div(classes: 'apps-grid', [
-        _projectCard(_paximus, sizeClass: 'is-large'),
-        div(classes: 'secondary-apps', [
-          for (final app in _secondaryApps) _projectCard(app, sizeClass: 'is-small'),
-        ]),
+        for (final app in _apps) _projectCard(app),
       ]),
     ]);
   }
@@ -172,49 +186,33 @@ class FoxirApps extends StatelessComponent {
       css('.apps-grid').styles(
         display: .flex,
         margin: .only(top: 40.px),
-        flexDirection: .column,
-        gap: .all(24.px),
+        padding: .only(bottom: 12.px),
+        flexDirection: .row,
+        gap: .all(16.px),
+        raw: {
+          'overflow-x': 'auto',
+          'overscroll-behavior-inline': 'contain',
+          'scroll-snap-type': 'inline mandatory',
+          'scrollbar-width': 'none',
+        },
       ),
-      css('.secondary-apps').styles(
-        display: .flex,
-        flexDirection: .column,
-        gap: .all(24.px),
-      ),
+      css('.apps-grid::-webkit-scrollbar').styles(display: .none),
       css('.app-card', [
         css('&').styles(
           position: const Position.relative(),
           display: .flex,
-          minHeight: 380.px,
-          padding: .all(24.px),
           border: const Border.all(
             style: .solid,
             color: foxirHairline,
             width: Unit.pixels(2),
           ),
           flexDirection: .column,
-          justifyContent: .spaceBetween,
           overflow: .hidden,
           backgroundColor: foxirSurface,
           raw: {
-            'background-image':
-                'linear-gradient(145deg, rgba(255,87,34,.035), transparent 42%), '
-                'linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), '
-                'linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px)',
-            'background-size': 'auto, 48px 48px, 48px 48px',
+            'flex': '0 0 min(calc(100% - 44px), 380px)',
+            'scroll-snap-align': 'start',
             'transition': 'border-color 180ms ease, background-color 180ms ease, transform 180ms ease',
-          },
-        ),
-        css('&::after').styles(
-          position: .absolute(
-            left: .zero,
-            right: .zero,
-            bottom: .zero,
-          ),
-          height: 45.percent,
-          raw: {
-            'content': '""',
-            'pointer-events': 'none',
-            'background': 'linear-gradient(180deg, transparent, rgba(14,14,14,.92))',
           },
         ),
         css('&:hover, &:focus-visible').styles(
@@ -227,10 +225,52 @@ class FoxirApps extends StatelessComponent {
           raw: {'transform': 'translateY(-2px)'},
         ),
       ]),
-      css('.app-category').styles(
+      css('.app-card-visual').styles(
         position: const Position.relative(),
+        overflow: .hidden,
+        backgroundColor: foxirBg,
+        raw: {'aspect-ratio': '3 / 2'},
+      ),
+      css('.app-card-visual::after').styles(
+        position: .absolute(
+          left: .zero,
+          top: .zero,
+          right: .zero,
+          bottom: .zero,
+        ),
+        zIndex: const ZIndex(0),
+        raw: {
+          'content': '""',
+          'pointer-events': 'none',
+          'background':
+              'linear-gradient(180deg, rgba(14,14,14,.03), transparent 55%, rgba(14,14,14,.18)), '
+              'linear-gradient(90deg, rgba(14,14,14,.08), transparent 48%, rgba(14,14,14,.06))',
+        },
+      ),
+      css('.app-card-image').styles(
+        position: .absolute(
+          left: .zero,
+          top: .zero,
+          right: .zero,
+          bottom: .zero,
+        ),
+        zIndex: const ZIndex(0),
+        width: 100.percent,
+        height: 100.percent,
+        opacity: 0.78,
+        raw: {
+          'object-fit': 'cover',
+          'filter': 'saturate(.88) contrast(1.04)',
+          'transition': 'opacity 500ms ease, transform 700ms cubic-bezier(.2,.8,.2,1)',
+        },
+      ),
+      css('.app-card:hover .app-card-image, .app-card:focus-visible .app-card-image').styles(
+        opacity: 0.94,
+        raw: {'transform': 'scale(1.025)'},
+      ),
+      css('.app-category').styles(
+        position: Position.absolute(left: 24.px, top: 24.px),
         zIndex: const ZIndex(1),
-        alignSelf: .start,
         padding: .symmetric(horizontal: 16.px, vertical: 10.px),
         border: const Border.all(
           style: .solid,
@@ -248,7 +288,7 @@ class FoxirApps extends StatelessComponent {
         position: const Position.relative(),
         zIndex: const ZIndex(1),
         display: .flex,
-        margin: .only(left: (-24).px, right: (-24).px, bottom: (-24).px),
+        minHeight: 148.px,
         padding: .symmetric(horizontal: 24.px, vertical: 28.px),
         border: const Border.only(
           top: BorderSide(
@@ -259,8 +299,7 @@ class FoxirApps extends StatelessComponent {
         ),
         justifyContent: .spaceBetween,
         alignItems: .end,
-        backgroundColor: const Color('#0e0e0ecc'),
-        backdropFilter: const Filter.blur(Unit.pixels(2)),
+        backgroundColor: const Color('#0e0e0ef2'),
       ),
       css('h3').styles(
         display: .flex,
@@ -335,33 +374,26 @@ class FoxirApps extends StatelessComponent {
           lineHeight: 1.6.em,
         ),
         css('.apps-all').styles(alignSelf: .end),
+      ]),
+    ]),
+    css.media(MediaQuery.screen(minWidth: Unit.pixels(1024)), [
+      css('.foxir .apps', [
         css('.apps-grid').styles(
-          height: 600.px,
           margin: .only(top: 96.px),
+          padding: .zero,
           flexDirection: .row,
-          gap: .all(32.px),
+          gap: .all(20.px),
+          alignItems: .stretch,
+          raw: {
+            'overflow-x': 'visible',
+            'scroll-snap-type': 'none',
+          },
         ),
-        css('.app-card.is-large').styles(
-          width: 58.333.percent,
-          height: 600.px,
-          minHeight: 600.px,
-          padding: .all(32.px),
+        css('.app-card').styles(
+          minWidth: .zero,
+          raw: {'flex': '1 1 0'},
         ),
-        css('.secondary-apps').styles(
-          flex: const Flex(grow: 1),
-          gap: .all(32.px),
-        ),
-        css('.app-card.is-small').styles(
-          minHeight: .zero,
-          height: 284.px,
-          padding: .all(32.px),
-        ),
-        css('.app-card-footer').styles(
-          margin: .only(left: (-32).px, right: (-32).px, bottom: (-32).px),
-          padding: .symmetric(horizontal: 32.px, vertical: 28.px),
-        ),
-        css('h3').styles(fontSize: 3.rem),
-        css('.app-card.is-small h3').styles(fontSize: 2.25.rem),
+        css('h3').styles(fontSize: 2.25.rem),
       ]),
     ]),
   ];
