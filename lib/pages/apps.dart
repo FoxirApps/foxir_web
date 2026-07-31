@@ -65,7 +65,9 @@ class AppsPage extends StatelessComponent {
             h2([.text(app.name)]),
             p([.text(app.description)]),
           ]),
-          const FoxirArrow(classes: 'archive-card-arrow'),
+          span(classes: 'archive-card-arrow', [
+            const FoxirArrow(classes: 'archive-card-arrow-icon'),
+          ]),
         ]),
       ],
     );
@@ -455,23 +457,26 @@ class AppsPage extends StatelessComponent {
       ),
       css('.archive-card-arrow').styles(
         display: .flex,
-        width: 50.px,
-        height: 50.px,
+        width: 44.px,
+        height: 44.px,
         border: const Border.all(
           style: .solid,
-          color: Color('#ffffff28'),
+          color: Color('#ffffff4d'),
           width: Unit.pixels(1),
         ),
         justifyContent: .center,
         alignItems: .center,
         color: foxirInk,
-        fontSize: 1.125.rem,
-        backgroundColor: const Color('#ffffff08'),
+        backgroundColor: Colors.transparent,
         raw: {
-          'border-radius': '50%',
           'flex': '0 0 auto',
-          'transition': 'background-color 160ms ease, border-color 160ms ease, transform 160ms ease',
+          'transition': 'background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease',
         },
+      ),
+      css('.archive-card-arrow-icon').styles(
+        width: 18.px,
+        height: 18.px,
+        raw: {'transition': 'transform 160ms ease'},
       ),
       css('.archive-card:hover .archive-card-arrow, .archive-card:focus-visible .archive-card-arrow').styles(
         border: const Border.all(
@@ -479,9 +484,12 @@ class AppsPage extends StatelessComponent {
           color: foxirAccent,
           width: Unit.pixels(1),
         ),
-        color: Colors.white,
-        backgroundColor: foxirAccent,
-        raw: {'transform': 'rotate(8deg)'},
+        color: foxirAccent,
+        backgroundColor: const Color('#ff57220d'),
+        raw: {'transform': 'translate(-2px, -2px)'},
+      ),
+      css('.archive-card:hover .archive-card-arrow-icon, .archive-card:focus-visible .archive-card-arrow-icon').styles(
+        raw: {'transform': 'translate(1px, -1px)'},
       ),
       css('.archive-cta').styles(
         display: .flex,

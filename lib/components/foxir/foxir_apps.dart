@@ -49,7 +49,9 @@ class FoxirApps extends StatelessComponent {
             span([.text(app.name)]),
             if (app.secondLine != null) span(classes: 'app-name-muted', [.text(app.secondLine!)]),
           ]),
-          const FoxirArrow(classes: 'app-arrow'),
+          span(classes: 'app-arrow', [
+            const FoxirArrow(classes: 'app-arrow-icon'),
+          ]),
         ]),
       ],
     );
@@ -277,27 +279,39 @@ class FoxirApps extends StatelessComponent {
       css('.app-name-muted').styles(color: foxirMuted),
       css('.app-arrow').styles(
         display: .flex,
-        width: 52.px,
-        height: 52.px,
+        width: 44.px,
+        height: 44.px,
         border: const Border.all(
           style: .solid,
-          color: foxirInk,
-          width: Unit.pixels(2),
+          color: Color('#ffffff4d'),
+          width: Unit.pixels(1),
         ),
         justifyContent: .center,
         alignItems: .center,
         color: foxirInk,
-        fontSize: 1.25.rem,
-        raw: {'flex': '0 0 auto'},
+        backgroundColor: Colors.transparent,
+        raw: {
+          'flex': '0 0 auto',
+          'transition': 'background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease',
+        },
+      ),
+      css('.app-arrow-icon').styles(
+        width: 18.px,
+        height: 18.px,
+        raw: {'transition': 'transform 160ms ease'},
       ),
       css('.app-card:hover .app-arrow, .app-card:focus-visible .app-arrow').styles(
         border: const Border.all(
           style: .solid,
           color: foxirAccent,
-          width: Unit.pixels(2),
+          width: Unit.pixels(1),
         ),
-        color: Colors.white,
-        backgroundColor: foxirAccent,
+        color: foxirAccent,
+        backgroundColor: const Color('#ff57220d'),
+        raw: {'transform': 'translate(-2px, -2px)'},
+      ),
+      css('.app-card:hover .app-arrow-icon, .app-card:focus-visible .app-arrow-icon').styles(
+        raw: {'transform': 'translate(1px, -1px)'},
       ),
     ]),
     css.media(desktop, [
