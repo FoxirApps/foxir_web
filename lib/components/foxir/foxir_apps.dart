@@ -2,6 +2,7 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
 import '../../constants/theme.dart';
+import 'foxir_arrow.dart';
 
 typedef _AppEntry = ({
   String name,
@@ -48,13 +49,7 @@ class FoxirApps extends StatelessComponent {
             span([.text(app.name)]),
             if (app.secondLine != null) span(classes: 'app-name-muted', [.text(app.secondLine!)]),
           ]),
-          span(
-            classes: 'app-arrow',
-            attributes: const {'aria-hidden': 'true'},
-            [
-              .text('↗'),
-            ],
-          ),
+          const FoxirArrow(classes: 'app-arrow'),
         ]),
       ],
     );

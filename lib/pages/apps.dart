@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import '../components/foxir/foxir_arrow.dart';
 import '../components/foxir/foxir_footer.dart';
 import '../components/foxir/foxir_header.dart';
 import '../components/foxir/foxir_shader.dart';
@@ -64,11 +65,7 @@ class AppsPage extends StatelessComponent {
             h2([.text(app.name)]),
             p([.text(app.description)]),
           ]),
-          span(
-            classes: 'archive-card-arrow',
-            attributes: const {'aria-hidden': 'true'},
-            [.text('↗')],
-          ),
+          const FoxirArrow(classes: 'archive-card-arrow'),
         ]),
       ],
     );
@@ -126,7 +123,7 @@ class AppsPage extends StatelessComponent {
               ]),
               a(classes: 'archive-cta-link', href: foxirContactUrl, [
                 span([.text("Let's talk")]),
-                span(attributes: const {'aria-hidden': 'true'}, [.text('↗')]),
+                const FoxirArrow(classes: 'archive-cta-arrow'),
               ]),
             ]),
           ]),

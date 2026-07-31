@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import '../components/foxir/foxir_arrow.dart';
 import '../components/foxir/foxir_footer.dart';
 import '../components/foxir/foxir_header.dart';
 import '../components/foxir/foxir_shader.dart';
@@ -38,7 +39,7 @@ class ContactPage extends StatelessComponent {
               span([.text('Prefer email?')]),
               a(href: 'mailto:$foxirEmail', [
                 .text(foxirEmail),
-                span(attributes: const {'aria-hidden': 'true'}, [.text('↗')]),
+                const FoxirArrow(),
               ]),
             ]),
           ]),
@@ -121,12 +122,7 @@ class ContactPage extends StatelessComponent {
                     classes: 'contact-submit',
                     [
                       span([.text('Send message')]),
-                      span(
-                        attributes: const {'aria-hidden': 'true'},
-                        [
-                          .text('↗'),
-                        ],
-                      ),
+                      const FoxirArrow(classes: 'contact-submit-arrow'),
                     ],
                   ),
                 ],
@@ -493,6 +489,10 @@ class ContactPage extends StatelessComponent {
           opacity: 0.55,
         ),
       ]),
+      css('.contact-submit-arrow').styles(
+        width: 18.px,
+        height: 18.px,
+      ),
       css('.contact-success').styles(
         position: const Position.absolute(),
         display: .none,

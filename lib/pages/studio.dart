@@ -1,6 +1,7 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import '../components/foxir/foxir_arrow.dart';
 import '../components/foxir/foxir_footer.dart';
 import '../components/foxir/foxir_header.dart';
 import '../components/foxir/foxir_shader.dart';
@@ -262,11 +263,7 @@ class StudioPage extends StatelessComponent {
                       span([.text(app.category)]),
                       h3([.text(app.name)]),
                     ]),
-                    span(
-                      classes: 'studio-product-arrow',
-                      attributes: const {'aria-hidden': 'true'},
-                      [.text('↗')],
-                    ),
+                    const FoxirArrow(classes: 'studio-product-arrow'),
                   ]),
               ]),
             ],
@@ -284,7 +281,7 @@ class StudioPage extends StatelessComponent {
               ]),
               span(classes: 'studio-cta-link', [
                 span([.text("Let's talk")]),
-                span(attributes: const {'aria-hidden': 'true'}, [.text('↗')]),
+                const FoxirArrow(classes: 'studio-cta-arrow'),
               ]),
             ],
           ),
@@ -1131,11 +1128,11 @@ class StudioPage extends StatelessComponent {
       ),
       color: foxirAccent,
     ),
-    css('.foxir .studio-cta-link span:last-child').styles(
+    css('.foxir .studio-cta-arrow').styles(
       raw: {'transition': 'transform 180ms ease'},
     ),
     css(
-      '.foxir .studio-cta:hover .studio-cta-link span:last-child, .foxir .studio-cta:focus-visible .studio-cta-link span:last-child',
+      '.foxir .studio-cta:hover .studio-cta-arrow, .foxir .studio-cta:focus-visible .studio-cta-arrow',
     ).styles(
       raw: {'transform': 'translate(3px, -3px)'},
     ),
